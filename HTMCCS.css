@@ -422,8 +422,8 @@ main {
     height: 5%;
 }
 
-#accueilM {
-    background-color:rgb(179, 179, 179);
+#accueil2M {
+    background-color:rgba(241, 13, 13, 0.63);
     text-decoration:black;
     width: 130px; height: 23mm;
     font-size: 20px;
@@ -446,7 +446,7 @@ main {
     border-right-width: 0.5mm; border-right-color: rgba(32, 32, 32, 0.411);
     text-align: center;
     position: absolute;
-    margin: 0px 100px;
+    margin: 0px 130px;
     cursor: pointer;
 }
 #projetM {
@@ -458,7 +458,7 @@ main {
     border-right-width: 0.5mm; border-right-color: rgba(32, 32, 32, 0.411);
     text-align: center;
     position: absolute;
-    margin: 0px 200px;
+    margin: 0px 260px;
     cursor: pointer;
 }
 #contactM {
@@ -470,7 +470,7 @@ main {
     border-right-width: 0.5mm; border-right-color: rgba(32, 32, 32, 0.411);
     text-align: center;
     position: absolute;
-    margin: 0px 300px;
+    margin: 0px 390px;
     cursor: pointer;
 }
 
