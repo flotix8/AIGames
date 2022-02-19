@@ -13,7 +13,7 @@ body {
 }
 
 main {
-    background-color: black;
+    background-color: rgba(10, 10, 10, 0.863);
     height: 8%;
 }
 #hr {
@@ -417,7 +417,7 @@ main {
 
 
 .mainM {
-    background-color: black;
+    background-color: rgba(10, 10, 10, 0.863);
     height: 5%;
 }
 
