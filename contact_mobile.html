@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <head>
+            <title>test.html</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="stylesheet" href="HTMCCS.css">
+        </head>
+        <main class="mainM">
+            <a href="index_mobile.html">
+            <button id="accueilM">Accueil</button></a>
+            <a href="jeux_mobile.html">
+            <button id="jeuxM">Jeux</button></a>
+            <a href="projet_mobile.html">
+            <button id="projetM">Projet</button></a>
+            <button id="contact2M">Contact</button>
+            <img id="logoM" src="http://jeanpascalzinsou.fr/images/Logo%20sombre%20en%20png.png"/>          
+            <input id="scearchM" type="search" name="q"/>
+        </main>
+            <hr id="hr" color="rgba(153, 15, 15, 0.829)"/>
+
+        <section class="reseaux">
+            <li data-text="Twitter">
+                <a href="https://twitter.com/flotix__" target="_blank" class="twitter">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li data-text="Instagram">
+                <a href="https://www.instagram.com/flotix2006/" target="_blank" class="instagram">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li data-text="Youtube">
+                <a href="https://www.youtube.com/channel/UC_wkZzFoz6KV4s7QAjYCteQ" target="_blank" class="youtube">
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li data-text="GitHub">
+                <a href="https://github.com/flotix8" target="_blank" class="github">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+            <script type="text/javascript" src="vanilla-tilt.min.js"></script>
+            <script type="text/javascript">
+                VanillaTilt.init(document.querySelectorAll(".reseaux li a"), {
+                    max: 25,
+                    speed: 400,
+                    glare: true,
+                    "max-glare": 1,
+                });
+            </script>
+        </section>
+    </body>
+</html>
