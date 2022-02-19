@@ -185,33 +185,6 @@ main {
     height: 75%;
 }
 
-#twitter {
-    position: absolute;
-    margin-top: 15%;
-    margin-left: 28%;
-    width: 3%;
-}
-
-#intagram {
-    position: absolute;
-    margin-top: 15%;
-    margin-left: 65%;
-    width: 3%;
-}
-
-#discord {
-    position: absolute;
-    margin-top: 25%;
-    margin-left: 28%;
-    width: 3%;
-}
-
-#tiktok {
-    position: absolute;
-    margin-top: 25%;
-    margin-left: 65%;
-    width: 3%;
-}
 
 
 .reseaux {
@@ -270,6 +243,9 @@ main {
 }
 .reseaux li a:hover.youtube{
     background: rgb(219, 12, 12);
+}
+.reseaux li a:hover.github{
+    background: rgb(165, 158, 158);
 }
 .reseaux li a .fa{
     transition: 0.25s;
