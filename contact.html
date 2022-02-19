@@ -4,29 +4,47 @@
         <head>
             <title>test.html</title>
             <meta charset="utf-8">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
             <link rel="stylesheet" href="HTMCCS.css">
-            <script src="HTML_JAVA.js"></script>
         </head>
         <main>
-            <a href="https://flotix8.github.io/index.html">
+            <a href="index.html">
             <button id="accueil">Accueil</button></a>
-            <a href="https://flotix8.github.io/jeux.html">
+            <a href="jeux.html">
             <button id="jeux">Jeux</button></a>
-            <a href="https://flotix8.github.io/projet.html">
+            <a href="projet.html">
             <button id="projet">Projet</button></a>
             <button id="contact2">Contact</button>
             <img id="logo" src="http://jeanpascalzinsou.fr/images/Logo%20sombre%20en%20png.png"/>          
             <input id="scearch" type="search" name="q"/>
         </main>
             <hr id="hr" color="rgba(153, 15, 15, 0.829)"/>
-        <p>
-            <a id="twitter" href="https://twitter.com/Florian66064418" target="_blank"><img src="https://img.icons8.com/ios-glyphs/90/000000/twitter--v2.png"/></a>
 
-            <a id="intagram" href="https://www.instagram.com/flotix2006/" target="_blank"><img src="https://img.icons8.com/ios-filled/90/000000/instagram-new--v2.png"/></a>
-
-            <a id="discord" href="https://discord.com/channels/@me" target="_blank"><img src="https://img.icons8.com/ios-filled/90/000000/discord--v2.png"/></a>
-
-            <a id="tiktok" href="https://www.tiktok.com/@flotix__" target="_blank"><img src="https://img.icons8.com/ios-filled/90/000000/tiktok--v2.png"/></a>
-        </p>
+        <section class="reseaux">
+            <li data-text="Twitter" data-color="29, 48, 224">
+                <a href="" class="twitter">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li data-text="Instagram" data-color="248, 102, 35">
+                <a href="" class="instagram">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li data-text="Youtube" data-color="219, 12, 12">
+                <a href="" class="youtube">
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+            </li>
+            <script type="text/javascript" src="vanilla-tilt.min.js"></script>
+            <script type="text/javascript">
+                VanillaTilt.init(document.querySelectorAll(".reseaux li a"), {
+                    max: 25,
+                    speed: 400,
+                    glare: true,
+                    "max-glare": 1,
+                });
+            </script>
+        </section>
     </body>
 </html>
