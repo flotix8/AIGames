@@ -9,7 +9,7 @@ body {
     z-index: 3;
 }
 ::selection {
-    background-color: rgb(17, 17, 17);
+    background-color: rgba(73, 68, 68, 0.808);
 }
 
 main {
