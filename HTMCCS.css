@@ -168,6 +168,7 @@ main {
 }
 
 
+
 #texte {
     color: rgba(255, 255, 255, 0.74);
     position: relative;
@@ -175,6 +176,7 @@ main {
     margin-top: 3%;
     text-shadow: 10px 10px 3px black;
 }
+
 
 #bordure {
     position: absolute;
@@ -186,6 +188,26 @@ main {
     background-color: rgb(27, 27, 27);
     padding: 1px;
 }
+
+.paint {
+    position: absolute;
+    margin: 8% 37%;
+    color: white;
+}
+.fa {
+    position: absolute;
+    margin:8% 35%;
+    font-size: 25px;
+}
+
+.paintM {
+    position: absolute;
+    margin: 25% 30%;
+    color: white;
+    font-size: 35px;
+}
+
+
 
 
 
@@ -409,8 +431,6 @@ main {
         bottom: 25%; left: 25%;
     }
 }
-
-
 
 
 
