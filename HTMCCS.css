@@ -220,6 +220,10 @@ main {
     position: relative;
     display: flex;
 }
+.reseaux {
+    position: relative;
+    display: flex;
+}
 .reseaux li {
     list-style: none;
 }
@@ -236,7 +240,6 @@ main {
     border-radius: 10px;
     text-decoration: none;
     margin: 100px;
-    font-size: 4em;
     transform-style: preserve-3d;
     perspective: 500px;
     box-shadow: 0 25px 35px black;
@@ -258,7 +261,7 @@ main {
 }
 .reseaux li:hover::before {
     opacity: 0.8;
-    transform: translate(-50%,calc(-50% + 150%));
+    transform: translate(-50%,calc(-50% + 120%));
 }
 .reseaux li a:hover.twitter{
     background: rgb(29, 48, 224);
@@ -275,6 +278,7 @@ main {
 .reseaux li a .fa{
     transition: 0.25s;
     pointer-events: none;
+    font-size: 4em;
 }
 .reseaux li a:hover .fa{
     color: rgb(0, 0, 0);
@@ -619,7 +623,6 @@ main {
     border-radius: 10px;
     text-decoration: none;
     margin: 50px;
-    font-size: 4em;
     transform-style: preserve-3d;
     perspective: 500px;
     box-shadow: 0 25px 35px black;
@@ -658,6 +661,7 @@ main {
 .reseauxM li a .fa{
     transition: 0.25s;
     pointer-events: none;
+    font-size: 4em;
 }
 .reseauxM li a:hover .fa{
     color: rgb(0, 0, 0);
