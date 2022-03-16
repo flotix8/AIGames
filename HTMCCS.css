@@ -194,15 +194,32 @@ main {
     margin: 8% 37%;
     color: white;
 }
+.snake {
+    position: absolute;
+    margin: 12% 37%;
+    color: white;
+}
 .fa {
     position: absolute;
     margin:8% 35%;
     font-size: 25px;
 }
+#snake {
+    position: absolute;
+    margin:12% 35%;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+}
 
 .paintM {
     position: absolute;
     margin: 25% 30%;
+    color: white;
+    font-size: 35px;
+}
+.snakeM {
+    position: absolute;
+    margin: 35% 30%;
     color: white;
     font-size: 35px;
 }
