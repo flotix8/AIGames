@@ -8,6 +8,83 @@ body {
     overflow-x: hidden;
     z-index: 3;
 }
+
+.body2 {
+    background-image: url(https://preview.redd.it/rk2ly8cspmb51.jpg?width=1920&format=pjpg&auto=webp&s=91400a0976b41c42daf966a9526251fca4328ea2);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 98vh;
+    opacity: 1;
+    overflow-x: hidden;
+    z-index: 3;
+}
+  
+.container {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 33.3%;
+    margin-top: 50rem;
+    margin-bottom: 1.25rem;
+}
+  
+.menu-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 33.3%;
+}
+.menu-options .btn-minecraft:first-child {
+    margin-right: 10px;
+}
+.btn-minecraft {
+    background: #727272;
+    color: rgb(247, 247, 247);
+    width: 100%;
+    padding: .5rem 0;
+    margin-bottom: .75rem;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+    font-size: 1.5rem;
+    letter-spacing: .025em;
+    border: 2px solid rgba(0, 0, 0, 1);
+    box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.5),
+                inset -3px -3px 0 rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+.btn-minecraft:hover {
+    background: rgba(115, 107, 221, 1);
+}
+.btn-minecraft:focus {
+    color: rgb(246, 246, 44);
+    outline: none;
+}
+
+.body3 {
+    background: url("https://c0.wallpaperflare.com/preview/1021/163/815/technology-networking-abstract-business.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 98vh;
+    opacity: 1;
+    overflow-x: hidden;
+    z-index: 3;
+    
+}
+
+
+
+
 ::selection {
     background-color: rgba(73, 68, 68, 0.808);
 }
@@ -228,7 +305,6 @@ main {
 
 
 
-
 .reseaux {
     display: flex;
     justify-content: center;
@@ -275,6 +351,7 @@ main {
     font-weight: 700;
     transition: 0.5s;
     opacity: 0;
+    color: rgb(255, 255, 255);
 }
 .reseaux li:hover::before {
     opacity: 0.8;
@@ -453,6 +530,745 @@ main {
     }
 }
 
+
+
+
+
+.scene2 {
+    width: 30%;
+    height: 55%;
+    perspective: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.cube {
+     position: relative;
+     width: 100px;
+     height: 100px;
+     transform-style: preserve-3d;
+     animation: rotation 10s infinite alternate;
+}
+  
+@keyframes rotation {
+    0% { transform: rotateY(0deg) rotateX(0deg); }
+    80% { transform: rotateY(720deg) rotateX(60deg); }
+}
+  
+.cube__face {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+}
+  
+.cube__face--left {
+    background-image: url('https://uploaddeimagens.com.br/images/000/955/232/full/side.jpg?1497835464');
+    transform: translateX(-75px) rotateY(90deg);
+}
+  
+.cube__face--right {
+    background-image: url('https://uploaddeimagens.com.br/images/000/955/232/full/side.jpg?1497835464');
+    transform: translateX(75px) rotateY(90deg);
+}
+  
+.cube__face--bottom {
+    background-image: url('https://uploaddeimagens.com.br/images/000/955/231/full/bottom.jpg?1497835434');
+    transform: translateY(75px) rotateX(90deg);
+}
+  
+.cube__face--top {
+    background-image: url('https://uploaddeimagens.com.br/images/000/955/233/thumb/top.jpg?1497835487');
+    transform: translateY(-75px) rotateX(90deg);
+}
+  
+.cube__face--back {
+    background-image: url('https://uploaddeimagens.com.br/images/000/955/232/full/side.jpg?1497835464');
+    transform: translateZ(-75px);
+}
+  
+.cube__face--front {
+    background-image: url('https://uploaddeimagens.com.br/images/000/955/232/full/side.jpg?1497835464');
+    transform: translateZ(75px);
+}
+
+
+.cuboid {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.cuboid__side:nth-of-type(1) {
+    height: calc(var(--thickness) * var(--coefficient));
+    width: 100%;
+    position: absolute;
+    top: 0;
+    transform: translate(0, -50%) rotateX(90deg);
+}
+.cuboid__side:nth-of-type(2) {
+    height: 100%;
+    width: calc(var(--thickness) * var(--coefficient));
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%) rotateY(90deg);
+}
+.cuboid__side:nth-of-type(3) {
+    width: 100%;
+    height: calc(var(--thickness) * var(--coefficient));
+    position: absolute;
+    bottom: 0;
+    transform: translate(0%, 50%) rotateX(90deg);
+}
+.cuboid__side:nth-of-type(4) {
+    height: 100%;
+    width: calc(var(--thickness) * var(--coefficient));
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -50%) rotateY(90deg);
+}
+.cuboid__side:nth-of-type(5) {
+    height: 100%;
+    width: 100%;
+    transform: translate3d(0, 0, calc(var(--thickness) * (var(--coefficient) * 0.5)));
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.cuboid__side:nth-of-type(6) {
+    height: 100%;
+    width: 100%;
+    transform: translate3d(0, 0, calc(var(--thickness) * (var(--coefficient) * -0.5))) rotateY(180deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+}
+:root {
+    --base-unit: 1;
+    --coefficient: 1vmin;
+    --speed: 0.8s;
+    --base-size: calc(var(--base-unit) * var(--coefficient));
+    --width: calc(16 * var(--base-size));
+    --height: calc(32 * var(--base-size));
+    --shirt-hue: 180;
+    --s-1: hsl(var(--shirt-hue), 100%, 39%);
+    --s-2: hsl(var(--shirt-hue), 100%, 35%);
+    --s-3: hsl(var(--shirt-hue), 100%, 37%);
+    --s-4: hsl(var(--shirt-hue), 100%, 34%);
+    --s-5: hsl(var(--shirt-hue), 100%, 27%);
+    --s-6: hsl(var(--shirt-hue), 100%, 25%);
+    --s-7: hsl(var(--shirt-hue), 100%, 21%);
+    --trouser-hue: 246;
+    --t-1: hsl(var(--trouser-hue), 47%, 44%);
+    --t-2: hsl(var(--trouser-hue), 47%, 36%);
+    --t-3: hsl(var(--trouser-hue), 48%, 30%);
+    --t-4: hsl(var(--trouser-hue), 55%, 54%);
+    --t-5: hsl(var(--trouser-hue), 55%, 24%);
+    --c-1: #6b6b6b;
+    --c-2: #404040;
+    --c-3: #0d0d0d;
+    --base-hue: 100;
+    --dirt: hsl(calc(var(--base-hue) - 10), 23%, 25%);
+  
+    --arm-rotate: 0;
+  
+    --f-1: hsl(50, 54%, 20%);
+    --f-2: hsl(34, 68%, 28%);
+    --f-3: hsl(35, 60%, 38%);
+    --f-4: hsl(14, 49%, 47%);
+    --f-5: hsl(31, 53%, 59%);
+    --f-6: hsl(30, 50%, 64%);
+  
+    --f-1: hsl(30, 60%, 2%);
+    --f-2: hsl(34, 64%, 9%);
+    --f-3: hsl(35, 64%, 12%);
+    --f-4: hsl(14, 49%, 13%);
+    --f-5: hsl(10, 50%, 14%);
+    --f-6: hsl(30, 50%, 10%);
+  
+    --white: hsl(0, 0%, 100%);
+    --eyes: hsl(256, 39%, 33%);
+  
+    --h-1: hsl(20, 32%, 44%);
+    --h-2: hsl(22, 25%, 51%);
+    --h-3: hsl(20, 26%, 51%);
+    --h-4: hsl(19, 26%, 55%);
+    --h-5: hsl(23, 26%, 51%);
+    --h-6: hsl(24, 25%, 49%);
+    --h-7: hsl(22, 35%, 39%);
+    --h-8: hsl(19, 25%, 51%);
+    --h-9: hsl(21, 26%, 42%);
+    --h-10: hsl(18, 23%, 47%);
+    --h-11: hsl(20, 25%, 46%);
+    --h-12: hsl(19, 25%, 49%);
+    --h-13: hsl(19, 25%, 49%);
+    --h-14: hsl(16, 28%, 48%);
+    --h-15: hsl(22, 40%, 31%);
+    --h-16: hsl(23, 39%, 39%);
+    --h-17: hsl(21, 28%, 50%);
+    --h-18: hsl(17, 38%, 26%);
+    --h-19: hsl(14, 23%, 50%);
+    --h-20: hsl(12, 39%, 29%);
+    --h-21: hsl(21, 39%, 31%);
+    --h-22: hsl(24, 40%, 35%);
+    --h-23: hsl(23, 44%, 26%);
+    --h-24: hsl(23, 42%, 29%);
+    --h-25: hsl(22, 38%, 32%);
+    --h-26: hsl(23, 45%, 31%);
+    --h-27: hsl(22, 37%, 38%);
+    --h-28: hsl(21, 33%, 40%);
+    --h-29: hsl(23, 40%, 33%);
+    --h-30: hsl(22, 42%, 27%);
+    --h-31: hsl(22, 39%, 37%);
+    --h-32: hsl(25, 41%, 33%);
+  
+    --z-1: hsl(calc(var(--base-hue) + 4), 37%, 34%);
+    --z-2: hsl(calc(var(--base-hue) + 4), 35%, 32%);
+    --z-3: hsl(calc(var(--base-hue) - 1), 38%, 33%);
+    --z-4: hsl(calc(var(--base-hue) + 8), 36%, 30%);
+    --z-5: hsl(calc(var(--base-hue) + 5), 38%, 27%);
+    --z-6: hsl(calc(var(--base-hue) + 6), 34%, 29%);
+    --z-7: hsl(calc(var(--base-hue) + 4), 33%, 31%);
+    --z-8: hsl(calc(var(--base-hue) + 3), 35%, 36%);
+    --z-9: hsl(calc(var(--base-hue) + 1), 42%, 41%);
+    --z-10: hsl(calc(var(--base-hue) + 2), 37%, 42%);
+    --z-11: hsl(calc(var(--base-hue) + 3), 34%, 32%);
+    --z-12: hsl(calc(var(--base-hue) + 2), 25%, 45%);
+    --z-13: hsl(calc(var(--base-hue) + 1), 24%, 47%);
+    --z-14: hsl(calc(var(--base-hue) - 3), 22%, 50%);
+    --z-15: hsl(calc(var(--base-hue) - 4), 24%, 47%);
+    --z-16: hsl(calc(var(--base-hue) + 0), 24%, 47%);
+    --z-17: hsl(calc(var(--base-hue) - 2), 31%, 40%);
+    --z-18: hsl(calc(var(--base-hue) + 1), 24%, 42%);
+    --z-19: hsl(calc(var(--base-hue) - 2), 25%, 44%);
+    --z-20: hsl(calc(var(--base-hue) - 4), 22%, 43%);
+    --z-21: hsl(calc(var(--base-hue) - 2), 26%, 38%);
+    --z-22: hsl(calc(var(--base-hue) - 1), 35%, 36%);
+    --z-23: hsl(calc(var(--base-hue) - 7), 28%, 43%);
+    --z-24: hsl(calc(var(--base-hue) - 1), 40%, 35%);
+    --z-25: hsl(calc(var(--base-hue) - 2), 28%, 43%);
+    --z-26: hsl(calc(var(--base-hue) - 8), 23%, 46%);
+    --z-27: hsl(calc(var(--base-hue) - 5), 38%, 23%);
+    --z-28: hsl(calc(var(--base-hue) - 1), 27%, 46%);
+    --z-29: hsl(calc(var(--base-hue) + 1), 40%, 35%);
+    --z-30: hsl(calc(var(--base-hue) + 3), 43%, 28%);
+    --z-31: hsl(calc(var(--base-hue) + 0), 36%, 33%);
+    --z-32: hsl(calc(var(--base-hue) + 0), 41%, 33%);
+    --z-33: hsl(calc(var(--base-hue) + 1), 38%, 29%);
+    --z-34: hsl(calc(var(--base-hue) - 9), 38%, 31%);
+    --z-35: hsl(calc(var(--base-hue) + 3), 41%, 25%);
+    --z-36: hsl(calc(var(--base-hue) + 2), 39%, 32%);
+    --z-37: hsl(calc(var(--base-hue) + 0), 42%, 24%);
+    --z-38: hsl(calc(var(--base-hue) + 1), 45%, 23%);
+    --z-39: hsl(calc(var(--base-hue) + 0), 38%, 30%);
+    --z-40: hsl(calc(var(--base-hue) + 1), 40%, 26%);
+    --z-41: hsl(calc(var(--base-hue) - 6), 38%, 10%);
+    --z-42: hsl(calc(var(--base-hue) - 6), 38%, 15%);
+    --feature: #1a1a1a;
+  
+    --character-face:
+      linear-gradient(var(--f-4), var(--f-4)) calc(var(--base-size) * 4) 0 / calc(var(--base-size) * 3) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-3), var(--f-3)) calc(var(--base-size) * 2) calc(var(--base-size) * 1) / calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-1), var(--f-1)) 0 0 / calc(var(--base-size) * 8) calc(var(--base-size) * 2),
+      linear-gradient(var(--f-1), var(--f-1)) 0 0 / calc(var(--base-size) * 1) calc(var(--base-size) * 3),
+      linear-gradient(var(--f-1), var(--f-1)) calc(var(--base-size) * 7) 0 / calc(var(--base-size) * 1) calc(var(--base-size) * 3),
+      linear-gradient(var(--h-1), var(--h-1)) calc(var(--base-size) * 1) calc(var(--base-size) * 2) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-2), var(--h-2)) calc(var(--base-size) * 2) calc(var(--base-size) * 2) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-3), var(--h-3)) calc(var(--base-size) * 3) calc(var(--base-size) * 2) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-4), var(--h-4)) calc(var(--base-size) * 4) calc(var(--base-size) * 2) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-5), var(--h-5)) calc(var(--base-size) * 5) calc(var(--base-size) * 2) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-6), var(--h-6)) calc(var(--base-size) * 6) calc(var(--base-size) * 2) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+  
+      linear-gradient(var(--h-7), var(--h-7)) calc(var(--base-size) * 0) calc(var(--base-size) * 3) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-7), var(--h-7)) calc(var(--base-size) * 1) calc(var(--base-size) * 3) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-8), var(--h-8)) calc(var(--base-size) * 2) calc(var(--base-size) * 3) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-9), var(--h-9)) calc(var(--base-size) * 3) calc(var(--base-size) * 3) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-10), var(--h-10)) calc(var(--base-size) * 4) calc(var(--base-size) * 3) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-11), var(--h-11)) calc(var(--base-size) * 5) calc(var(--base-size) * 3) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-12), var(--h-12)) calc(var(--base-size) * 6) calc(var(--base-size) * 3) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-11), var(--h-11)) calc(var(--base-size) * 7) calc(var(--base-size) * 3) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+  
+      linear-gradient(var(--eyes), var(--eyes)) calc(var(--base-size) * 2) calc(var(--base-size) * 4)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--white), var(--white)) calc(var(--base-size) * 1) calc(var(--base-size) * 4)/calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--eyes), var(--eyes)) calc(var(--base-size) * 5) calc(var(--base-size) * 4)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--white), var(--white)) calc(var(--base-size) * 5) calc(var(--base-size) * 4)/calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+  
+      linear-gradient(var(--h-19), var(--h-19)) calc(var(--base-size) * 0) calc(var(--base-size) * 4) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-8), var(--h-8)) calc(var(--base-size) * 3) calc(var(--base-size) * 4) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-14), var(--h-14)) calc(var(--base-size) * 4) calc(var(--base-size) * 4) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-11), var(--h-11)) calc(var(--base-size) * 8) calc(var(--base-size) * 4) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+  
+      linear-gradient(var(--h-20), var(--h-20)) calc(var(--base-size) * 0) calc(var(--base-size) * 5) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-16), var(--h-16)) calc(var(--base-size) * 1) calc(var(--base-size) * 5) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-17), var(--h-17)) calc(var(--base-size) * 2) calc(var(--base-size) * 5) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-18), var(--h-18)) calc(var(--base-size) * 3) calc(var(--base-size) * 5) /calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-17), var(--h-17)) calc(var(--base-size) * 5) calc(var(--base-size) * 5) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-11), var(--h-11)) calc(var(--base-size) * 6) calc(var(--base-size) * 5) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-27), var(--h-27)) calc(var(--base-size) * 7) calc(var(--base-size) * 5) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+  
+      linear-gradient(var(--h-21), var(--h-21)) calc(var(--base-size) * 0) calc(var(--base-size) * 6) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-22), var(--h-22)) calc(var(--base-size) * 1) calc(var(--base-size) * 6) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-20), var(--h-20)) calc(var(--base-size) * 2) calc(var(--base-size) * 6) /calc(var(--base-size) * 4) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-28), var(--h-28)) calc(var(--base-size) * 6) calc(var(--base-size) * 6) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-21), var(--h-21)) calc(var(--base-size) * 7) calc(var(--base-size) * 6) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+  
+      linear-gradient(var(--h-24), var(--h-24)) calc(var(--base-size) * 0) calc(var(--base-size) * 7) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-25), var(--h-25)) calc(var(--base-size) * 1) calc(var(--base-size) * 7) /calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-24), var(--h-24)) calc(var(--base-size) * 3) calc(var(--base-size) * 7) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-21), var(--h-21)) calc(var(--base-size) * 4) calc(var(--base-size) * 7) /calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-30), var(--h-30)) calc(var(--base-size) * 6) calc(var(--base-size) * 7) /calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+  
+      var(--h-2);
+  
+    --character-crown: linear-gradient(var(--f-2), var(--f-2)) 0 calc(var(--base-size) * 3)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-3), var(--f-3)) calc(var(--base-size) * 3) calc(var(--base-size) * 2)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-2), var(--f-2)) calc(var(--base-size) * 3) calc(var(--base-size) * 3)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-2), var(--f-2)) calc(var(--base-size) * 1) calc(var(--base-size) * 1)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-5), var(--f-5)) calc(var(--base-size) * 5) calc(var(--base-size) * 6)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-2), var(--f-2)) calc(var(--base-size) * 2) 0/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-3), var(--f-3)) calc(var(--base-size) * 1) calc(var(--base-size) * 6)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-2), var(--f-2)) calc(var(--base-size) * 3) calc(var(--base-size) * 6)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-1), var(--f-1)) calc(var(--base-size) * 4) calc(var(--base-size) * 6)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-3), var(--f-3)) calc(var(--base-size) * 2) calc(var(--base-size) * 5)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-1), var(--f-1)) calc(var(--base-size) * 1) calc(var(--base-size) * 5)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-3), var(--f-3)) calc(var(--base-size) * 3) calc(var(--base-size) * 4)/calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-3), var(--f-3)) calc(var(--base-size) * 3) calc(var(--base-size) * 4)/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--f-3), var(--f-3)) calc(var(--base-size) * 5) 0/calc(var(--base-size) * 3) calc(var(--base-size) * 3),
+      linear-gradient(var(--f-1), var(--f-1)) calc(var(--base-size) * 4) 0/calc(var(--base-size) * 1) calc(var(--base-size) * 4),
+      linear-gradient(var(--f-1), var(--f-1)) calc(var(--base-size) * 2) calc(var(--base-size) * 3)/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--f-1), var(--f-1)) calc(var(--base-size) * 4) calc(var(--base-size) * 3)/calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-4), var(--f-4)) calc(var(--base-size) * 1) calc(var(--base-size) * 1)/calc(var(--base-size) * 6) calc(var(--base-size) * 6),
+      var(--f-1);
+  
+    --character-crane: linear-gradient(var(--f-4), var(--f-4)) 0 0 / calc(var(--base-size) * 3) calc(var(--base-size) * 3),
+      linear-gradient(var(--f-3), var(--f-3)) calc(var(--base-size) * 2) calc(var(--base-size) * 7)/calc(var(--base-size) * 4) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-1), var(--f-1)) 0 calc(var(--base-size) * 3) /calc(var(--base-size) * 1) calc(var(--base-size) * 4),
+      linear-gradient(var(--f-1), var(--f-1)) calc(var(--base-size) * 3) 0 /calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-1), var(--f-1)) calc(var(--base-size) * 3) 0 /calc(var(--base-size) * 1) calc(var(--base-size) * 4),
+      linear-gradient(var(--f-1), var(--f-1)) calc(var(--base-size) * 2) calc(var(--base-size) * 3) /calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-4), var(--f-4)) calc(var(--base-size) * 5) 0/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-4), var(--f-4)) calc(var(--base-size) * 6) calc(var(--base-size) * 1) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-4), var(--f-4)) calc(var(--base-size) * 7) calc(var(--base-size) * 3) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-4), var(--f-4)) calc(var(--base-size) * 4) calc(var(--base-size) * 2) /calc(var(--base-size) * 1) calc(var(--base-size) * 4),
+      linear-gradient(var(--f-4), var(--f-4)) calc(var(--base-size) * 3) calc(var(--base-size) * 4) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-4), var(--f-4)) calc(var(--base-size) * 5) calc(var(--base-size) * 5) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-4), var(--f-4)) calc(var(--base-size) * 3) calc(var(--base-size) * 6) /calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-6), var(--f-6)) calc(var(--base-size) * 2) calc(var(--base-size) * 6) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-3), var(--f-3)) calc(var(--base-size) * 5) calc(var(--base-size) * 3) /calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--f-3), var(--f-3)) calc(var(--base-size) * 6) 0 /calc(var(--base-size) * 2) calc(var(--base-size) * 2),
+      linear-gradient(var(--f-3), var(--f-3)) calc(var(--base-size) * 7) calc(var(--base-size) * 4) /calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--f-2), var(--f-2)) 0 0 /calc(var(--base-size) * 8) calc(var(--base-size) * 7),
+      linear-gradient(var(--h-16), var(--h-16)) calc(var(--base-size) * 1) calc(var(--base-size) * 7) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-16), var(--h-16)) calc(var(--base-size) * 6) calc(var(--base-size) * 7) /calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      var(--h-14);
+  
+    --character-chin: linear-gradient(var(--h-19), var(--h-19)) calc(var(--base-size) * 1) calc(var(--base-size) * 1)/calc(var(--base-size) * 6) calc(var(--base-size) * 6),
+      var(--h-22);
+  
+    --character-ear: linear-gradient(var(--f-2), var(--f-2)) 0 0 / calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--feature), var(--feature)) calc(var(--base-size) * 4) calc(var(--base-size) * 6)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-7), var(--h-7)) calc(var(--base-size) * 5) calc(var(--base-size) * 7)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-27), var(--h-27)) calc(var(--base-size) * 3) calc(var(--base-size) * 7)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-28), var(--h-28)) calc(var(--base-size) * 3) calc(var(--base-size) * 6)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-16), var(--h-16)) calc(var(--base-size) * 2) calc(var(--base-size) * 7)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-29), var(--h-29)) calc(var(--base-size) * 1) calc(var(--base-size) * 7)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-30), var(--h-30)) calc(var(--base-size) * 0) calc(var(--base-size) * 6)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-32), var(--h-32)) calc(var(--base-size) * 0) calc(var(--base-size) * 5)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-28), var(--h-28)) calc(var(--base-size) * 1) calc(var(--base-size) * 5)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-26), var(--h-26)) calc(var(--base-size) * 1) calc(var(--base-size) * 6)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-31), var(--h-31)) calc(var(--base-size) * 2) calc(var(--base-size) * 6)/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--h-9), var(--h-9)) calc(var(--base-size) * 2) calc(var(--base-size) * 4)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-22), var(--h-22)) calc(var(--base-size) * 1) calc(var(--base-size) * 4)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-4), var(--f-4)) 0 calc(var(--base-size) * 2) / calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-4), var(--f-4)) calc(var(--base-size) * 3) calc(var(--base-size) * 5) / calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-4), var(--f-4)) calc(var(--base-size) * 3) calc(var(--base-size) * 0) / calc(var(--base-size) * 2) calc(var(--base-size) * 2),
+      linear-gradient(var(--f-4), var(--f-4)) calc(var(--base-size) * 4) calc(var(--base-size) * 1) / calc(var(--base-size) * 2) calc(var(--base-size) * 2),
+      linear-gradient(var(--f-4), var(--f-4)) calc(var(--base-size) * 5) calc(var(--base-size) * 2) / calc(var(--base-size) * 2) calc(var(--base-size) * 2),
+      linear-gradient(var(--f-2), var(--f-2)) calc(var(--base-size) * 6) calc(var(--base-size) * 0) / calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-2), var(--f-2)) calc(var(--base-size) * 7) calc(var(--base-size) * 3) / calc(var(--base-size) * 1) calc(var(--base-size) * 3),
+      linear-gradient(var(--f-3), var(--f-3)) calc(var(--base-size) * 3) calc(var(--base-size) * 4) / calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-6), var(--f-6)) calc(var(--base-size) * 5) calc(var(--base-size) * 6) / calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--f-1), var(--f-1)) 0 0 / calc(var(--base-size) * 8) calc(var(--base-size) * 4),
+      linear-gradient(var(--f-1), var(--f-1)) calc(var(--base-size) * 3) 0 / calc(var(--base-size) * 5) calc(var(--base-size) * 6),
+      linear-gradient(var(--f-1), var(--f-1)) calc(var(--base-size) * 5) 0 / calc(var(--base-size) * 3) calc(var(--base-size) * 7),
+      linear-gradient(var(--f-1), var(--f-1)) 0 0 / calc(var(--base-size) * 1) calc(var(--base-size) * 5),
+      var(--h-26);
+  
+    --character-fist: linear-gradient(var(--h-8), var(--h-8)) 0 0/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--h-8), var(--h-8)) calc(var(--base-size) * 1) calc(var(--base-size) * 2)/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--h-8), var(--h-8)) calc(var(--base-size) * 2) 0/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--h-8), var(--h-8)) calc(var(--base-size) * 3) calc(var(--base-size) * 2)/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      var(--h-7);
+  
+    --character-arm-top: linear-gradient(var(--s-2), var(--s-2)) 0 0/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-2), var(--s-2)) calc(var(--base-size) * 3) 0/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-3), var(--s-3)) 0 calc(var(--base-size) * 1)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-3), var(--s-3)) calc(var(--base-size) * 2) 0/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--s-2), var(--s-2)) 0 calc(var(--base-size) * 3)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-2), var(--s-2)) calc(var(--base-size) * 3) calc(var(--base-size) * 3)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-1), var(--s-1)) 0 0/calc(var(--base-size) * 4) calc(var(--base-size) * 4),
+      linear-gradient(var(--h-2), var(--h-2)) 0 calc(var(--base-size) * 6)/calc(var(--base-size) * 1) calc(var(--base-size) * 3),
+      linear-gradient(var(--h-2), var(--h-2)) calc(var(--base-size) * 2) calc(var(--base-size) * 5)/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--h-2), var(--h-2)) calc(var(--base-size) * 3) calc(var(--base-size) * 1)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-2), var(--h-2)) 0vmin calc(var(--base-size) * 1)/calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-2), var(--h-2)) calc(var(--base-size) * 1) calc(var(--base-size) * 10)/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      var(--h-4);
+  
+    --character-arm-right: linear-gradient(var(--s-5), var(--s-5)) calc(var(--base-size) * 3) calc(var(--base-size) * 1)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-5), var(--s-5)) calc(var(--base-size) * 1) calc(var(--base-size) * 1)/calc(var(--base-size) * 2) calc(var(--base-size) * 3),
+      linear-gradient(var(--s-2), var(--s-2)) 0 0/calc(var(--base-size) * 4) calc(var(--base-size) * 4),
+      linear-gradient(var(--h-4), var(--h-4)) 0 calc(var(--base-size) * 4)/calc(var(--base-size) * 1) calc(var(--base-size) * 3),
+      linear-gradient(var(--h-4), var(--h-4)) calc(var(--base-size) * 1) calc(var(--base-size) * 8)/calc(var(--base-size) * 1) calc(var(--base-size) * 3),
+      linear-gradient(var(--h-4), var(--h-4)) calc(var(--base-size) * 3) calc(var(--base-size) * 6)/calc(var(--base-size) * 1) calc(var(--base-size) * 3),
+      var(--h-3);
+  
+    --character-arm-back: linear-gradient(var(--h-2), var(--h-2)) calc(var(--base-size) * 1) calc(var(--base-size) * 6)/calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-2), var(--s-2)) 0 0/calc(var(--base-size) * 4) calc(var(--base-size) * 4),
+      linear-gradient(var(--h-2), var(--h-2)) 0 calc(var(--base-size) * 9)/calc(var(--base-size) * 1) calc(var(--base-size) * 3),
+      linear-gradient(var(--h-2), var(--h-2)) calc(var(--base-size) * 2) calc(var(--base-size) * 9)/calc(var(--base-size) * 1) calc(var(--base-size) * 3),
+      var(--h-4);
+  
+    --character-arm-inside: linear-gradient(var(--s-5), var(--s-5)) calc(var(--base-size) * 3) calc(var(--base-size) * 1)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-5), var(--s-5)) calc(var(--base-size) * 1) calc(var(--base-size) * 1)/calc(var(--base-size) * 2) calc(var(--base-size) * 3),
+      linear-gradient(var(--s-1), var(--s-1)) 0 0/calc(var(--base-size) * 4) calc(var(--base-size) * 4),
+      linear-gradient(var(--h-5), var(--h-5)) 0 calc(var(--base-size) * 10)/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--h-5), var(--h-5)) calc(var(--base-size) * 2) calc(var(--base-size) * 10)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-5), var(--h-5)) calc(var(--base-size) * 3) calc(var(--base-size) * 7)/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--h-5), var(--h-5)) calc(var(--base-size) * 1) calc(var(--base-size) * 5)/calc(var(--base-size) * 1) calc(var(--base-size) * 3),
+      var(--h-6);
+  
+    --shoulder: linear-gradient(var(--s-2), var(--s-2)) 0 0/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-1), var(--s-1)) calc(var(--base-size) * 3) 0/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-1), var(--s-1)) 0 calc(var(--base-size) * 3)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-1), var(--s-1)) calc(var(--base-size) * 3) calc(var(--base-size) * 3)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      var(--s-3);
+  
+    --trouser-front: linear-gradient(var(--t-2), var(--t-2)) calc(var(--base-size) * 1) calc(var(--base-size) * 6)/calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--c-1), var(--c-1)) 0 calc(var(--base-size) * 10)/calc(var(--base-size) * 4) calc(var(--base-size) * 2),
+      var(--t-1);
+  
+    --trouser-inside: linear-gradient(var(--t-4), var(--t-4)) calc(var(--base-size) * 1) 0/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--c-2), var(--c-2)) calc(var(--base-size) * 2) calc(var(--base-size) * 9)/calc(var(--base-size) * 2) calc(var(--base-size) * 3),
+      linear-gradient(var(--c-2), var(--c-2)) 0 calc(var(--base-size) * 10)/calc(var(--base-size) * 4) calc(var(--base-size) * 2),
+      linear-gradient(var(--t-5), var(--t-5)) calc(var(--base-size) * 1) calc(var(--base-size) * 8)/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--t-5), var(--t-5)) calc(var(--base-size) * 2) calc(var(--base-size) * 6)/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--t-5), var(--t-5)) calc(var(--base-size) * 1) calc(var(--base-size) * 1)/calc(var(--base-size) * 1) calc(var(--base-size) * 5),
+      var(--t-3);
+  
+    --trouser-right: linear-gradient(var(--t-3), var(--t-3)) calc(var(--base-size) * 1) 0/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--t-3), var(--t-3)) calc(var(--base-size) * 2) calc(var(--base-size) * 1)/calc(var(--base-size) * 1) calc(var(--base-size) * 7),
+      linear-gradient(var(--t-3), var(--t-3)) calc(var(--base-size) * 1) calc(var(--base-size) * 1)/calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--c-2), var(--c-2)) 0 calc(var(--base-size) * 10)/calc(var(--base-size) * 4) calc(var(--base-size) * 2),
+      linear-gradient(var(--c-2), var(--c-2)) calc(var(--base-size) * 2) calc(var(--base-size) * 9)/calc(var(--base-size) * 2) calc(var(--base-size) * 3),
+      var(--t-2);
+  
+    --trouser-back: linear-gradient(var(--t-2), var(--t-2)) 0 calc(var(--base-size) * 5)/calc(var(--base-size) * 4) calc(var(--base-size) * 2),
+      linear-gradient(var(--c-1), var(--c-1)) 0 calc(var(--base-size) * 9)/calc(var(--base-size) * 4) calc(var(--base-size) * 3),
+      var(--t-1);
+  
+    --shirt-front: linear-gradient(var(--t-2), var(--t-2)) calc(var(--base-size) * 5) calc(var(--base-size) * 10)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--t-2), var(--t-2)) calc(var(--base-size) * 6) calc(var(--base-size) * 11)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-24), var(--h-24)) calc(var(--base-size) * 2) 0/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-20), var(--h-20)) calc(var(--base-size) * 3) 0/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-2), var(--h-2)) calc(var(--base-size) * 2) 0/calc(var(--base-size) * 4) calc(var(--base-size) * 1),
+      linear-gradient(var(--h-2), var(--h-2)) calc(var(--base-size) * 3) 0/calc(var(--base-size) * 2) calc(var(--base-size) * 2),
+      linear-gradient(var(--s-4), var(--s-4)) 0 0/calc(var(--base-size) * 8) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-4), var(--s-4)) calc(var(--base-size) * 2) calc(var(--base-size) * 1)/calc(var(--base-size) * 4) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-3), var(--s-3)) 0 0/calc(var(--base-size) * 8) calc(var(--base-size) * 2),
+      linear-gradient(var(--s-2), var(--s-2)) calc(var(--base-size) * 7) calc(var(--base-size) * 4)/calc(var(--base-size) * 1) calc(var(--base-size) * 8),
+      linear-gradient(var(--s-2), var(--s-2)) calc(var(--base-size) * 6) calc(var(--base-size) * 4)/calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-2), var(--s-2)) 0vmin calc(var(--base-size) * 4)/calc(var(--base-size) * 1) calc(var(--base-size) * 4),
+      linear-gradient(var(--s-2), var(--s-2)) 0vmin calc(var(--base-size) * 4)/calc(var(--base-size) * 2) calc(var(--base-size) * 2),
+      linear-gradient(var(--s-2), var(--s-2)) 0vmin calc(var(--base-size) * 9)/calc(var(--base-size) * 3) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-2), var(--s-2)) calc(var(--base-size) * 3) calc(var(--base-size) * 6)/calc(var(--base-size) * 1) calc(var(--base-size) * 3),
+      linear-gradient(var(--s-2), var(--s-2)) calc(var(--base-size) * 4) calc(var(--base-size) * 3)/calc(var(--base-size) * 1) calc(var(--base-size) * 4),
+      linear-gradient(var(--s-2), var(--s-2)) calc(var(--base-size) * 3) calc(var(--base-size) * 2)/calc(var(--base-size) * 2) calc(var(--base-size) * 2),
+      linear-gradient(var(--s-3), var(--s-3)) calc(var(--base-size) * 6) calc(var(--base-size) * 5)/calc(var(--base-size) * 1) calc(var(--base-size) * 3),
+      linear-gradient(var(--s-3), var(--s-3)) calc(var(--base-size) * 3) calc(var(--base-size) * 5)/calc(var(--base-size) * 2) calc(var(--base-size) * 4),
+      linear-gradient(var(--s-3), var(--s-3)) calc(var(--base-size) * 3) calc(var(--base-size) * 9)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-3), var(--s-3)) calc(var(--base-size) * 5) calc(var(--base-size) * 9)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-1), var(--s-1)) calc(var(--base-size) * 6) calc(var(--base-size) * 10)/calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-1), var(--s-1)) 0 0/calc(var(--base-size) * 8) calc(var(--base-size) * 10),
+      var(--t-1);
+  
+    --shirt-back: linear-gradient(var(--t-2), var(--t-2)) 0 calc(var(--base-size) * 10)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--t-2), var(--t-2)) calc(var(--base-size) * 7) calc(var(--base-size) * 10)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-3), var(--s-3)) 0 0/calc(var(--base-size) * 2) calc(var(--base-size) * 2),
+      linear-gradient(var(--s-3), var(--s-3)) 0 0/calc(var(--base-size) * 1) calc(var(--base-size) * 4),
+      linear-gradient(var(--s-2), var(--s-2)) calc(var(--base-size) * 7) 0/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-3), var(--s-3)) 0 calc(var(--base-size) * 9)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-4), var(--s-4)) calc(var(--base-size) * 5) calc(var(--base-size) * 9)/calc(var(--base-size) * 3) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-4), var(--s-4)) calc(var(--base-size) * 1) calc(var(--base-size) * 6)/calc(var(--base-size) * 2) calc(var(--base-size) * 2),
+      linear-gradient(var(--s-4), var(--s-4)) calc(var(--base-size) * 2) calc(var(--base-size) * 3)/calc(var(--base-size) * 1) calc(var(--base-size) * 5),
+      linear-gradient(var(--s-4), var(--s-4)) calc(var(--base-size) * 5) calc(var(--base-size) * 3)/calc(var(--base-size) * 1) calc(var(--base-size) * 5),
+      linear-gradient(var(--s-4), var(--s-4)) calc(var(--base-size) * 5) calc(var(--base-size) * 5)/calc(var(--base-size) * 2) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-3), var(--s-3)) calc(var(--base-size) * 2) calc(var(--base-size) * 3)/calc(var(--base-size) * 2) calc(var(--base-size) * 3),
+      linear-gradient(var(--s-3), var(--s-3)) calc(var(--base-size) * 5) calc(var(--base-size) * 4)/calc(var(--base-size) * 2) calc(var(--base-size) * 3),
+      linear-gradient(var(--s-3), var(--s-3)) calc(var(--base-size) * 4) calc(var(--base-size) * 6)/calc(var(--base-size) * 2) calc(var(--base-size) * 2),
+      linear-gradient(var(--s-3), var(--s-3)) calc(var(--base-size) * 1) calc(var(--base-size) * 5)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-4), var(--s-4)) calc(var(--base-size) * 2) calc(var(--base-size) * 9)/calc(var(--base-size) * 2) calc(var(--base-size) * 2),
+      linear-gradient(var(--s-4), var(--s-4)) calc(var(--base-size) * 3) calc(var(--base-size) * 9)/calc(var(--base-size) * 1) calc(var(--base-size) * 3),
+      linear-gradient(var(--s-3), var(--s-3)) calc(var(--base-size) * 4) 0/calc(var(--base-size) * 4) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-1), var(--s-1)) calc(var(--base-size) * 4) calc(var(--base-size) * 9)/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--s-3), var(--s-3)) calc(var(--base-size) * 7) 0/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--s-1), var(--s-1)) 0 0/calc(var(--base-size) * 8) calc(var(--base-size) * 10),
+      var(--t-1);
+  
+    --shirt-side: linear-gradient(var(--t-3), var(--t-3)) 0vmin calc(var(--base-size) * 10)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--t-3), var(--t-3)) calc(var(--base-size) * 2) calc(var(--base-size) * 10)/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--s-2), var(--s-2)) 0 0/calc(var(--base-size) * 4) calc(var(--base-size) * 2),
+      linear-gradient(var(--s-7), var(--s-7)) calc(var(--base-size) * 1) 0/calc(var(--base-size) * 2) calc(var(--base-size) * 7),
+      linear-gradient(var(--s-7), var(--s-7)) 0 calc(var(--base-size) * 3)/calc(var(--base-size) * 1) calc(var(--base-size) * 2),
+      linear-gradient(var(--s-7), var(--s-7)) calc(var(--base-size) * 3) calc(var(--base-size) * 3)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-7), var(--s-7)) calc(var(--base-size) * 3) calc(var(--base-size) * 5)/calc(var(--base-size) * 1) calc(var(--base-size) * 1),
+      linear-gradient(var(--s-5), var(--s-5)) calc(var(--base-size) * 1) 0/calc(var(--base-size) * 2) calc(var(--base-size) * 9),
+      linear-gradient(var(--s-5), var(--s-5)) calc(var(--base-size) * 1) 0/calc(var(--base-size) * 1) calc(var(--base-size) * 10),
+      linear-gradient(var(--s-6), var(--s-6)) 0 0/calc(var(--base-size) * 4) calc(var(--base-size) * 7),
+      linear-gradient(var(--s-2), var(--s-2)) 0 0/calc(var(--base-size) * 4) calc(var(--base-size) * 10),
+      var(--t-2);
+  
+    --base-tone: var(--h-1);
+}
+
+.scene {
+    position: fixed;
+    top: 50%;
+    left: 80%;
+    transform: translate3d(-50%, -50%, 100vmin);
+    transform: translate3d(-50%, -50%, 100vmin) rotateX(-24deg) rotateY(44deg) rotateX(calc(var(--rotate-x, 0) * 1deg)) rotateY(calc(var(--rotate-y, 0) * 1deg));
+    /* transform: translate3d(-50%, -50%, 100vmin) rotateX(-24deg) rotateY(44deg) rotateX(calc(var(--rotate-x, 0) * 1deg)) rotateY(-210deg); */
+}
+.character {
+    height: var(--height);
+    width: var(--width);
+    position: relative;
+    animation: showcase 10s infinite linear;
+}
+  
+.character *,
+.character *:after {
+    transition: background 0.2s, transform 0.2s;
+}
+  
+.character > * {
+    position: absolute;
+}
+.character__head {
+    height: calc(8 * var(--base-size));
+    width: calc(8 * var(--base-size));
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.character__arm {
+    height: calc(12 * var(--base-size));
+    width: calc(4 * var(--base-size));
+    top: calc(8 * var(--base-size));
+    transform-origin: 50% calc(2 * var(--base-size));
+    transform: rotateX(calc(var(--arm-rotate, 0) * 1deg));
+    animation: run var(--speed) var(--delay) infinite;
+}
+.character__arm--left {
+    left: 0;
+    --delay: calc(var(--speed) * -0.5);
+}
+.character__arm--right {
+    right: 0;
+    --delay: 0s;
+}
+.character__torso {
+    height: calc(12 * var(--base-size));
+    width: calc(8 * var(--base-size));
+    top: calc(8 * var(--base-size));
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.character__leg {
+    height: calc(12 * var(--base-size));
+    width: calc(4 * var(--base-size));
+    top: calc(20 * var(--base-size));
+    transform-origin: 50% calc(1 * var(--base-size));
+    animation: run var(--speed) var(--delay) infinite;
+}
+.character__leg--left {
+    left: calc(4 * var(--base-size));
+    --delay: 0s;
+}
+.character__leg--right {
+    right: calc(4 * var(--base-size));
+    --delay: calc(var(--speed) * -0.5);
+}
+  .cuboid-arm {
+    --thickness: calc(4 * var(--base-unit));
+}
+.cuboid-arm div {
+    background: var(--base-tone);
+}
+.cuboid-arm div:nth-of-type(1) {
+    background: var(--shoulder);
+    background-repeat: no-repeat;
+}
+.cuboid-arm div:nth-of-type(2) {
+    background: var(--character-arm-right);
+    background-repeat: no-repeat;
+}
+.cuboid-arm div:nth-of-type(3):after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: var(--character-fist);
+    background-repeat: no-repeat;
+}
+.cuboid-arm div:nth-of-type(4) {
+    background: var(--character-arm-inside);
+    background-repeat: no-repeat;
+}
+.cuboid-arm div:nth-of-type(5) {
+    background: var(--character-arm-top);
+    background-repeat: no-repeat;
+}
+.cuboid-arm div:nth-of-type(6):after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: var(--character-arm-back);
+    background-repeat: no-repeat;
+}
+.cuboid-arm--left div:nth-of-type(4) {
+    background: var(--character-arm-right);
+    background-repeat: no-repeat;
+}
+.cuboid-arm--left div:nth-of-type(2) {
+    background: var(--character-arm-inside);
+    background-repeat: no-repeat;
+}
+.cuboid-arm--left div:nth-of-type(3):after {
+    transform: rotateY(180deg) translate3d(0, 0, 1px);
+}
+.cuboid-arm--left div:nth-of-type(6):after {
+    transform: rotateY(180deg) translate3d(0, 0, -1px);
+}
+.cuboid-head {
+    --thickness: calc(8 * var(--base-unit));
+}
+  
+.cuboid-head div:nth-of-type(5) {
+    background: var(--character-face);
+    background-repeat: no-repeat;
+}
+.cuboid-head div:nth-of-type(1) {
+    background: var(--character-crown);
+    background-repeat: no-repeat;
+}
+.cuboid-head div:nth-of-type(2),
+.cuboid-head div:nth-of-type(4) {
+    background: var(--character-ear);
+    background-repeat: no-repeat;
+}
+.cuboid-head div:nth-of-type(6) {
+    background: var(--character-crane);
+    background-repeat: no-repeat;
+}
+.cuboid-head div:nth-of-type(3) {
+    background: var(--character-chin);
+    background-repeat: no-repeat;
+}
+.cuboid-torso {
+    --thickness: calc(4 * var(--base-unit));
+}
+.cuboid-torso div:nth-of-type(1) {
+    background: var(--s-1);
+}
+.cuboid-torso div:nth-of-type(2) {
+    background: var(--shirt-side);
+    background-repeat: no-repeat;
+}
+.cuboid-torso div:nth-of-type(3) {
+    background: var(--t-2);
+}
+.cuboid-torso div:nth-of-type(4) {
+    background: var(--shirt-side);
+    background-repeat: no-repeat;
+}
+.cuboid-torso div:nth-of-type(5) {
+    background: var(--shirt-front);
+    background-repeat: no-repeat;
+}
+.cuboid-torso div:nth-of-type(6) {
+    background: var(--shirt-back);
+    background-repeat: no-repeat;
+}
+.cuboid-leg {
+    --thickness: calc(4 * var(--base-unit));
+}
+.cuboid-leg div:nth-of-type(1) {
+    background: var(--t-4);
+}
+.cuboid-leg div:nth-of-type(2) {
+    background: var(--trouser-right);
+    background-repeat: no-repeat;
+}
+.cuboid-leg div:nth-of-type(3) {
+    background: var(--c-3);
+}
+.cuboid-leg div:nth-of-type(4) {
+    background: var(--trouser-inside);
+    background-repeat: no-repeat;
+}
+.cuboid-leg div:nth-of-type(5) {
+    background: var(--trouser-front);
+    background-repeat: no-repeat;
+}
+.cuboid-leg div:nth-of-type(6) {
+    background: var(--trouser-back);
+    background-repeat: no-repeat;
+}
+.cuboid-leg--left div:nth-of-type(4) {
+    background: var(--trouser-right);
+    background-repeat: no-repeat;
+}
+.cuboid-leg--left div:nth-of-type(2) {
+    background: var(--trouser-inside);
+    background-repeat: no-repeat;
+}
+  
+@keyframes jump {
+    50% {
+      transform: translate(0, -50%);
+    }
+}
+  
+@keyframes showcase {
+    to {
+      transform: rotateY(360deg);
+    }
+}
+  
+@keyframes run {
+    0%, 100% {
+      transform: rotateX(30deg);
+    }
+    50% {
+      transform: rotateX(-30deg);
+    }
+}
+@keyframes crawl {
+    0%, 100% {
+      transform: rotateX(10deg);
+    }
+    50% {
+      transform: rotateX(-10deg);
+    }
+}
 
 
 
@@ -658,6 +1474,7 @@ main {
     font-weight: 700;
     transition: 0.5s;
     opacity: 0;
+    color: rgb(255, 255, 255);
 }
 .reseauxM li:hover::before {
     opacity: 0.8;
