@@ -246,12 +246,15 @@ main {
 
 
 
-#texte {
-    color: rgba(255, 255, 255, 0.74);
+.pseudotxt {
+    color: rgba(201, 200, 200, 0.911);
     position: relative;
     text-align: center;
-    margin-top: 3%;
-    text-shadow: 10px 10px 3px black;
+    top: 5%;
+    right: 1%;
+    text-shadow: 10px 10px 4px rgba(53, 53, 53, 0.815);
+    font-size: 80px;
+    font-family: American Typewriter, serif;
 }
 
 
@@ -592,6 +595,8 @@ main {
     background-image: url('https://uploaddeimagens.com.br/images/000/955/232/full/side.jpg?1497835464');
     transform: translateZ(75px);
 }
+
+
 
 
 .cuboid {
@@ -1414,13 +1419,15 @@ main {
     margin-left: 88%;
 }
 
-#texteM {
-    color: rgba(255, 255, 255, 0.74);
+.pseudotxtM {
+    color: rgba(201, 200, 200, 0.911);
     position: relative;
     text-align: center;
-    margin-top: 20%;
-    text-shadow: 15px 20px 3px black;
-    font-size:larger;
+    top: 12%;
+    right: 1%;
+    text-shadow: 10px 10px 4px rgba(53, 53, 53, 0.815);
+    font-size: 130px;
+    font-family: American Typewriter, serif;
 }
 
 
