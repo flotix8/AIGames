@@ -4,4 +4,5 @@ function something(){
     console.log(parseInt(prompt('How old are you ?')));
     console.log(prompt('What is your favorite video game ?'));
     console.log(prompt('Do you like the new technologies ?'));
+    alert('Thank you for answering this survey.')
 }
