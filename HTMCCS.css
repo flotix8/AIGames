@@ -249,9 +249,45 @@ main {
 }
 
 #logo {
-    width: 8%;
+    width: 5.5%;
     position: absolute;
     margin-left: 88%;
+    margin-top: -0.6%;
+}
+
+
+#music {
+  visibility: hidden;
+}
+#musicLogo {
+  position: absolute;
+  margin-top: -87%;
+  margin-left: 70%;
+  font-size: 30px;
+  color: white;
+  position: fixed;
+  cursor: pointer;
+  z-index: 2;
+}
+#music:checked ~ .menu__box2 {
+  visibility: visible;
+  top: -173%;
+}
+
+.menu__box2 {
+  display: block;
+  position: relative;
+  visibility: hidden;
+  top: -250%;
+  left: 63%;
+  width: 300px;
+  height: 500px;
+  margin: 0;
+  padding: 15px 0;
+  list-style: none;
+  background-color: #535353c4;
+  box-shadow: 5px 0px 8px rgba(0, 0, 0, 0.856);
+  transition-duration: .40s;
 }
 
 
