@@ -270,6 +270,7 @@ main {
   }
 }
 
+
 /* Loading animation container */
 .loading {
   position: absolute;
@@ -279,7 +280,7 @@ main {
   height: 28px;
   margin: -14px 0 0 -14px;
   visibility: hidden;
-  animation-duration: 3s;
+  animation-duration: 3ms;
   animation-name: spin2;
   z-index: 1;
 }
@@ -2117,7 +2118,7 @@ input#shocked:checked ~ .wheatley .arm {
   display: flex;
   align-items: center;
   position: fixed;
-  top: -670px;
+  top: -693px;
   right: 20px;
   width: 26px;
   height: 26px;
@@ -2392,7 +2393,7 @@ input#shocked:checked ~ .wheatley .arm {
 }
 #musicLogo {
   position: absolute;
-  margin-top: -87%;
+  margin-top: -88.2%;
   margin-left: 72.5%;
   font-size: 30px;
   color: rgba(165, 165, 165, 0.753);
