@@ -165,7 +165,7 @@ function change() {
         document.querySelector(".rateWeb").innerHTML="Rate this website";
 
     } else if (i==2) {
-        document.getElementById("defau").innerHTML="Defaul";
+        document.getElementById("defau").innerHTML="Defaut";
         document.getElementById("hap").innerHTML="Heureux";
         document.getElementById("mauvais").innerHTML="Triste";
         document.getElementById("angr").innerHTML="Fâché";
