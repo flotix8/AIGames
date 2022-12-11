@@ -372,7 +372,7 @@ main {
     padding: 1px;
 }
 
-..paint {
+.paint {
   position: absolute;
   margin: 8% 37%;
   color: #dfdfdf;
