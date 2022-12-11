@@ -372,7 +372,7 @@ main {
     padding: 1px;
 }
 
-.paint {
+..paint {
   position: absolute;
   margin: 8% 37%;
   color: #dfdfdf;
@@ -382,7 +382,13 @@ main {
     margin: 12% 37%;
     color: rgb(223, 223, 223);
 }
-#download {
+.pong {
+  position: absolute;
+  margin: 16% 37%;
+  color: rgb(223, 223, 223);
+}
+
+#paint {
     position: absolute;
     margin:8% 35%;
     font-size: 25px;
@@ -393,6 +399,13 @@ main {
     font-size: 25px;
     color: rgba(75, 243, 9, 0.87);
 }
+#pong {
+  position: absolute;
+  margin: 16% 35%;
+  font-size: 25px;
+  color: rgba(0, 68, 255, 0.87);
+}
+
 
 .paintM {
     position: absolute;
