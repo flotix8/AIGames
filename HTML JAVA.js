@@ -1,19 +1,8 @@
-function something(){
-    console.log("Name :", prompt('What is your name or nickname ?'));
-    console.log("Age :", parseInt(prompt('How old are you ?')));
-    console.log("Opinion :", prompt('Do you like this web site ?'));
-    console.log("Video game :", prompt('What is your favorite video game ?'));
-    console.log("Technology :", prompt('Do you like the new technologies ?'));
-    alert('Thank you for answering this survey.')
-}
-
-
-
 function dark(){
     var a = document.getElementById("click");
     
-	var pseudotxt = document.querySelector('.pseudotxt');
-    var sondage = document.querySelector('.sondageB');
+	// var pseudotxt = document.querySelector('.pseudotxt');
+    // var sondage = document.querySelector('.sondageB');
     var search = document.querySelector('#scearch');
     var music = document.querySelector('#musicLogo');
 
@@ -21,12 +10,11 @@ function dark(){
     var snake = document.querySelector('.snake');
 
 	if(a.checked == true){
-		pseudotxt.style.color = "#d9d8d8";
+		// pseudotxt.style.color = "#d9d8d8";
 
-        
-        sondage.style.backgroundColor = "#e9e9e9";
-        sondage.style.color = "black";
-        sondage.style.borderColor = "#4a4a4b";
+        // sondage.style.backgroundColor = "#e9e9e9";
+        // sondage.style.color = "black";
+        // sondage.style.borderColor = "#4a4a4b";
 
         search.style.backgroundColor = "#dad8d8";
         music.style.color = "#f2f2f2";
@@ -35,11 +23,11 @@ function dark(){
         snake.style.color = "black";
 	}
 	else{
-		pseudotxt.style.color = "#1a1919";
+		// pseudotxt.style.color = "#1a1919";
 
-        sondage.style.backgroundColor = "#4d4d4d";
-        sondage.style.color = "white";
-        sondage.style.borderColor = "#e5e5e6";
+        // sondage.style.backgroundColor = "#4d4d4d";
+        // sondage.style.color = "white";
+        // sondage.style.borderColor = "#e5e5e6";
 
         search.style.backgroundColor = "#1f1d1d";
 
@@ -147,69 +135,69 @@ function darkC(){
 function change() {
     var i = document.getElementById("lan").value;
     if (i==1) {
-        document.getElementById("defau").innerHTML="Default";
-        document.getElementById("hap").innerHTML="Happy";
-        document.getElementById("mauvais").innerHTML="Sad";
-        document.getElementById("angr").innerHTML="Angry";
-        document.getElementById("think").innerHTML="Thinking";
-        document.getElementById("shock").innerHTML="Shocked";
-        document.getElementById("spac").innerHTML="SPAAACE";
+        // document.getElementById("defau").innerHTML="Default";
+        // document.getElementById("hap").innerHTML="Happy";
+        // document.getElementById("mauvais").innerHTML="Sad";
+        // document.getElementById("angr").innerHTML="Angry";
+        // document.getElementById("think").innerHTML="Thinking";
+        // document.getElementById("shock").innerHTML="Shocked";
+        // document.getElementById("spac").innerHTML="SPAAACE";
 
-        document.querySelector(".sondageB").innerHTML="Tap to take the poll";
+        // document.querySelector(".sondageB").innerHTML="Tap to take the poll";
 
         document.getElementById("accueil2").innerHTML="Home";
         document.getElementById("jeux").innerHTML="Games";
         document.getElementById("projet").innerHTML="Minecraft";
         document.getElementById("contact").innerHTML="Contact";
 
-        document.querySelector(".rateWeb").innerHTML="Rate this website";
+        // document.querySelector(".rateWeb").innerHTML="Rate this website";
 
     } else if (i==2) {
-        document.getElementById("defau").innerHTML="Defaut";
-        document.getElementById("hap").innerHTML="Heureux";
-        document.getElementById("mauvais").innerHTML="Triste";
-        document.getElementById("angr").innerHTML="Fâché";
-        document.getElementById("think").innerHTML="Pensant";
-        document.getElementById("shock").innerHTML="Chocker";
-        document.getElementById("spac").innerHTML="Espace";
+        // document.getElementById("defau").innerHTML="Defaut";
+        // document.getElementById("hap").innerHTML="Heureux";
+        // document.getElementById("mauvais").innerHTML="Triste";
+        // document.getElementById("angr").innerHTML="Fâché";
+        // document.getElementById("think").innerHTML="Pensant";
+        // document.getElementById("shock").innerHTML="Chocker";
+        // document.getElementById("spac").innerHTML="Espace";
 
-        document.querySelector(".sondageB").innerHTML="Appuyez pour répondre au sondage";
+        // document.querySelector(".sondageB").innerHTML="Appuyez pour répondre au sondage";
 
         document.getElementById("accueil2").innerHTML="Accueil";
         document.getElementById("jeux").innerHTML="Jeux";
         document.getElementById("projet").innerHTML="Minecraft";
         document.getElementById("contact").innerHTML="Contact";
 
-        document.querySelector(".rateWeb").innerHTML="Évaluez ce site Web";
+        // document.querySelector(".rateWeb").innerHTML="Évaluez ce site Web";
       
     } else if (i==3) {
-        document.getElementById("defau").innerHTML="Defecto";
-        document.getElementById("hap").innerHTML="Contento";
-        document.getElementById("mauvais").innerHTML="Triste";
-        document.getElementById("angr").innerHTML="Enfadado";
-        document.getElementById("think").innerHTML="Pensamiento";
-        document.getElementById("shock").innerHTML="Conmocionado";
-        document.getElementById("spac").innerHTML="Espacio";
+        // document.getElementById("defau").innerHTML="Defecto";
+        // document.getElementById("hap").innerHTML="Contento";
+        // document.getElementById("mauvais").innerHTML="Triste";
+        // document.getElementById("angr").innerHTML="Enfadado";
+        // document.getElementById("think").innerHTML="Pensamiento";
+        // document.getElementById("shock").innerHTML="Conmocionado";
+        // document.getElementById("spac").innerHTML="Espacio";
 
-        document.querySelector(".sondageB").innerHTML="Toca para realizar la encuesta";
+        // document.querySelector(".sondageB").innerHTML="Toca para realizar la encuesta";
 
         document.getElementById("accueil2").innerHTML="Bienvenida";
         document.getElementById("jeux").innerHTML="Juegos";
         document.getElementById("projet").innerHTML="Minecraft";
         document.getElementById("contact").innerHTML="Contacto";
 
-        document.querySelector(".rateWeb").innerHTML="Califica este sitio web";
+        // document.querySelector(".rateWeb").innerHTML="Califica este sitio web";
       
     } else if (i==4) {
-        document.getElementById("defau").innerHTML="默認";
-        document.getElementById("hap").innerHTML="快樂的";
-        document.getElementById("mauvais").innerHTML="傷心";
-        document.getElementById("angr").innerHTML="生氣的";
-        document.getElementById("think").innerHTML="思維";
-        document.getElementById("shock").innerHTML="震驚";
-        document.getElementById("spac").innerHTML="空間";
+        // document.getElementById("defau").innerHTML="默認";
+        // document.getElementById("hap").innerHTML="快樂的";
+        // document.getElementById("mauvais").innerHTML="傷心";
+        // document.getElementById("angr").innerHTML="生氣的";
+        // document.getElementById("think").innerHTML="思維";
+        // document.getElementById("shock").innerHTML="震驚";
+        // document.getElementById("spac").innerHTML="空間";
 
-        document.querySelector(".sondageB").innerHTML="點按即可參與投票";
+        // document.querySelector(".sondageB").innerHTML="點按即可參與投票";
 
         document.getElementById("accueil2").innerHTML="歡迎";
         document.getElementById("jeux").innerHTML="遊戲";
@@ -334,3 +322,6 @@ function changeC() {
       
     }
 }
+
+
+
