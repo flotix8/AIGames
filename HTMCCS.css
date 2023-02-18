@@ -387,7 +387,7 @@ main {
   margin: -22% 37%;
   color: rgb(223, 223, 223);
 }
-.game2048 {
+.Fugic {
   position: absolute;
   margin: -18% 37%;
   color: rgb(223, 223, 223);
@@ -395,11 +395,6 @@ main {
 .minecraftMod {
   position: absolute;
   margin: -14% 37%;
-  color: rgb(223, 223, 223);
-}
-.FPS_game {
-  position: absolute;
-  margin: -10% 37%;
   color: rgb(223, 223, 223);
 }
 
@@ -420,11 +415,11 @@ main {
   font-size: 25px;
   color: rgba(233, 11, 11, 0.87);
 }
-#game2048 {
+#Fugic {
   position: absolute;
   margin: -18% 35%;
   font-size: 25px;
-  color: rgba(115, 11, 233, 0.87);
+  color: rgba(216, 216, 216, 0.87);
 }
 #minecraftMod {
   position: absolute;
@@ -432,12 +427,7 @@ main {
   font-size: 25px;
   color: rgba(0, 255, 21, 0.87);
 }
-#FPS_game {
-  position: absolute;
-  margin: -10% 35%;
-  font-size: 25px;
-  color: rgba(73, 73, 73, 0.87);
-}
+
 
 
 
