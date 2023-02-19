@@ -1970,7 +1970,9 @@ input#shocked:checked ~ .wheatley .arm {
 
 
 
-#music {
+#
+
+{
   visibility: hidden;
 }
 #musicLogo {
@@ -2003,6 +2005,7 @@ input#shocked:checked ~ .wheatley .arm {
   background-color: #535353c4;
   box-shadow: 5px 0px 8px rgba(0, 0, 0, 0.856);
   transition-duration: .4s;
+  z-index: 5;
 }
 
 
