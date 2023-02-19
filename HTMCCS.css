@@ -1981,7 +1981,7 @@ input#shocked:checked ~ .wheatley .arm {
   color: rgba(165, 165, 165, 0.753);
   position: fixed;
   cursor: pointer;
-  z-index: 2;
+  z-index: 5;
 }
 #music:checked ~ .menu__box2 {
   visibility: visible;
