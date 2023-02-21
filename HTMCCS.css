@@ -1948,6 +1948,7 @@ input#shocked:checked ~ .wheatley .arm {
   background-color: #858585e7;
   box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
   transition-duration: .35s;
+  z-index: 5;
 }
 
 
