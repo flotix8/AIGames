@@ -442,6 +442,7 @@ main {
     position: relative;
     display: flex;
     margin-top: -35%;
+    z-index: -3;
 }
 .reseaux {
     position: relative;
