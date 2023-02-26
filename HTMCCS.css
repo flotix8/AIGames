@@ -9,18 +9,14 @@ body {
   z-index: 3;
 }
 
-/* .body2 {
-  background-image: url("https://preview.redd.it/rk2ly8cspmb51.jpg?width=1920&format=pjpg&auto=webp&s=91400a0976b41c42daf966a9526251fca4328ea2");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+.bodyG {
+  background: #181818;
   background-size: cover;
-  height: 98vh;
-  opacity: 1;
   overflow: hidden;
   z-index: 3;
-} */
+}
 
-.body3 {
+.bodyC {
   background: url("https://static.vecteezy.com/ti/vecteur-libre/p3/2623583-abstrait-noir-forme-geometrique-fond-avec-ligne-diagonale-texture-design-pour-presentation-banniere-couverture-web-flyer-card-poster-game-texture-slide-and-powerpoint-vector-illustration-vectoriel.jpg") center/cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -247,6 +243,7 @@ main {
     background-color: rgb(31, 29, 29);
     text-align-last: left;
     color: white;
+    text-decoration: red;
 }
 
 #logo {
@@ -270,65 +267,6 @@ main {
   }
 }
 
-
-/* Loading animation container
-.loading {
-  position: absolute;
-  top: 50%;
-  left: 93.5%;
-  width: 28px;
-  height: 28px;
-  margin: -14px 0 0 -14px;
-  visibility: hidden;
-  animation-duration: 3ms;
-  animation-name: spin2;
-  z-index: 1;
-}
-@keyframes spin2 {
-  0% {
-    visibility: visible;
-  }
-  100% {
-    visibility: initial;
-  }
-}
-
-/* Spinning circle (inner circle) */
-/* .loading .maskedCircle {
-  width: 20px;
-  height: 20px;
-  border-radius: 12px;
-  border: 3px solid white;
-} */
-
-/* Spinning circle mask */
-/* .loading .mask {
-  width: 12px;
-  height: 12px;
-  overflow: hidden;
-} */
-
-/* Spinner */
-/* .loading .spinner {
-  position: absolute;
-  left: 1px;
-  top: 1px;
-  width: 26px;
-  height: 26px;
-  animation: spin 1s infinite linear;
-}
-
-@keyframes logoA {
-  0% {
-    visibility: hidden;
-  }
-  99% {
-    visibility: hidden;
-  }
-  100% {
-    visibility: visible;
-  }
-} */
 
 
 .pseudotxt {
@@ -431,6 +369,295 @@ main {
 
 
 
+.GameSelect {
+  border-radius: 8px;
+  position: absolute;
+  margin-top: -33%;
+  margin-left: 46%;
+  width: 150px;
+  height: 40px;
+  background-color: rgba(31, 31, 31, 0.911);
+  color: rgba(243, 243, 243, 0.959);
+  z-index: 50;
+  appearance: none;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  box-shadow: .5px 2px 2px rgba(228, 228, 228, 0.308);
+}
+
+.GameSelect:focus {
+  outline: none;
+  box-shadow: 0 0 5px #007bff;
+}
+
+
+
+/* Tic-tac-toe game
+-------------------------------------------------------------- */
+.tic-tac-toe {
+  position: absolute;
+  font-family: 'Open Sans', sans-serif;
+  height: 300px;
+  overflow: hidden;
+  margin: -25% auto 30px auto;
+  position: relative;
+  width: 300px;
+  z-index: -1;
+  visibility: visible;
+}
+@media (min-width: 450px) {
+  .tic-tac-toe {
+    height: 450px;
+    width: 450px;
+  }
+}
+.tic-tac-toe input[type="radio"] {
+  display: none;
+}
+.tic-tac-toe input[type="radio"]:checked + label {
+  cursor: default;
+  z-index: 10 !important;
+}
+.tic-tac-toe input[type="radio"].player-1 + label:after {
+  content: "";
+}
+.tic-tac-toe input[type="radio"].player-2 + label:after {
+  content: "";
+}
+.tic-tac-toe input[type="radio"].player-1:checked + label:after, .tic-tac-toe input[type="radio"].player-2:checked + label:after {
+  opacity: 1;
+}
+.tic-tac-toe input[type="radio"].player-1:checked + label {
+  background-color: #dc675ad3;
+}
+.tic-tac-toe input[type="radio"].player-2:checked + label {
+  background-color: #0733f7d7;
+}
+.tic-tac-toe input[type="radio"].turn-1 + label {
+  z-index: 1;
+}
+.tic-tac-toe input[type="radio"].turn-2 + label {
+  z-index: 2;
+}
+.tic-tac-toe input[type="radio"].turn-3 + label {
+  z-index: 3;
+}
+.tic-tac-toe input[type="radio"].turn-4 + label {
+  z-index: 4;
+}
+.tic-tac-toe input[type="radio"].turn-5 + label {
+  z-index: 5;
+}
+.tic-tac-toe input[type="radio"].turn-6 + label {
+  z-index: 6;
+}
+.tic-tac-toe input[type="radio"].turn-7 + label {
+  z-index: 7;
+}
+.tic-tac-toe input[type="radio"].turn-8 + label {
+  z-index: 8;
+}
+.tic-tac-toe input[type="radio"].turn-9 + label {
+  z-index: 9;
+}
+.tic-tac-toe input[type="radio"].turn-1 + label {
+  display: block;
+}
+.tic-tac-toe input[type="radio"].turn-1:checked ~ .turn-2 + label {
+  display: block;
+}
+.tic-tac-toe input[type="radio"].turn-2:checked ~ .turn-3 + label {
+  display: block;
+}
+.tic-tac-toe input[type="radio"].turn-3:checked ~ .turn-4 + label {
+  display: block;
+}
+.tic-tac-toe input[type="radio"].turn-4:checked ~ .turn-5 + label {
+  display: block;
+}
+.tic-tac-toe input[type="radio"].turn-5:checked ~ .turn-6 + label {
+  display: block;
+}
+.tic-tac-toe input[type="radio"].turn-6:checked ~ .turn-7 + label {
+  display: block;
+}
+.tic-tac-toe input[type="radio"].turn-7:checked ~ .turn-8 + label {
+  display: block;
+}
+.tic-tac-toe input[type="radio"].turn-8:checked ~ .turn-9 + label {
+  display: block;
+}
+.tic-tac-toe input[type="radio"].left + label {
+  left: 0;
+}
+.tic-tac-toe input[type="radio"].top + label {
+  top: 0;
+}
+.tic-tac-toe input[type="radio"].middle + label {
+  left: 100px;
+}
+.tic-tac-toe input[type="radio"].right + label {
+  left: 200px;
+}
+.tic-tac-toe input[type="radio"].center + label {
+  top: 100px;
+}
+.tic-tac-toe input[type="radio"].bottom + label {
+  top: 200px;
+}
+@media (min-width: 450px) {
+  .tic-tac-toe input[type="radio"].middle + label {
+    left: 150px;
+  }
+  .tic-tac-toe input[type="radio"].right + label {
+    left: 300px;
+  }
+  .tic-tac-toe input[type="radio"].center + label {
+    top: 150px;
+  }
+  .tic-tac-toe input[type="radio"].bottom + label {
+    top: 300px;
+  }
+}
+.tic-tac-toe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~
+input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~
+input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .end {
+  display: block;
+}
+.tic-tac-toe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~
+input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~
+input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .end > h3:before {
+  content: "It is a tie!";
+}
+.tic-tac-toe .player-1.first-column:checked ~ .player-1.first-column:checked ~ .player-1.first-column:checked ~ .end,
+.tic-tac-toe .player-1.second-column:checked ~ .player-1.second-column:checked ~ .player-1.second-column:checked ~ .end,
+.tic-tac-toe .player-1.third-column:checked ~ .player-1.third-column:checked ~ .player-1.third-column:checked ~ .end,
+.tic-tac-toe .player-1.first-row:checked ~ .player-1.first-row:checked ~ .player-1.first-row:checked ~ .end,
+.tic-tac-toe .player-1.second-row:checked ~ .player-1.second-row:checked ~ .player-1.second-row:checked ~ .end,
+.tic-tac-toe .player-1.third-row:checked ~ .player-1.third-row:checked ~ .player-1.third-row:checked ~ .end,
+.tic-tac-toe .player-1.first-diagonal:checked ~ .player-1.first-diagonal:checked ~ .player-1.first-diagonal:checked ~ .end,
+.tic-tac-toe .player-1.second-diagonal:checked ~ .player-1.second-diagonal:checked ~ .player-1.second-diagonal:checked ~ .end {
+  display: block;
+}
+.tic-tac-toe .player-1.first-column:checked ~ .player-1.first-column:checked ~ .player-1.first-column:checked ~ .end h3:before,
+.tic-tac-toe .player-1.second-column:checked ~ .player-1.second-column:checked ~ .player-1.second-column:checked ~ .end h3:before,
+.tic-tac-toe .player-1.third-column:checked ~ .player-1.third-column:checked ~ .player-1.third-column:checked ~ .end h3:before,
+.tic-tac-toe .player-1.first-row:checked ~ .player-1.first-row:checked ~ .player-1.first-row:checked ~ .end h3:before,
+.tic-tac-toe .player-1.second-row:checked ~ .player-1.second-row:checked ~ .player-1.second-row:checked ~ .end h3:before,
+.tic-tac-toe .player-1.third-row:checked ~ .player-1.third-row:checked ~ .player-1.third-row:checked ~ .end h3:before,
+.tic-tac-toe .player-1.first-diagonal:checked ~ .player-1.first-diagonal:checked ~ .player-1.first-diagonal:checked ~ .end h3:before,
+.tic-tac-toe .player-1.second-diagonal:checked ~ .player-1.second-diagonal:checked ~ .player-1.second-diagonal:checked ~ .end h3:before {
+  content: "Player 1 wins!" !important;
+}
+.tic-tac-toe .player-2.first-column:checked ~ .player-2.first-column:checked ~ .player-2.first-column:checked ~ .end,
+.tic-tac-toe .player-2.second-column:checked ~ .player-2.second-column:checked ~ .player-2.second-column:checked ~ .end,
+.tic-tac-toe .player-2.third-column:checked ~ .player-2.third-column:checked ~ .player-2.third-column:checked ~ .end,
+.tic-tac-toe .player-2.first-row:checked ~ .player-2.first-row:checked ~ .player-2.first-row:checked ~ .end,
+.tic-tac-toe .player-2.second-row:checked ~ .player-2.second-row:checked ~ .player-2.second-row:checked ~ .end,
+.tic-tac-toe .player-2.third-row:checked ~ .player-2.third-row:checked ~ .player-2.third-row:checked ~ .end,
+.tic-tac-toe .player-2.first-diagonal:checked ~ .player-2.first-diagonal:checked ~ .player-2.first-diagonal:checked ~ .end,
+.tic-tac-toe .player-2.second-diagonal:checked ~ .player-2.second-diagonal:checked ~ .player-2.second-diagonal:checked ~ .end {
+  display: block;
+}
+.tic-tac-toe .player-2.first-column:checked ~ .player-2.first-column:checked ~ .player-2.first-column:checked ~ .end h3:before,
+.tic-tac-toe .player-2.second-column:checked ~ .player-2.second-column:checked ~ .player-2.second-column:checked ~ .end h3:before,
+.tic-tac-toe .player-2.third-column:checked ~ .player-2.third-column:checked ~ .player-2.third-column:checked ~ .end h3:before,
+.tic-tac-toe .player-2.first-row:checked ~ .player-2.first-row:checked ~ .player-2.first-row:checked ~ .end h3:before,
+.tic-tac-toe .player-2.second-row:checked ~ .player-2.second-row:checked ~ .player-2.second-row:checked ~ .end h3:before,
+.tic-tac-toe .player-2.third-row:checked ~ .player-2.third-row:checked ~ .player-2.third-row:checked ~ .end h3:before,
+.tic-tac-toe .player-2.first-diagonal:checked ~ .player-2.first-diagonal:checked ~ .player-2.first-diagonal:checked ~ .end h3:before,
+.tic-tac-toe .player-2.second-diagonal:checked ~ .player-2.second-diagonal:checked ~ .player-2.second-diagonal:checked ~ .end h3:before {
+  content: "Player 2 wins!" !important;
+}
+.tic-tac-toe label {
+  background-color: #78bec5;
+  border-radius: 14px;
+  cursor: pointer;
+  color: #fff;
+  display: none;
+  height: 90px;
+  margin: 5px;
+  position: absolute;
+  width: 90px;
+  -moz-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+@media (min-width: 450px) {
+  .tic-tac-toe label {
+    height: 140px;
+    width: 140px;
+  }
+}
+.tic-tac-toe label:hover {
+  background-color: #3d4250;
+}
+.tic-tac-toe label:hover:after {
+  opacity: .4;
+}
+.tic-tac-toe label:after {
+  left: 0;
+  font-family: "FontAwesome";
+  font-size: 45px;
+  margin-top: -22.5px;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  top: 50%;
+  width: 100%;
+}
+@media (min-width: 450px) {
+  .tic-tac-toe label:after {
+    font-size: 70px;
+    margin-top: -35px;
+  }
+}
+.tic-tac-toe .end {
+  background: rgba(255, 255, 255, 0.8);
+  bottom: 5px;
+  color: #3d4250;
+  display: none;
+  left: 5px;
+  padding-top: 55px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  text-align: center;
+  z-index: 11;
+}
+@media (min-width: 450px) {
+  .tic-tac-toe .end {
+    padding-top: 110px;
+  }
+}
+.tic-tac-toe .end h3 {
+  font-size: 30px;
+  font-weight: 300;
+}
+@media (min-width: 450px) {
+  .tic-tac-toe .end h3 {
+    font-size: 40px;
+  }
+}
+.tic-tac-toe .end a {
+  background-color: #3d4250;
+  border-radius: 4px;
+  color: #fff;
+  padding: 14px 45px;
+  text-decoration: none;
+  -moz-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+.tic-tac-toe .end a:hover {
+  background-color: #262934;
+  cursor: pointer;
+}
+
 
 
 
@@ -441,7 +668,7 @@ main {
     min-height: 50%;
     position: relative;
     display: flex;
-    margin-top: -35%;
+    margin-top: -31%;
     z-index: -3;
 }
 .reseaux {
@@ -474,7 +701,7 @@ main {
 .reseaux li::before {
     content: attr(data-text);
     position: absolute;
-    top: 25%;
+    top: 0%;
     left: 50%;
     transform: translate(-50%,calc(-75% + 150%));
     font-size: 14vw;
@@ -512,272 +739,6 @@ main {
 
 
 
-
-
-
-/* .ball {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    border-radius: 50%;
-    position: relative;
-    -webkit-transform-style: preserve-3d;
-    background: url('http://hop.ie/balls/images/world-map-one-color.png') repeat-x;
-    background-size: auto 100%;
-    -webkit-animation: move-map 30s infinite linear;
-    -moz-animation: move-map 30s infinite linear;
-    -o-animation: move-map 30s infinite linear;
-    -ms-animation: move-map 30s infinite linear;
-    animation: move-map 30s infinite linear;
-}
-  
-.ball:before {
-    content: "";
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    box-shadow: -40px 10px 70px 10px rgba(0,0,0,0.5) inset;
-    z-index: 2;
-}
-  
-.ball:after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    -webkit-filter: blur(0);
-    opacity: 0.3;
-    background: radial-gradient(circle at 50% 80%, #81e8f6, #76deef 10%, #055194 66%, #062745 100%);
-}
-  
-.ball .shadow {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.801), rgba(0, 0, 0, 0.247) 40%, rgba(0, 0, 0, 0) 50%);
-    -webkit-transform: rotateX(90deg) translateZ(-150px);
-    -moz-transform: rotateX(90deg) translateZ(-150px);
-    -ms-transform: rotateX(90deg) translateZ(-150px);
-    -o-transform: rotateX(90deg) translateZ(-150px);
-    transform: rotateX(90deg) translateZ(-150px);
-    z-index: -1;
-}
-  
-.stage {
-    width: 300px;
-    height: 300px;
-    display: inline-block;
-    margin: 20px;
-    -webkit-perspective: 1200px;
-    -moz-perspective: 1200px;
-    -ms-perspective: 1200px;
-    -o-perspective: 1200px;
-    perspective: 1200px;
-    -webkit-perspective-origin: 50% 50%;
-    -moz-perspective-origin: 50% 50%;
-    -ms-perspective-origin: 50% 50%;
-    -o-perspective-origin: 50% 50%;
-    perspective-origin: 50% 50%;
-}
-  
-@-moz-keyframes move-map {
-    0% {
-      background-position: -849px 0; }
-  
-    100% {
-      background-position: 0 0; } }
-  
-@-webkit-keyframes move-map {
-    0% {
-      background-position: 0 0; }
-    100% {
-      background-position: -849px 0; }
-}
-  
-  
-@-o-keyframes move-map {
-    0% {
-      background-position: -849px 0; }
-  
-    100% {
-      background-position: 0 0; } }
-  
-@-ms-keyframes move-map {
-    0% {
-      background-position: -849px 0; }
-  
-    100% {
-      background-position: 0 0; } }
-  
-@keyframes move-map {
-    0% {
-      background-position: -849px 0; }
-  
-    100% {
-      background-position: 0 0; } }
-
-#planete {
-    position: absolute;
-    bottom: 30%; left: 40%;
-} */
-
-
-
-/* @media screen and (max-width: 900px) {
-    body {
-
-    }
-    #texte {
-        font-size: 13px;
-    }
-    .ball {
-        height: 75%;
-        width: 75%;
-    }
-    #planete {
-        left: 25%;
-    }
-    #réseaux {
-        font-size: 25px;
-    }
-}
-@media screen and (max-width: 500px) {
-    #texte {
-        font-size: 10px;
-    }
-    .ball {
-        height: 55%;
-        width: 55%;
-    }
-    #planete {
-        bottom: 25%; left: 25%;
-    }
-} */
-
-
-
-
-
-/* .scene2 {
-    position: absolute;
-    top: 75%;
-    left: 48%;
-    perspective: 800px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-  
-.cube {
-     position: relative;
-     width: 100px;
-     height: 100px;
-     transform-style: preserve-3d;
-     animation: rotation 10s infinite alternate;
-}
-  
-@keyframes rotation {
-    0% { transform: rotateY(0deg) rotateX(0deg); }
-    80% { transform: rotateY(720deg) rotateX(60deg); }
-}
-  
-.cube__face {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-}
-  
-.cube__face--left {
-    background-image: url('https://uploaddeimagens.com.br/images/000/955/232/full/side.jpg?1497835464');
-    transform: translateX(-75px) rotateY(90deg);
-}
-  
-.cube__face--right {
-    background-image: url('https://uploaddeimagens.com.br/images/000/955/232/full/side.jpg?1497835464');
-    transform: translateX(75px) rotateY(90deg);
-}
-  
-.cube__face--bottom {
-    background-image: url('https://uploaddeimagens.com.br/images/000/955/231/full/bottom.jpg?1497835434');
-    transform: translateY(75px) rotateX(90deg);
-}
-  
-.cube__face--top {
-    background-image: url('https://uploaddeimagens.com.br/images/000/955/233/thumb/top.jpg?1497835487');
-    transform: translateY(-75px) rotateX(90deg);
-}
-  
-.cube__face--back {
-    background-image: url('https://uploaddeimagens.com.br/images/000/955/232/full/side.jpg?1497835464');
-    transform: translateZ(-75px);
-}
-  
-.cube__face--front {
-    background-image: url('https://uploaddeimagens.com.br/images/000/955/232/full/side.jpg?1497835464');
-    transform: translateZ(75px);
-} */
-
-
-
-
-/* .cuboid {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-.cuboid__side:nth-of-type(1) {
-    height: calc(var(--thickness) * var(--coefficient));
-    width: 100%;
-    position: absolute;
-    top: 0;
-    transform: translate(0, -50%) rotateX(90deg);
-}
-.cuboid__side:nth-of-type(2) {
-    height: 100%;
-    width: calc(var(--thickness) * var(--coefficient));
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translate(50%, -50%) rotateY(90deg);
-}
-.cuboid__side:nth-of-type(3) {
-    width: 100%;
-    height: calc(var(--thickness) * var(--coefficient));
-    position: absolute;
-    bottom: 0;
-    transform: translate(0%, 50%) rotateX(90deg);
-}
-.cuboid__side:nth-of-type(4) {
-    height: 100%;
-    width: calc(var(--thickness) * var(--coefficient));
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translate(-50%, -50%) rotateY(90deg);
-}
-.cuboid__side:nth-of-type(5) {
-    height: 100%;
-    width: 100%;
-    transform: translate3d(0, 0, calc(var(--thickness) * (var(--coefficient) * 0.5)));
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-.cuboid__side:nth-of-type(6) {
-    height: 100%;
-    width: 100%;
-    transform: translate3d(0, 0, calc(var(--thickness) * (var(--coefficient) * -0.5))) rotateY(180deg);
-    position: absolute;
-    top: 0;
-    left: 0;
-} */
 
 
 *,
@@ -1173,711 +1134,3001 @@ main {
     --base-tone: var(--h-1);
 }
 
-/* .scene {
-    position: fixed;
-    top: 50%;
-    left: 15%;
-    transform: translate3d(-50%, -50%, 100vmin);
-    transform: translate3d(-50%, -50%, 100vmin) rotateX(-24deg) rotateY(44deg) rotateX(calc(var(--rotate-x, 0) * 1deg)) rotateY(calc(var(--rotate-y, 0) * 1deg));
-    /* transform: translate3d(-50%, -50%, 100vmin) rotateX(-24deg) rotateY(44deg) rotateX(calc(var(--rotate-x, 0) * 1deg)) rotateY(-210deg); */
-/* } */
-/* .character {
-    height: var(--height);
-    width: var(--width);
-    position: relative;
-    animation: showcase 10s infinite linear;
-}
-  
-.character *,
-.character *:after {
-    transition: background 0.2s, transform 0.2s;
-}
-  
-.character > * {
-    position: absolute;
-}
-.character__head {
-    height: calc(8 * var(--base-size));
-    width: calc(8 * var(--base-size));
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-}
-.character__arm {
-    height: calc(12 * var(--base-size));
-    width: calc(4 * var(--base-size));
-    top: calc(8 * var(--base-size));
-    transform-origin: 50% calc(2 * var(--base-size));
-    transform: rotateX(calc(var(--arm-rotate, 0) * 1deg));
-    animation: run var(--speed) var(--delay) infinite;
-}
-.character__arm--left {
-    left: 0;
-    --delay: calc(var(--speed) * -0.5);
-}
-.character__arm--right {
-    right: 0;
-    --delay: 0s;
-}
-.character__torso {
-    height: calc(12 * var(--base-size));
-    width: calc(8 * var(--base-size));
-    top: calc(8 * var(--base-size));
-    left: 50%;
-    transform: translate(-50%, 0);
-}
-.character__leg {
-    height: calc(12 * var(--base-size));
-    width: calc(4 * var(--base-size));
-    top: calc(20 * var(--base-size));
-    transform-origin: 50% calc(1 * var(--base-size));
-    animation: run var(--speed) var(--delay) infinite;
-}
-.character__leg--left {
-    left: calc(4 * var(--base-size));
-    --delay: 0s;
-}
-.character__leg--right {
-    right: calc(4 * var(--base-size));
-    --delay: calc(var(--speed) * -0.5);
-}
-  .cuboid-arm {
-    --thickness: calc(4 * var(--base-unit));
-}
-.cuboid-arm div {
-    background: var(--base-tone);
-}
-.cuboid-arm div:nth-of-type(1) {
-    background: var(--shoulder);
-    background-repeat: no-repeat;
-}
-.cuboid-arm div:nth-of-type(2) {
-    background: var(--character-arm-right);
-    background-repeat: no-repeat;
-}
-.cuboid-arm div:nth-of-type(3):after {
-    content: '';
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background: var(--character-fist);
-    background-repeat: no-repeat;
-}
-.cuboid-arm div:nth-of-type(4) {
-    background: var(--character-arm-inside);
-    background-repeat: no-repeat;
-}
-.cuboid-arm div:nth-of-type(5) {
-    background: var(--character-arm-top);
-    background-repeat: no-repeat;
-}
-.cuboid-arm div:nth-of-type(6):after {
-    content: '';
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background: var(--character-arm-back);
-    background-repeat: no-repeat;
-}
-.cuboid-arm--left div:nth-of-type(4) {
-    background: var(--character-arm-right);
-    background-repeat: no-repeat;
-}
-.cuboid-arm--left div:nth-of-type(2) {
-    background: var(--character-arm-inside);
-    background-repeat: no-repeat;
-}
-.cuboid-arm--left div:nth-of-type(3):after {
-    transform: rotateY(180deg) translate3d(0, 0, 1px);
-}
-.cuboid-arm--left div:nth-of-type(6):after {
-    transform: rotateY(180deg) translate3d(0, 0, -1px);
-}
-.cuboid-head {
-    --thickness: calc(8 * var(--base-unit));
-}
-  
-.cuboid-head div:nth-of-type(5) {
-    background: var(--character-face);
-    background-repeat: no-repeat;
-}
-.cuboid-head div:nth-of-type(1) {
-    background: var(--character-crown);
-    background-repeat: no-repeat;
-}
-.cuboid-head div:nth-of-type(2),
-.cuboid-head div:nth-of-type(4) {
-    background: var(--character-ear);
-    background-repeat: no-repeat;
-}
-.cuboid-head div:nth-of-type(6) {
-    background: var(--character-crane);
-    background-repeat: no-repeat;
-}
-.cuboid-head div:nth-of-type(3) {
-    background: var(--character-chin);
-    background-repeat: no-repeat;
-}
-.cuboid-torso {
-    --thickness: calc(4 * var(--base-unit));
-}
-.cuboid-torso div:nth-of-type(1) {
-    background: var(--s-1);
-}
-.cuboid-torso div:nth-of-type(2) {
-    background: var(--shirt-side);
-    background-repeat: no-repeat;
-}
-.cuboid-torso div:nth-of-type(3) {
-    background: var(--t-2);
-}
-.cuboid-torso div:nth-of-type(4) {
-    background: var(--shirt-side);
-    background-repeat: no-repeat;
-}
-.cuboid-torso div:nth-of-type(5) {
-    background: var(--shirt-front);
-    background-repeat: no-repeat;
-}
-.cuboid-torso div:nth-of-type(6) {
-    background: var(--shirt-back);
-    background-repeat: no-repeat;
-}
-.cuboid-leg {
-    --thickness: calc(4 * var(--base-unit));
-}
-.cuboid-leg div:nth-of-type(1) {
-    background: var(--t-4);
-}
-.cuboid-leg div:nth-of-type(2) {
-    background: var(--trouser-right);
-    background-repeat: no-repeat;
-}
-.cuboid-leg div:nth-of-type(3) {
-    background: var(--c-3);
-}
-.cuboid-leg div:nth-of-type(4) {
-    background: var(--trouser-inside);
-    background-repeat: no-repeat;
-}
-.cuboid-leg div:nth-of-type(5) {
-    background: var(--trouser-front);
-    background-repeat: no-repeat;
-}
-.cuboid-leg div:nth-of-type(6) {
-    background: var(--trouser-back);
-    background-repeat: no-repeat;
-}
-.cuboid-leg--left div:nth-of-type(4) {
-    background: var(--trouser-right);
-    background-repeat: no-repeat;
-}
-.cuboid-leg--left div:nth-of-type(2) {
-    background: var(--trouser-inside);
-    background-repeat: no-repeat;
-}
-  
-@keyframes jump {
-    50% {
-      transform: translate(0, -50%);
-    }
-}
-  
-@keyframes showcase {
-    to {
-      transform: rotateY(360deg);
-    }
-}
-  
-@keyframes run {
-    0%, 100% {
-      transform: rotateX(30deg);
-    }
-    50% {
-      transform: rotateX(-30deg);
-    }
-}
-@keyframes crawl {
-    0%, 100% {
-      transform: rotateX(10deg);
-    }
-    50% {
-      transform: rotateX(-10deg);
-    }
-}
-
-.skin {
-    position: absolute;
-    top: 30%;
-    left: 80%;
-}
-.skinT {
-    position: absolute;
-    top: 20%;
-    left: 83%;
-    text-shadow: 5px 5px 2px rgb(56, 56, 56);
-} */
 
 
-
-
-
-/* #default {
-  position: relative;
-  margin-top: 5em;
-  margin-left: -15em;
-}
-
-.controls {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  right: -10em;
-  bottom: 3em;
-  z-index: 40;
-  order: 10;
-  color: rgb(255, 255, 255);
-  
-}
-
-.controls label {
-  padding: 0.5em 1em;
-  margin: 0 0.2em;
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 100em;
-  font-weight: 500;
-  font-size: 12px;
-  cursor: pointer;
-  background-color: rgba(16, 16, 16, 0.5);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-}
-.controls label:hover, .controls label:focus {
-  background: rgba(255, 255, 255, 0.795);
-  color: #101010;
-}
-
-.wheatley {
-  position: relative;
-  left: 19em;
-  bottom: 3em;
-  width: 15em;
-  height: 15em;
-  border-radius: 100%;
-  transition: 0.8s ease all;
-  -webkit-animation: float 8s infinite ease;
-          animation: float 8s infinite ease;
-  z-index: 2;
-  filter: drop-shadow(0 0 4em rgba(0, 0, 0, 0.5));
-}
-.wheatley-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: 0.8s ease all;
-}
-.wheatley .sides {
+.game2 {
   position: absolute;
-  left: 0;
-  top: 0;
+  visibility: hidden;
+  margin: -15% 45%;
+}
+
+.rd {
+  visibility: hidden;
+}
+
+#board {
+  position: absolute;
+  display: inline-block;
+  bottom: 150px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+}
+#board .foot {
+  position: absolute;
+  bottom: -40px;
+  left: -11px;
+  height: 60px;
+  width: 14px;
+  background: linear-gradient(#002bff, #0024d6);
+  z-index: 2;
+  box-shadow: inset 0 -25px 10px -5px rgba(0, 0, 0, 0.2);
+}
+#board .foot#foot-right {
+  left: auto;
+  right: -11px;
+}
+#board .foot::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: -4px;
+  width: 22px;
+  height: 12px;
+  background: #0022cc;
+  border-radius: 4px 4px 0 0;
+}
+#board #tiles {
+  width: 350px;
+  height: 300px;
+  box-shadow: 0 3px 0 0 #002bff, 3px 3px 0 3px #002bff, -3px 3px 0 3px #002bff;
+  border-radius: 5px;
+}
+#board #tiles .tile {
+  /*width: calc(100% / 7);
+  height: 0;
+  padding-top: calc(100% / 7);*/
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  float: left;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+#board #tiles .tile::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  border-radius: 100%;
+  box-shadow: inset 0 0 0 30px #3355ff;
+}
+#board #tiles .labels {
+  position: absolute;
+  z-index: 100;
   width: 100%;
   height: 100%;
+  bottom: 0;
+}
+#board #tiles .lb {
+  position: absolute;
+  display: none;
+  width: 50px;
+  height: 450px;
+  /* fallback value */
+  height: 100vmax;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}
+#board #tiles .lb:hover {
+  background: rgba(0, 0, 0, 0);
+}
+#board #tiles .lb:hover[for$="-1"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(0px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-2"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(50px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-3"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(100px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-4"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(150px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-5"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(200px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-6"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(250px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-7"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(300px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-8"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(0px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-9"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(50px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-10"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(100px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-11"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(150px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-12"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(200px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-13"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(250px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-14"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(300px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-15"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(0px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-16"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(50px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-17"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(100px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-18"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(150px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-19"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(200px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-20"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(250px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-21"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(300px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-22"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(0px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-23"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(50px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-24"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(100px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-25"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(150px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-26"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(200px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-27"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(250px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-28"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(300px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-29"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(0px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-30"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(50px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-31"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(100px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-32"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(150px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-33"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(200px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-34"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(250px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-35"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(300px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-36"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(0px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-37"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(50px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-38"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(100px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-39"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(150px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-40"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(200px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-41"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(250px, 0, 0);
+}
+#board #tiles .lb:hover[for$="-42"] ~ .hand {
+  bottom: 350px;
+  transform: translate3d(300px, 0, 0);
+}
+#board #tiles .lb:hover::before {
+  content: "▼";
+  position: absolute;
+  bottom: 320px;
+  left: 50%;
+  color: white;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  animation: moveArrow 0.75s infinite;
+  animation-timing-function: linear;
+}
+#board #tiles .lb[for$="-1"] {
+  left: 0px;
+  z-index: 45;
+}
+#board #tiles .lb[for$="-2"] {
+  left: 50px;
+  z-index: 44;
+}
+#board #tiles .lb[for$="-3"] {
+  left: 100px;
+  z-index: 43;
+}
+#board #tiles .lb[for$="-4"] {
+  left: 150px;
+  z-index: 42;
+}
+#board #tiles .lb[for$="-5"] {
+  left: 200px;
+  z-index: 41;
+}
+#board #tiles .lb[for$="-6"] {
+  left: 250px;
+  z-index: 40;
+}
+#board #tiles .lb[for$="-7"] {
+  left: 300px;
+  z-index: 39;
+}
+#board #tiles .lb[for$="-8"] {
+  left: 0px;
+  z-index: 38;
+}
+#board #tiles .lb[for$="-9"] {
+  left: 50px;
+  z-index: 37;
+}
+#board #tiles .lb[for$="-10"] {
+  left: 100px;
+  z-index: 36;
+}
+#board #tiles .lb[for$="-11"] {
+  left: 150px;
+  z-index: 35;
+}
+#board #tiles .lb[for$="-12"] {
+  left: 200px;
+  z-index: 34;
+}
+#board #tiles .lb[for$="-13"] {
+  left: 250px;
+  z-index: 33;
+}
+#board #tiles .lb[for$="-14"] {
+  left: 300px;
+  z-index: 32;
+}
+#board #tiles .lb[for$="-15"] {
+  left: 0px;
+  z-index: 31;
+}
+#board #tiles .lb[for$="-16"] {
+  left: 50px;
+  z-index: 30;
+}
+#board #tiles .lb[for$="-17"] {
+  left: 100px;
+  z-index: 29;
+}
+#board #tiles .lb[for$="-18"] {
+  left: 150px;
+  z-index: 28;
+}
+#board #tiles .lb[for$="-19"] {
+  left: 200px;
+  z-index: 27;
+}
+#board #tiles .lb[for$="-20"] {
+  left: 250px;
+  z-index: 26;
+}
+#board #tiles .lb[for$="-21"] {
+  left: 300px;
+  z-index: 25;
+}
+#board #tiles .lb[for$="-22"] {
+  left: 0px;
+  z-index: 24;
+}
+#board #tiles .lb[for$="-23"] {
+  left: 50px;
+  z-index: 23;
+}
+#board #tiles .lb[for$="-24"] {
+  left: 100px;
+  z-index: 22;
+}
+#board #tiles .lb[for$="-25"] {
+  left: 150px;
+  z-index: 21;
+}
+#board #tiles .lb[for$="-26"] {
+  left: 200px;
+  z-index: 20;
+}
+#board #tiles .lb[for$="-27"] {
+  left: 250px;
+  z-index: 19;
+}
+#board #tiles .lb[for$="-28"] {
+  left: 300px;
+  z-index: 18;
+}
+#board #tiles .lb[for$="-29"] {
+  left: 0px;
+  z-index: 17;
+}
+#board #tiles .lb[for$="-30"] {
+  left: 50px;
+  z-index: 16;
+}
+#board #tiles .lb[for$="-31"] {
+  left: 100px;
+  z-index: 15;
+}
+#board #tiles .lb[for$="-32"] {
+  left: 150px;
+  z-index: 14;
+}
+#board #tiles .lb[for$="-33"] {
+  left: 200px;
+  z-index: 13;
+}
+#board #tiles .lb[for$="-34"] {
+  left: 250px;
+  z-index: 12;
+}
+#board #tiles .lb[for$="-35"] {
+  left: 300px;
+  z-index: 11;
+}
+#board #tiles .lb[for$="-36"] {
+  left: 0px;
   z-index: 10;
 }
-.wheatley .sides > div {
+#board #tiles .lb[for$="-37"] {
+  left: 50px;
+  z-index: 9;
+}
+#board #tiles .lb[for$="-38"] {
+  left: 100px;
+  z-index: 8;
+}
+#board #tiles .lb[for$="-39"] {
+  left: 150px;
+  z-index: 7;
+}
+#board #tiles .lb[for$="-40"] {
+  left: 200px;
+  z-index: 6;
+}
+#board #tiles .lb[for$="-41"] {
+  left: 250px;
+  z-index: 5;
+}
+#board #tiles .lb[for$="-42"] {
+  left: 300px;
+  z-index: 4;
+}
+
+@keyframes moveArrow {
+  0% {
+    color: white;
+    transform: translate3d(-50%, 0, 0) scale(1);
+  }
+  100% {
+    color: rgba(255, 255, 255, 0);
+    transform: translate3d(-50%, 20px, 0) scale(1.5);
+  }
+}
+#rd-1-1:checked ~ #board #tile1::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-2:checked ~ #board #tile2::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-3:checked ~ #board #tile3::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-4:checked ~ #board #tile4::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-5:checked ~ #board #tile5::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-6:checked ~ #board #tile6::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-7:checked ~ #board #tile7::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-8:checked ~ #board #tile8::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-9:checked ~ #board #tile9::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-10:checked ~ #board #tile10::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-11:checked ~ #board #tile11::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-12:checked ~ #board #tile12::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-13:checked ~ #board #tile13::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-14:checked ~ #board #tile14::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-15:checked ~ #board #tile15::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-16:checked ~ #board #tile16::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-17:checked ~ #board #tile17::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-18:checked ~ #board #tile18::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-19:checked ~ #board #tile19::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-20:checked ~ #board #tile20::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-21:checked ~ #board #tile21::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-22:checked ~ #board #tile22::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-23:checked ~ #board #tile23::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-24:checked ~ #board #tile24::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-25:checked ~ #board #tile25::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-26:checked ~ #board #tile26::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-27:checked ~ #board #tile27::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-28:checked ~ #board #tile28::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-29:checked ~ #board #tile29::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-30:checked ~ #board #tile30::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-31:checked ~ #board #tile31::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-32:checked ~ #board #tile32::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-33:checked ~ #board #tile33::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-34:checked ~ #board #tile34::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-35:checked ~ #board #tile35::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-36:checked ~ #board #tile36::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-37:checked ~ #board #tile37::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-38:checked ~ #board #tile38::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-39:checked ~ #board #tile39::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-40:checked ~ #board #tile40::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-41:checked ~ #board #tile41::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-1-42:checked ~ #board #tile42::before {
+  background: #D01F3C;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-1:checked ~ #board #tile1::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-2:checked ~ #board #tile2::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-3:checked ~ #board #tile3::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-4:checked ~ #board #tile4::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-5:checked ~ #board #tile5::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-6:checked ~ #board #tile6::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-7:checked ~ #board #tile7::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-8:checked ~ #board #tile8::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-9:checked ~ #board #tile9::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-10:checked ~ #board #tile10::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-11:checked ~ #board #tile11::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-12:checked ~ #board #tile12::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-13:checked ~ #board #tile13::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-14:checked ~ #board #tile14::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-15:checked ~ #board #tile15::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-16:checked ~ #board #tile16::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-17:checked ~ #board #tile17::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-18:checked ~ #board #tile18::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-19:checked ~ #board #tile19::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-20:checked ~ #board #tile20::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-21:checked ~ #board #tile21::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-22:checked ~ #board #tile22::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-23:checked ~ #board #tile23::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-24:checked ~ #board #tile24::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-25:checked ~ #board #tile25::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-26:checked ~ #board #tile26::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-27:checked ~ #board #tile27::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-28:checked ~ #board #tile28::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-29:checked ~ #board #tile29::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-30:checked ~ #board #tile30::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-31:checked ~ #board #tile31::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-32:checked ~ #board #tile32::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-33:checked ~ #board #tile33::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-34:checked ~ #board #tile34::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-35:checked ~ #board #tile35::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-36:checked ~ #board #tile36::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-37:checked ~ #board #tile37::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-38:checked ~ #board #tile38::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-39:checked ~ #board #tile39::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-40:checked ~ #board #tile40::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-41:checked ~ #board #tile41::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#rd-2-42:checked ~ #board #tile42::before {
+  background: #FFFF33;
+  box-shadow: inset 0 0 0 30px #3355ff, inset 0px 1px 3px 31px rgba(0, 0, 0, 0.4);
+}
+
+#board #tiles label[id$="-42"] {
+  display: block;
+}
+
+#board #tiles label[id$="-41"] {
+  display: block;
+}
+
+#board #tiles label[id$="-40"] {
+  display: block;
+}
+
+#board #tiles label[id$="-39"] {
+  display: block;
+}
+
+#board #tiles label[id$="-38"] {
+  display: block;
+}
+
+#board #tiles label[id$="-37"] {
+  display: block;
+}
+
+#board #tiles label[id$="-36"] {
+  display: block;
+}
+
+.rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 2 ";
+}
+
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels1 {
+  z-index: 100;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #board #labels2 {
+  z-index: -1;
+}
+.rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ .rd:checked ~ #congratulations h2::before {
+  content: "Player 1 ";
+}
+
+[name=rd42]:checked ~ #board #tiles [for$="-35"] {
+  display: block;
+}
+
+[name=rd41]:checked ~ #board #tiles [for$="-34"] {
+  display: block;
+}
+
+[name=rd40]:checked ~ #board #tiles [for$="-33"] {
+  display: block;
+}
+
+[name=rd39]:checked ~ #board #tiles [for$="-32"] {
+  display: block;
+}
+
+[name=rd38]:checked ~ #board #tiles [for$="-31"] {
+  display: block;
+}
+
+[name=rd37]:checked ~ #board #tiles [for$="-30"] {
+  display: block;
+}
+
+[name=rd36]:checked ~ #board #tiles [for$="-29"] {
+  display: block;
+}
+
+[name=rd35]:checked ~ #board #tiles [for$="-28"] {
+  display: block;
+}
+
+[name=rd34]:checked ~ #board #tiles [for$="-27"] {
+  display: block;
+}
+
+[name=rd33]:checked ~ #board #tiles [for$="-26"] {
+  display: block;
+}
+
+[name=rd32]:checked ~ #board #tiles [for$="-25"] {
+  display: block;
+}
+
+[name=rd31]:checked ~ #board #tiles [for$="-24"] {
+  display: block;
+}
+
+[name=rd30]:checked ~ #board #tiles [for$="-23"] {
+  display: block;
+}
+
+[name=rd29]:checked ~ #board #tiles [for$="-22"] {
+  display: block;
+}
+
+[name=rd28]:checked ~ #board #tiles [for$="-21"] {
+  display: block;
+}
+
+[name=rd27]:checked ~ #board #tiles [for$="-20"] {
+  display: block;
+}
+
+[name=rd26]:checked ~ #board #tiles [for$="-19"] {
+  display: block;
+}
+
+[name=rd25]:checked ~ #board #tiles [for$="-18"] {
+  display: block;
+}
+
+[name=rd24]:checked ~ #board #tiles [for$="-17"] {
+  display: block;
+}
+
+[name=rd23]:checked ~ #board #tiles [for$="-16"] {
+  display: block;
+}
+
+[name=rd22]:checked ~ #board #tiles [for$="-15"] {
+  display: block;
+}
+
+[name=rd21]:checked ~ #board #tiles [for$="-14"] {
+  display: block;
+}
+
+[name=rd20]:checked ~ #board #tiles [for$="-13"] {
+  display: block;
+}
+
+[name=rd19]:checked ~ #board #tiles [for$="-12"] {
+  display: block;
+}
+
+[name=rd18]:checked ~ #board #tiles [for$="-11"] {
+  display: block;
+}
+
+[name=rd17]:checked ~ #board #tiles [for$="-10"] {
+  display: block;
+}
+
+[name=rd16]:checked ~ #board #tiles [for$="-9"] {
+  display: block;
+}
+
+[name=rd15]:checked ~ #board #tiles [for$="-8"] {
+  display: block;
+}
+
+[name=rd14]:checked ~ #board #tiles [for$="-7"] {
+  display: block;
+}
+
+[name=rd13]:checked ~ #board #tiles [for$="-6"] {
+  display: block;
+}
+
+[name=rd12]:checked ~ #board #tiles [for$="-5"] {
+  display: block;
+}
+
+[name=rd11]:checked ~ #board #tiles [for$="-4"] {
+  display: block;
+}
+
+[name=rd10]:checked ~ #board #tiles [for$="-3"] {
+  display: block;
+}
+
+[name=rd9]:checked ~ #board #tiles [for$="-2"] {
+  display: block;
+}
+
+[name=rd8]:checked ~ #board #tiles [for$="-1"] {
+  display: block;
+}
+
+[name=rd1]:checked ~ #board #tiles .lb-col-1 {
+  display: none !important;
+}
+
+[name=rd2]:checked ~ #board #tiles .lb-col-2 {
+  display: none !important;
+}
+
+[name=rd3]:checked ~ #board #tiles .lb-col-3 {
+  display: none !important;
+}
+
+[name=rd4]:checked ~ #board #tiles .lb-col-4 {
+  display: none !important;
+}
+
+[name=rd5]:checked ~ #board #tiles .lb-col-5 {
+  display: none !important;
+}
+
+[name=rd6]:checked ~ #board #tiles .lb-col-6 {
+  display: none !important;
+}
+
+[name=rd7]:checked ~ #board #tiles .lb-col-0 {
+  display: none !important;
+}
+
+[name=rd7]:checked ~ [name=rd6]:checked ~ [name=rd5]:checked ~ [name=rd4]:checked ~ [name=rd3]:checked ~ [name=rd2]:checked ~ [name=rd1]:checked ~ #draw {
+  display: block;
+}
+
+#rd-1-42:checked ~ #rd-1-41:checked ~ #rd-1-40:checked ~ #rd-1-39:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-42:checked ~ #rd-1-41:checked ~ #rd-1-40:checked ~ #rd-1-39:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-41:checked ~ #rd-1-40:checked ~ #rd-1-39:checked ~ #rd-1-38:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-41:checked ~ #rd-1-40:checked ~ #rd-1-39:checked ~ #rd-1-38:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-40:checked ~ #rd-1-39:checked ~ #rd-1-38:checked ~ #rd-1-37:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-40:checked ~ #rd-1-39:checked ~ #rd-1-38:checked ~ #rd-1-37:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-39:checked ~ #rd-1-38:checked ~ #rd-1-37:checked ~ #rd-1-36:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-39:checked ~ #rd-1-38:checked ~ #rd-1-37:checked ~ #rd-1-36:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-35:checked ~ #rd-1-34:checked ~ #rd-1-33:checked ~ #rd-1-32:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-35:checked ~ #rd-1-34:checked ~ #rd-1-33:checked ~ #rd-1-32:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-34:checked ~ #rd-1-33:checked ~ #rd-1-32:checked ~ #rd-1-31:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-34:checked ~ #rd-1-33:checked ~ #rd-1-32:checked ~ #rd-1-31:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-33:checked ~ #rd-1-32:checked ~ #rd-1-31:checked ~ #rd-1-30:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-33:checked ~ #rd-1-32:checked ~ #rd-1-31:checked ~ #rd-1-30:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-32:checked ~ #rd-1-31:checked ~ #rd-1-30:checked ~ #rd-1-29:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-32:checked ~ #rd-1-31:checked ~ #rd-1-30:checked ~ #rd-1-29:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-28:checked ~ #rd-1-27:checked ~ #rd-1-26:checked ~ #rd-1-25:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-28:checked ~ #rd-1-27:checked ~ #rd-1-26:checked ~ #rd-1-25:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-27:checked ~ #rd-1-26:checked ~ #rd-1-25:checked ~ #rd-1-24:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-27:checked ~ #rd-1-26:checked ~ #rd-1-25:checked ~ #rd-1-24:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-26:checked ~ #rd-1-25:checked ~ #rd-1-24:checked ~ #rd-1-23:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-26:checked ~ #rd-1-25:checked ~ #rd-1-24:checked ~ #rd-1-23:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-25:checked ~ #rd-1-24:checked ~ #rd-1-23:checked ~ #rd-1-22:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-25:checked ~ #rd-1-24:checked ~ #rd-1-23:checked ~ #rd-1-22:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-21:checked ~ #rd-1-20:checked ~ #rd-1-19:checked ~ #rd-1-18:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-21:checked ~ #rd-1-20:checked ~ #rd-1-19:checked ~ #rd-1-18:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-20:checked ~ #rd-1-19:checked ~ #rd-1-18:checked ~ #rd-1-17:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-20:checked ~ #rd-1-19:checked ~ #rd-1-18:checked ~ #rd-1-17:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-19:checked ~ #rd-1-18:checked ~ #rd-1-17:checked ~ #rd-1-16:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-19:checked ~ #rd-1-18:checked ~ #rd-1-17:checked ~ #rd-1-16:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-18:checked ~ #rd-1-17:checked ~ #rd-1-16:checked ~ #rd-1-15:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-18:checked ~ #rd-1-17:checked ~ #rd-1-16:checked ~ #rd-1-15:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-14:checked ~ #rd-1-13:checked ~ #rd-1-12:checked ~ #rd-1-11:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-14:checked ~ #rd-1-13:checked ~ #rd-1-12:checked ~ #rd-1-11:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-13:checked ~ #rd-1-12:checked ~ #rd-1-11:checked ~ #rd-1-10:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-13:checked ~ #rd-1-12:checked ~ #rd-1-11:checked ~ #rd-1-10:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-12:checked ~ #rd-1-11:checked ~ #rd-1-10:checked ~ #rd-1-9:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-12:checked ~ #rd-1-11:checked ~ #rd-1-10:checked ~ #rd-1-9:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-11:checked ~ #rd-1-10:checked ~ #rd-1-9:checked ~ #rd-1-8:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-11:checked ~ #rd-1-10:checked ~ #rd-1-9:checked ~ #rd-1-8:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-7:checked ~ #rd-1-6:checked ~ #rd-1-5:checked ~ #rd-1-4:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-7:checked ~ #rd-1-6:checked ~ #rd-1-5:checked ~ #rd-1-4:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-6:checked ~ #rd-1-5:checked ~ #rd-1-4:checked ~ #rd-1-3:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-6:checked ~ #rd-1-5:checked ~ #rd-1-4:checked ~ #rd-1-3:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-5:checked ~ #rd-1-4:checked ~ #rd-1-3:checked ~ #rd-1-2:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-5:checked ~ #rd-1-4:checked ~ #rd-1-3:checked ~ #rd-1-2:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-4:checked ~ #rd-1-3:checked ~ #rd-1-2:checked ~ #rd-1-1:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-4:checked ~ #rd-1-3:checked ~ #rd-1-2:checked ~ #rd-1-1:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-42:checked ~ #rd-1-35:checked ~ #rd-1-28:checked ~ #rd-1-21:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-42:checked ~ #rd-1-35:checked ~ #rd-1-28:checked ~ #rd-1-21:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-35:checked ~ #rd-1-28:checked ~ #rd-1-21:checked ~ #rd-1-14:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-35:checked ~ #rd-1-28:checked ~ #rd-1-21:checked ~ #rd-1-14:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-28:checked ~ #rd-1-21:checked ~ #rd-1-14:checked ~ #rd-1-7:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-28:checked ~ #rd-1-21:checked ~ #rd-1-14:checked ~ #rd-1-7:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-41:checked ~ #rd-1-34:checked ~ #rd-1-27:checked ~ #rd-1-20:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-41:checked ~ #rd-1-34:checked ~ #rd-1-27:checked ~ #rd-1-20:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-34:checked ~ #rd-1-27:checked ~ #rd-1-20:checked ~ #rd-1-13:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-34:checked ~ #rd-1-27:checked ~ #rd-1-20:checked ~ #rd-1-13:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-27:checked ~ #rd-1-20:checked ~ #rd-1-13:checked ~ #rd-1-6:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-27:checked ~ #rd-1-20:checked ~ #rd-1-13:checked ~ #rd-1-6:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-40:checked ~ #rd-1-33:checked ~ #rd-1-26:checked ~ #rd-1-19:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-40:checked ~ #rd-1-33:checked ~ #rd-1-26:checked ~ #rd-1-19:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-33:checked ~ #rd-1-26:checked ~ #rd-1-19:checked ~ #rd-1-12:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-33:checked ~ #rd-1-26:checked ~ #rd-1-19:checked ~ #rd-1-12:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-26:checked ~ #rd-1-19:checked ~ #rd-1-12:checked ~ #rd-1-5:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-26:checked ~ #rd-1-19:checked ~ #rd-1-12:checked ~ #rd-1-5:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-39:checked ~ #rd-1-32:checked ~ #rd-1-25:checked ~ #rd-1-18:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-39:checked ~ #rd-1-32:checked ~ #rd-1-25:checked ~ #rd-1-18:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-32:checked ~ #rd-1-25:checked ~ #rd-1-18:checked ~ #rd-1-11:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-32:checked ~ #rd-1-25:checked ~ #rd-1-18:checked ~ #rd-1-11:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-25:checked ~ #rd-1-18:checked ~ #rd-1-11:checked ~ #rd-1-4:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-25:checked ~ #rd-1-18:checked ~ #rd-1-11:checked ~ #rd-1-4:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-38:checked ~ #rd-1-31:checked ~ #rd-1-24:checked ~ #rd-1-17:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-38:checked ~ #rd-1-31:checked ~ #rd-1-24:checked ~ #rd-1-17:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-31:checked ~ #rd-1-24:checked ~ #rd-1-17:checked ~ #rd-1-10:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-31:checked ~ #rd-1-24:checked ~ #rd-1-17:checked ~ #rd-1-10:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-24:checked ~ #rd-1-17:checked ~ #rd-1-10:checked ~ #rd-1-3:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-24:checked ~ #rd-1-17:checked ~ #rd-1-10:checked ~ #rd-1-3:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-37:checked ~ #rd-1-30:checked ~ #rd-1-23:checked ~ #rd-1-16:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-37:checked ~ #rd-1-30:checked ~ #rd-1-23:checked ~ #rd-1-16:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-30:checked ~ #rd-1-23:checked ~ #rd-1-16:checked ~ #rd-1-9:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-30:checked ~ #rd-1-23:checked ~ #rd-1-16:checked ~ #rd-1-9:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-23:checked ~ #rd-1-16:checked ~ #rd-1-9:checked ~ #rd-1-2:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-23:checked ~ #rd-1-16:checked ~ #rd-1-9:checked ~ #rd-1-2:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-36:checked ~ #rd-1-29:checked ~ #rd-1-22:checked ~ #rd-1-15:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-36:checked ~ #rd-1-29:checked ~ #rd-1-22:checked ~ #rd-1-15:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-29:checked ~ #rd-1-22:checked ~ #rd-1-15:checked ~ #rd-1-8:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-29:checked ~ #rd-1-22:checked ~ #rd-1-15:checked ~ #rd-1-8:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-22:checked ~ #rd-1-15:checked ~ #rd-1-8:checked ~ #rd-1-1:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-22:checked ~ #rd-1-15:checked ~ #rd-1-8:checked ~ #rd-1-1:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-39:checked ~ #rd-1-31:checked ~ #rd-1-23:checked ~ #rd-1-15:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-39:checked ~ #rd-1-31:checked ~ #rd-1-23:checked ~ #rd-1-15:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-40:checked ~ #rd-1-32:checked ~ #rd-1-24:checked ~ #rd-1-16:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-40:checked ~ #rd-1-32:checked ~ #rd-1-24:checked ~ #rd-1-16:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-32:checked ~ #rd-1-24:checked ~ #rd-1-16:checked ~ #rd-1-8:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-32:checked ~ #rd-1-24:checked ~ #rd-1-16:checked ~ #rd-1-8:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-41:checked ~ #rd-1-33:checked ~ #rd-1-25:checked ~ #rd-1-17:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-41:checked ~ #rd-1-33:checked ~ #rd-1-25:checked ~ #rd-1-17:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-33:checked ~ #rd-1-25:checked ~ #rd-1-17:checked ~ #rd-1-9:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-33:checked ~ #rd-1-25:checked ~ #rd-1-17:checked ~ #rd-1-9:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-25:checked ~ #rd-1-17:checked ~ #rd-1-9:checked ~ #rd-1-1:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-25:checked ~ #rd-1-17:checked ~ #rd-1-9:checked ~ #rd-1-1:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-42:checked ~ #rd-1-34:checked ~ #rd-1-26:checked ~ #rd-1-18:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-42:checked ~ #rd-1-34:checked ~ #rd-1-26:checked ~ #rd-1-18:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-34:checked ~ #rd-1-26:checked ~ #rd-1-18:checked ~ #rd-1-10:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-34:checked ~ #rd-1-26:checked ~ #rd-1-18:checked ~ #rd-1-10:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-26:checked ~ #rd-1-18:checked ~ #rd-1-10:checked ~ #rd-1-2:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-26:checked ~ #rd-1-18:checked ~ #rd-1-10:checked ~ #rd-1-2:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-35:checked ~ #rd-1-27:checked ~ #rd-1-19:checked ~ #rd-1-11:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-35:checked ~ #rd-1-27:checked ~ #rd-1-19:checked ~ #rd-1-11:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-27:checked ~ #rd-1-19:checked ~ #rd-1-11:checked ~ #rd-1-3:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-27:checked ~ #rd-1-19:checked ~ #rd-1-11:checked ~ #rd-1-3:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-28:checked ~ #rd-1-20:checked ~ #rd-1-12:checked ~ #rd-1-4:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-28:checked ~ #rd-1-20:checked ~ #rd-1-12:checked ~ #rd-1-4:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-22:checked ~ #rd-1-16:checked ~ #rd-1-10:checked ~ #rd-1-4:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-22:checked ~ #rd-1-16:checked ~ #rd-1-10:checked ~ #rd-1-4:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-29:checked ~ #rd-1-23:checked ~ #rd-1-17:checked ~ #rd-1-11:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-29:checked ~ #rd-1-23:checked ~ #rd-1-17:checked ~ #rd-1-11:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-23:checked ~ #rd-1-17:checked ~ #rd-1-11:checked ~ #rd-1-5:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-23:checked ~ #rd-1-17:checked ~ #rd-1-11:checked ~ #rd-1-5:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-36:checked ~ #rd-1-30:checked ~ #rd-1-24:checked ~ #rd-1-18:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-36:checked ~ #rd-1-30:checked ~ #rd-1-24:checked ~ #rd-1-18:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-30:checked ~ #rd-1-24:checked ~ #rd-1-18:checked ~ #rd-1-12:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-30:checked ~ #rd-1-24:checked ~ #rd-1-18:checked ~ #rd-1-12:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-24:checked ~ #rd-1-18:checked ~ #rd-1-12:checked ~ #rd-1-6:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-24:checked ~ #rd-1-18:checked ~ #rd-1-12:checked ~ #rd-1-6:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-37:checked ~ #rd-1-31:checked ~ #rd-1-25:checked ~ #rd-1-19:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-37:checked ~ #rd-1-31:checked ~ #rd-1-25:checked ~ #rd-1-19:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-31:checked ~ #rd-1-25:checked ~ #rd-1-19:checked ~ #rd-1-13:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-31:checked ~ #rd-1-25:checked ~ #rd-1-19:checked ~ #rd-1-13:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-25:checked ~ #rd-1-19:checked ~ #rd-1-13:checked ~ #rd-1-7:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-25:checked ~ #rd-1-19:checked ~ #rd-1-13:checked ~ #rd-1-7:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-38:checked ~ #rd-1-32:checked ~ #rd-1-26:checked ~ #rd-1-20:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-38:checked ~ #rd-1-32:checked ~ #rd-1-26:checked ~ #rd-1-20:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-32:checked ~ #rd-1-26:checked ~ #rd-1-20:checked ~ #rd-1-14:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-32:checked ~ #rd-1-26:checked ~ #rd-1-20:checked ~ #rd-1-14:checked ~ #draw {
+  display: none;
+}
+
+#rd-1-39:checked ~ #rd-1-33:checked ~ #rd-1-27:checked ~ #rd-1-21:checked ~ #congratulations {
+  display: block;
+}
+#rd-1-39:checked ~ #rd-1-33:checked ~ #rd-1-27:checked ~ #rd-1-21:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-42:checked ~ #rd-2-41:checked ~ #rd-2-40:checked ~ #rd-2-39:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-42:checked ~ #rd-2-41:checked ~ #rd-2-40:checked ~ #rd-2-39:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-41:checked ~ #rd-2-40:checked ~ #rd-2-39:checked ~ #rd-2-38:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-41:checked ~ #rd-2-40:checked ~ #rd-2-39:checked ~ #rd-2-38:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-40:checked ~ #rd-2-39:checked ~ #rd-2-38:checked ~ #rd-2-37:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-40:checked ~ #rd-2-39:checked ~ #rd-2-38:checked ~ #rd-2-37:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-39:checked ~ #rd-2-38:checked ~ #rd-2-37:checked ~ #rd-2-36:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-39:checked ~ #rd-2-38:checked ~ #rd-2-37:checked ~ #rd-2-36:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-35:checked ~ #rd-2-34:checked ~ #rd-2-33:checked ~ #rd-2-32:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-35:checked ~ #rd-2-34:checked ~ #rd-2-33:checked ~ #rd-2-32:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-34:checked ~ #rd-2-33:checked ~ #rd-2-32:checked ~ #rd-2-31:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-34:checked ~ #rd-2-33:checked ~ #rd-2-32:checked ~ #rd-2-31:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-33:checked ~ #rd-2-32:checked ~ #rd-2-31:checked ~ #rd-2-30:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-33:checked ~ #rd-2-32:checked ~ #rd-2-31:checked ~ #rd-2-30:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-32:checked ~ #rd-2-31:checked ~ #rd-2-30:checked ~ #rd-2-29:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-32:checked ~ #rd-2-31:checked ~ #rd-2-30:checked ~ #rd-2-29:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-28:checked ~ #rd-2-27:checked ~ #rd-2-26:checked ~ #rd-2-25:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-28:checked ~ #rd-2-27:checked ~ #rd-2-26:checked ~ #rd-2-25:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-27:checked ~ #rd-2-26:checked ~ #rd-2-25:checked ~ #rd-2-24:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-27:checked ~ #rd-2-26:checked ~ #rd-2-25:checked ~ #rd-2-24:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-26:checked ~ #rd-2-25:checked ~ #rd-2-24:checked ~ #rd-2-23:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-26:checked ~ #rd-2-25:checked ~ #rd-2-24:checked ~ #rd-2-23:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-25:checked ~ #rd-2-24:checked ~ #rd-2-23:checked ~ #rd-2-22:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-25:checked ~ #rd-2-24:checked ~ #rd-2-23:checked ~ #rd-2-22:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-21:checked ~ #rd-2-20:checked ~ #rd-2-19:checked ~ #rd-2-18:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-21:checked ~ #rd-2-20:checked ~ #rd-2-19:checked ~ #rd-2-18:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-20:checked ~ #rd-2-19:checked ~ #rd-2-18:checked ~ #rd-2-17:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-20:checked ~ #rd-2-19:checked ~ #rd-2-18:checked ~ #rd-2-17:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-19:checked ~ #rd-2-18:checked ~ #rd-2-17:checked ~ #rd-2-16:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-19:checked ~ #rd-2-18:checked ~ #rd-2-17:checked ~ #rd-2-16:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-18:checked ~ #rd-2-17:checked ~ #rd-2-16:checked ~ #rd-2-15:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-18:checked ~ #rd-2-17:checked ~ #rd-2-16:checked ~ #rd-2-15:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-14:checked ~ #rd-2-13:checked ~ #rd-2-12:checked ~ #rd-2-11:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-14:checked ~ #rd-2-13:checked ~ #rd-2-12:checked ~ #rd-2-11:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-13:checked ~ #rd-2-12:checked ~ #rd-2-11:checked ~ #rd-2-10:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-13:checked ~ #rd-2-12:checked ~ #rd-2-11:checked ~ #rd-2-10:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-12:checked ~ #rd-2-11:checked ~ #rd-2-10:checked ~ #rd-2-9:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-12:checked ~ #rd-2-11:checked ~ #rd-2-10:checked ~ #rd-2-9:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-11:checked ~ #rd-2-10:checked ~ #rd-2-9:checked ~ #rd-2-8:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-11:checked ~ #rd-2-10:checked ~ #rd-2-9:checked ~ #rd-2-8:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-7:checked ~ #rd-2-6:checked ~ #rd-2-5:checked ~ #rd-2-4:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-7:checked ~ #rd-2-6:checked ~ #rd-2-5:checked ~ #rd-2-4:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-6:checked ~ #rd-2-5:checked ~ #rd-2-4:checked ~ #rd-2-3:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-6:checked ~ #rd-2-5:checked ~ #rd-2-4:checked ~ #rd-2-3:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-5:checked ~ #rd-2-4:checked ~ #rd-2-3:checked ~ #rd-2-2:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-5:checked ~ #rd-2-4:checked ~ #rd-2-3:checked ~ #rd-2-2:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-4:checked ~ #rd-2-3:checked ~ #rd-2-2:checked ~ #rd-2-1:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-4:checked ~ #rd-2-3:checked ~ #rd-2-2:checked ~ #rd-2-1:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-42:checked ~ #rd-2-35:checked ~ #rd-2-28:checked ~ #rd-2-21:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-42:checked ~ #rd-2-35:checked ~ #rd-2-28:checked ~ #rd-2-21:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-35:checked ~ #rd-2-28:checked ~ #rd-2-21:checked ~ #rd-2-14:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-35:checked ~ #rd-2-28:checked ~ #rd-2-21:checked ~ #rd-2-14:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-28:checked ~ #rd-2-21:checked ~ #rd-2-14:checked ~ #rd-2-7:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-28:checked ~ #rd-2-21:checked ~ #rd-2-14:checked ~ #rd-2-7:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-41:checked ~ #rd-2-34:checked ~ #rd-2-27:checked ~ #rd-2-20:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-41:checked ~ #rd-2-34:checked ~ #rd-2-27:checked ~ #rd-2-20:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-34:checked ~ #rd-2-27:checked ~ #rd-2-20:checked ~ #rd-2-13:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-34:checked ~ #rd-2-27:checked ~ #rd-2-20:checked ~ #rd-2-13:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-27:checked ~ #rd-2-20:checked ~ #rd-2-13:checked ~ #rd-2-6:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-27:checked ~ #rd-2-20:checked ~ #rd-2-13:checked ~ #rd-2-6:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-40:checked ~ #rd-2-33:checked ~ #rd-2-26:checked ~ #rd-2-19:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-40:checked ~ #rd-2-33:checked ~ #rd-2-26:checked ~ #rd-2-19:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-33:checked ~ #rd-2-26:checked ~ #rd-2-19:checked ~ #rd-2-12:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-33:checked ~ #rd-2-26:checked ~ #rd-2-19:checked ~ #rd-2-12:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-26:checked ~ #rd-2-19:checked ~ #rd-2-12:checked ~ #rd-2-5:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-26:checked ~ #rd-2-19:checked ~ #rd-2-12:checked ~ #rd-2-5:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-39:checked ~ #rd-2-32:checked ~ #rd-2-25:checked ~ #rd-2-18:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-39:checked ~ #rd-2-32:checked ~ #rd-2-25:checked ~ #rd-2-18:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-32:checked ~ #rd-2-25:checked ~ #rd-2-18:checked ~ #rd-2-11:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-32:checked ~ #rd-2-25:checked ~ #rd-2-18:checked ~ #rd-2-11:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-25:checked ~ #rd-2-18:checked ~ #rd-2-11:checked ~ #rd-2-4:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-25:checked ~ #rd-2-18:checked ~ #rd-2-11:checked ~ #rd-2-4:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-38:checked ~ #rd-2-31:checked ~ #rd-2-24:checked ~ #rd-2-17:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-38:checked ~ #rd-2-31:checked ~ #rd-2-24:checked ~ #rd-2-17:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-31:checked ~ #rd-2-24:checked ~ #rd-2-17:checked ~ #rd-2-10:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-31:checked ~ #rd-2-24:checked ~ #rd-2-17:checked ~ #rd-2-10:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-24:checked ~ #rd-2-17:checked ~ #rd-2-10:checked ~ #rd-2-3:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-24:checked ~ #rd-2-17:checked ~ #rd-2-10:checked ~ #rd-2-3:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-37:checked ~ #rd-2-30:checked ~ #rd-2-23:checked ~ #rd-2-16:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-37:checked ~ #rd-2-30:checked ~ #rd-2-23:checked ~ #rd-2-16:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-30:checked ~ #rd-2-23:checked ~ #rd-2-16:checked ~ #rd-2-9:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-30:checked ~ #rd-2-23:checked ~ #rd-2-16:checked ~ #rd-2-9:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-23:checked ~ #rd-2-16:checked ~ #rd-2-9:checked ~ #rd-2-2:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-23:checked ~ #rd-2-16:checked ~ #rd-2-9:checked ~ #rd-2-2:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-36:checked ~ #rd-2-29:checked ~ #rd-2-22:checked ~ #rd-2-15:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-36:checked ~ #rd-2-29:checked ~ #rd-2-22:checked ~ #rd-2-15:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-29:checked ~ #rd-2-22:checked ~ #rd-2-15:checked ~ #rd-2-8:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-29:checked ~ #rd-2-22:checked ~ #rd-2-15:checked ~ #rd-2-8:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-22:checked ~ #rd-2-15:checked ~ #rd-2-8:checked ~ #rd-2-1:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-22:checked ~ #rd-2-15:checked ~ #rd-2-8:checked ~ #rd-2-1:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-39:checked ~ #rd-2-31:checked ~ #rd-2-23:checked ~ #rd-2-15:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-39:checked ~ #rd-2-31:checked ~ #rd-2-23:checked ~ #rd-2-15:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-40:checked ~ #rd-2-32:checked ~ #rd-2-24:checked ~ #rd-2-16:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-40:checked ~ #rd-2-32:checked ~ #rd-2-24:checked ~ #rd-2-16:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-32:checked ~ #rd-2-24:checked ~ #rd-2-16:checked ~ #rd-2-8:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-32:checked ~ #rd-2-24:checked ~ #rd-2-16:checked ~ #rd-2-8:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-41:checked ~ #rd-2-33:checked ~ #rd-2-25:checked ~ #rd-2-17:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-41:checked ~ #rd-2-33:checked ~ #rd-2-25:checked ~ #rd-2-17:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-33:checked ~ #rd-2-25:checked ~ #rd-2-17:checked ~ #rd-2-9:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-33:checked ~ #rd-2-25:checked ~ #rd-2-17:checked ~ #rd-2-9:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-25:checked ~ #rd-2-17:checked ~ #rd-2-9:checked ~ #rd-2-1:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-25:checked ~ #rd-2-17:checked ~ #rd-2-9:checked ~ #rd-2-1:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-42:checked ~ #rd-2-34:checked ~ #rd-2-26:checked ~ #rd-2-18:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-42:checked ~ #rd-2-34:checked ~ #rd-2-26:checked ~ #rd-2-18:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-34:checked ~ #rd-2-26:checked ~ #rd-2-18:checked ~ #rd-2-10:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-34:checked ~ #rd-2-26:checked ~ #rd-2-18:checked ~ #rd-2-10:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-26:checked ~ #rd-2-18:checked ~ #rd-2-10:checked ~ #rd-2-2:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-26:checked ~ #rd-2-18:checked ~ #rd-2-10:checked ~ #rd-2-2:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-35:checked ~ #rd-2-27:checked ~ #rd-2-19:checked ~ #rd-2-11:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-35:checked ~ #rd-2-27:checked ~ #rd-2-19:checked ~ #rd-2-11:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-27:checked ~ #rd-2-19:checked ~ #rd-2-11:checked ~ #rd-2-3:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-27:checked ~ #rd-2-19:checked ~ #rd-2-11:checked ~ #rd-2-3:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-28:checked ~ #rd-2-20:checked ~ #rd-2-12:checked ~ #rd-2-4:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-28:checked ~ #rd-2-20:checked ~ #rd-2-12:checked ~ #rd-2-4:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-22:checked ~ #rd-2-16:checked ~ #rd-2-10:checked ~ #rd-2-4:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-22:checked ~ #rd-2-16:checked ~ #rd-2-10:checked ~ #rd-2-4:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-29:checked ~ #rd-2-23:checked ~ #rd-2-17:checked ~ #rd-2-11:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-29:checked ~ #rd-2-23:checked ~ #rd-2-17:checked ~ #rd-2-11:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-23:checked ~ #rd-2-17:checked ~ #rd-2-11:checked ~ #rd-2-5:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-23:checked ~ #rd-2-17:checked ~ #rd-2-11:checked ~ #rd-2-5:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-36:checked ~ #rd-2-30:checked ~ #rd-2-24:checked ~ #rd-2-18:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-36:checked ~ #rd-2-30:checked ~ #rd-2-24:checked ~ #rd-2-18:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-30:checked ~ #rd-2-24:checked ~ #rd-2-18:checked ~ #rd-2-12:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-30:checked ~ #rd-2-24:checked ~ #rd-2-18:checked ~ #rd-2-12:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-24:checked ~ #rd-2-18:checked ~ #rd-2-12:checked ~ #rd-2-6:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-24:checked ~ #rd-2-18:checked ~ #rd-2-12:checked ~ #rd-2-6:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-37:checked ~ #rd-2-31:checked ~ #rd-2-25:checked ~ #rd-2-19:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-37:checked ~ #rd-2-31:checked ~ #rd-2-25:checked ~ #rd-2-19:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-31:checked ~ #rd-2-25:checked ~ #rd-2-19:checked ~ #rd-2-13:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-31:checked ~ #rd-2-25:checked ~ #rd-2-19:checked ~ #rd-2-13:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-25:checked ~ #rd-2-19:checked ~ #rd-2-13:checked ~ #rd-2-7:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-25:checked ~ #rd-2-19:checked ~ #rd-2-13:checked ~ #rd-2-7:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-38:checked ~ #rd-2-32:checked ~ #rd-2-26:checked ~ #rd-2-20:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-38:checked ~ #rd-2-32:checked ~ #rd-2-26:checked ~ #rd-2-20:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-32:checked ~ #rd-2-26:checked ~ #rd-2-20:checked ~ #rd-2-14:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-32:checked ~ #rd-2-26:checked ~ #rd-2-20:checked ~ #rd-2-14:checked ~ #draw {
+  display: none;
+}
+
+#rd-2-39:checked ~ #rd-2-33:checked ~ #rd-2-27:checked ~ #rd-2-21:checked ~ #congratulations {
+  display: block;
+}
+#rd-2-39:checked ~ #rd-2-33:checked ~ #rd-2-27:checked ~ #rd-2-21:checked ~ #draw {
+  display: none;
+}
+
+.hand {
   position: absolute;
-  width: 20%;
+  width: 150px;
+  bottom: 100vmax;
+  transition: all 0.5s;
+  pointer-events: none;
+  z-index: -1;
+  transform: translate3d(200px, 0, 0);
+}
+.hand .piece {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 46px;
+  width: 46px;
+  border-radius: 100%;
+  background: #D01F3C;
+}
+.hand .finger {
+  border-radius: 40px;
+  background-color: #eaac83;
+  width: 30px;
+  height: 100px;
+  position: absolute;
+  bottom: 35px;
+}
+.hand .finger.finger-1 {
+  width: 37px;
+  left: 5px;
+  height: 130px;
+  background-color: #eebb99;
+}
+.hand .finger.finger-2 {
+  left: -3px;
+  bottom: 25px;
+  height: 130px;
+}
+.hand .finger.finger-3 {
+  left: 29px;
+  bottom: 30px;
+}
+.hand .finger.finger-4 {
+  left: 60px;
+  height: 70px;
+  bottom: 40px;
+}
+.hand .finger.finger-5 {
+  left: 91px;
+  height: 100px;
+  bottom: 45px;
+}
+.hand .finger.fist {
+  width: 124px;
+  left: -3px;
+  background-color: #eebb99;
+  bottom: 90px;
+}
+.hand .finger.arm {
+  width: 70px;
+  left: 24px;
+  bottom: 150px;
+  background-color: #eebb99;
+}
+.hand .shirt {
+  position: absolute;
+  bottom: 200px;
+  background: white;
+  width: 100px;
+  left: 9px;
+  height: 100vmax;
+}
+.hand#hand2 .shirt {
+  background: #bef;
+}
+.hand#hand2 .piece {
+  background: #FFFF33;
+}
+
+#congratulations, #draw {
+  display: none;
+  position: absolute;
+  margin: -220% -60%;
+  background: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  color: white;
+  font-family: arial, verdana, sans-serif;
+  width: 400px;
+  height: 200px;
+}
+#congratulations input, #draw input {
+  background: #3355ff;
+  padding: 12px 32px;
+  color: white;
+  font-size: 18px;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+.container2 {
+  width: 100%;
   height: 100%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 110%;
+  visibility: hidden;
+}
+.switch {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 750px;
+  height: 320px;
+  border-radius: 75px;
+  display: grid;
+  grid-template-columns: 15% 1fr 15%;
+}
+.switch > * {
+  position: relative;
+}
+.switch .joycon-blue > div,
+.switch .joycon-red > div {
+  position: relative;
+}
+.switch .joycon-blue {
+  height: 100%;
+  background-color: #00c3e3;
+  box-shadow: inset 0.125em -0.125em 0.3em rgba(68, 68, 68, 0.4), inset -0.3em 0 0.0625em -0.25em rgba(34, 34, 34, 0.5), inset 0.4em 0.5em 0.5em -0.25em rgba(255, 255, 255, 0.6), 0.04em 0.25em 0 -0.3em #333;
+  border-top-left-radius: 75px;
+  border-bottom-left-radius: 75px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 5px;
+}
+.switch .joycon-blue .select-btn {
+  width: 20px;
+  height: 6px;
+  background-color: #414548;
+  left: 72%;
+  top: 10%;
+  border-radius: 0.0675em;
+  box-shadow: inset 0 -0.03125em 0.0625em rgba(0, 0, 0, 0.5), inset 0 0.03125em rgba(255, 255, 255, 0.2), 0 0 0.03125em 0.03125em rgba(0, 0, 0, 0.5), 0 0.09125em 0.125em -0.03125em rgba(0, 0, 0, 0.4);
+}
+.switch .joycon-blue .joystick {
+  top: 18%;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: #414548;
+  left: calc(50% - 25px);
+  border-radius: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0.14em 100%, 100% 0.14em, 100%;
+  background-image: linear-gradient(to bottom, #222, #111), linear-gradient(to bottom, #222, #333), linear-gradient(to bottom, #777, #111);
+  box-shadow: inset 0 -0.06em 0.125em black, inset 0 0.125em 0.125em -0.0325em rgba(0, 0, 0, 0.2), inset 0 0.18em 0.125em -0.0625em rgba(255, 255, 255, 0.3), 0 0 0.09em 0.0625em rgba(0, 0, 0, 0.75), 0 0.375em 1em 0.0625em rgba(0, 0, 0, 0.4);
+}
+.switch .joycon-blue .joystick:before, .switch .joycon-blue .joystick:after {
+  content: "";
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  border-radius: 100%;
+  left: 12%;
+  top: 12%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: linear-gradient(to bottom, #555, #222);
+}
+.switch .joycon-blue .joystick:before {
+  width: 85%;
+  height: 85%;
+  left: 7%;
+  top: 7%;
+  background-size: 0.14em 100%, 100% 0.14em, 100%;
+  background-image: linear-gradient(to bottom, #444, #111), linear-gradient(to bottom, #222, #333), linear-gradient(to bottom, #222, #666);
+}
+.switch .joycon-blue .button-group {
+  width: 45px;
+  height: 45px;
+  left: calc(50% - 32.5px);
+  top: 26%;
+}
+.switch .joycon-blue .button-group .button {
+  position: absolute;
+  width: 45%;
+  height: 45%;
+  background-color: #414548;
+  border-radius: 100%;
+  box-shadow: inset 0 -0.0625em 0.125em rgba(0, 0, 0, 0.75), inset 0 0.125em 0.125em -0.0625em rgba(255, 255, 255, 0.4), 0 0 0.03125em 0.0625em rgba(0, 0, 0, 0.6), 0 0.0625em 0.25em 0.03125em rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+.switch .joycon-blue .button-group .button:after {
+  content: "";
+}
+.switch .joycon-blue .button-group .button.up {
+  top: 0;
+  left: 50%;
+}
+.switch .joycon-blue .button-group .button.up:after {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  border-bottom: 8px solid #222;
+}
+.switch .joycon-blue .button-group .button.down {
+  top: 100%;
+  left: 50%;
+}
+.switch .joycon-blue .button-group .button.down:after {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  border-top: 8px solid #222;
+}
+.switch .joycon-blue .button-group .button.left {
+  top: 50%;
+  left: 0;
+}
+.switch .joycon-blue .button-group .button.left:after {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-right: 8px solid #222;
+}
+.switch .joycon-blue .button-group .button.right {
+  top: 50%;
+  left: 100%;
+}
+.switch .joycon-blue .button-group .button.right:after {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 8px solid #222;
+}
+.switch .joycon-blue .capture-btn {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #414548;
+  bottom: 22%;
+  left: 60%;
+  border-radius: 0.125em;
+  box-shadow: inset 0 0.25em 0.5em -0.0625em rgba(255, 255, 255, 0.1), inset 0 0.015em 0.03125em rgba(255, 255, 255, 0.4), inset 0 0 0.03125em 0.03125em black, 0 0.015em 0 0.03125em rgba(0, 0, 0, 0.75), 0 0.015em 0.05em 0.0625em rgba(0, 0, 0, 0.5);
+}
+.switch .joycon-blue .capture-btn:after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 100%;
+  background-image: linear-gradient(to bottom, #222, #333);
+  box-shadow: inset 0 0.0125em 0 0.03125em rgba(0, 0, 0, 0.6), inset 0 -0.0125em 0 0.06125em rgba(255, 255, 255, 0.4), 0.015em -0.03125em 0.0125em rgba(0, 0, 0, 0.7);
+}
+.switch .joycon-blue .shoulder.left {
+  position: absolute;
+  z-index: -1;
+  top: -.25em;
+  width: 6.5em;
+  height: 4.5em;
+  background-color: #414548;
+  left: -.25em;
+  border-radius: 6em 1em 0 0;
+}
+.switch .screen {
+  background-color: #414548;
+  border-radius: 10px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  box-shadow: inset 0 -1.25em 0.5em -1em rgba(0, 0, 0, 0.5), inset 0.125em 0 rgba(255, 255, 255, 0.2), inset -0.125em 0 rgba(255, 255, 255, 0.2);
+}
+.switch .screen:before, .switch .screen:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+}
+.switch .screen:before {
+  height: 15px;
+  background-image: linear-gradient(to bottom, #414548, rgba(152, 152, 152, 0.4), #414548);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: inset 0.125em 0 rgba(255, 255, 255, 0.2), inset -0.125em 0 rgba(255, 255, 255, 0.2);
+}
+.switch .game-video {
+  width: 88%;
+  height: 85%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 10px;
+}
+.switch .game-video video {
+  position: absolute;
+  top: 0;
+}
+.switch .glass-overlay {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  box-sizing: border-box;
+  width: 93%;
+  height: 92%;
+  border-top: 25px solid black;
+  border-bottom: 25px solid black;
+  border-left: 35px solid black;
+  border-right: 35px solid black;
+  border-radius: 10px;
   overflow: hidden;
-  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+  background-size: 420px 100%, 100px 100px, 10px 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0, 50% 50%, 50% 0;
+  background-image: linear-gradient(120deg, transparent 20%, rgba(133, 229, 229, 0.3) 20%, 25%, transparent 25%, 30%, rgba(255, 255, 255, 0.3) 30%, 40%, transparent 40%, rgba(133, 229, 229, 0.3) 40%, 45%, rgba(255, 255, 255, 0.3) 45%, 48%, transparent 48%, 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 70%, rgba(133, 229, 229, 0.3) 70%, 75%, transparent 75%);
 }
-.wheatley .sides > div:before {
+.switch .joycon-red {
+  height: 100%;
+  background-color: #ff4554;
+  border-top-right-radius: 75px;
+  border-bottom-right-radius: 75px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 5px;
+  box-shadow: inset -0.125em 0.125em 0.3em rgba(68, 68, 68, 0.4), inset 0.3em 0 0.0625em -0.25em rgba(34, 34, 34, 0.5), inset -0.4em 0.5em 0.5em -0.25em rgba(255, 255, 255, 0.6), -0.04em 0.25em 0 -0.3em #333;
+}
+.switch .joycon-red .start-btn {
+  width: 7px;
+  height: 20px;
+  background-color: #414548;
+  top: 8%;
+  left: 15%;
+  box-shadow: 0 0 0.03125em rgba(0, 0, 0, 0.6), 0 0.09375em 0.125em -0.03125em rgba(0, 0, 0, 0.5);
+}
+.switch .joycon-red .start-btn:before, .switch .joycon-red .start-btn:after {
+  content: "";
   position: absolute;
-  width: 15em;
-  height: 15em;
-  border: 3em solid #F8F4F0;
-  border-radius: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #414548;
+  border-radius: 0.0675em;
 }
-.wheatley .sides > div.left {
-  left: 5%;
+.switch .joycon-red .start-btn:before {
+  height: 7px;
+  width: 20px;
+  box-shadow: inset 0 -0.03125em 0.0625em rgba(0, 0, 0, 0.5), inset 0 0.03125em rgba(255, 255, 255, 0.2), 0 0 0.03125em 0.03125em rgba(0, 0, 0, 0.6), 0 0.09375em 0.125em -0.03125em rgba(0, 0, 0, 0.4);
 }
-.wheatley .sides > div.left:before {
-  left: -25%;
+.switch .joycon-red .start-btn:after {
+  width: 7px;
+  height: 20px;
+  box-shadow: inset 0 -0.09375em 0.0625em -0.0624em rgba(0, 0, 0, 0.5), inset 0 0.03125em rgba(255, 255, 255, 0.2);
 }
-.wheatley .sides > div.left:after {
-  width: 0.75em;
-  height: 0.75em;
-  background: #B2B3B9;
-  border-radius: 100%;
+.switch .joycon-red .button-group {
+  width: 45px;
+  height: 45px;
+  left: calc(50% - 32.5px);
+  top: -3%;
+}
+.switch .joycon-red .button-group .button {
   position: absolute;
-  left: 40%;
+  width: 45%;
+  height: 45%;
+  background-color: #414548;
+  border-radius: 100%;
+  box-shadow: inset 0 -0.0625em 0.125em rgba(0, 0, 0, 0.75), inset 0 0.125em 0.125em -0.0625em rgba(255, 255, 255, 0.4), 0 0 0.03125em 0.0625em rgba(0, 0, 0, 0.6), 0 0.0625em 0.25em 0.03125em rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+.switch .joycon-red .button-group .button:after {
+  font-family: "Arial";
+  font-size: 0.7em;
+}
+.switch .joycon-red .button-group .button.x {
+  top: 0;
+  left: 50%;
+}
+.switch .joycon-red .button-group .button.x:after {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  content: "X";
+}
+.switch .joycon-red .button-group .button.a {
+  top: 100%;
+  left: 50%;
+}
+.switch .joycon-red .button-group .button.a:after {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  content: "A";
+}
+.switch .joycon-red .button-group .button.b {
+  top: 50%;
+  left: 0;
+}
+.switch .joycon-red .button-group .button.b:after {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  content: "B";
+}
+.switch .joycon-red .button-group .button.y {
+  top: 50%;
+  left: 100%;
+}
+.switch .joycon-red .button-group .button.y:after {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  content: "Y";
+}
+.switch .joycon-red .joystick {
+  top: 40%;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: #414548;
+  left: calc(50% - 25px);
+  border-radius: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0.14em 100%, 100% 0.14em, 100%;
+  background-image: linear-gradient(to bottom, #222, #111), linear-gradient(to bottom, #222, #333), linear-gradient(to bottom, #777, #111);
+  box-shadow: inset 0 -0.06em 0.125em black, inset 0 0.125em 0.125em -0.0325em rgba(0, 0, 0, 0.2), inset 0 0.18em 0.125em -0.0625em rgba(255, 255, 255, 0.3), 0 0 0.09em 0.0625em rgba(0, 0, 0, 0.75), 0 0.375em 1em 0.0625em rgba(0, 0, 0, 0.4);
+}
+.switch .joycon-red .joystick:before, .switch .joycon-red .joystick:after {
+  content: "";
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  border-radius: 100%;
+  left: 12%;
+  top: 12%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: linear-gradient(to bottom, #555, #222);
+}
+.switch .joycon-red .joystick:before {
+  width: 85%;
+  height: 85%;
+  left: 7%;
+  top: 7%;
+  background-size: 0.14em 100%, 100% 0.14em, 100%;
+  background-image: linear-gradient(to bottom, #444, #111), linear-gradient(to bottom, #222, #333), linear-gradient(to bottom, #222, #666);
+}
+.switch .joycon-red .home-btn {
+  position: absolute;
+  bottom: 22%;
+  width: 20px;
+  height: 20px;
+  left: 20%;
+  background-color: #444;
+  border-radius: 100%;
+  box-shadow: inset 0 0 0 0.09em #9b9b9b, inset 0 0.25em 0.5em rgba(255, 255, 255, 0.2), inset 0 0 0.03125em black, 0 0.0155em 0.03125em 0.0625em rgba(0, 0, 0, 0.6);
+}
+.switch .joycon-red .home-btn:before, .switch .joycon-red .home-btn:after {
+  content: "";
+  position: absolute;
+  transform: translate(-50%, -50%) scale(1.15);
+  top: 50%;
+  left: 50%;
+  display: block;
+  box-sizing: border-box;
+}
+.switch .joycon-red .home-btn:before {
+  height: 6px;
+  width: 7px;
+  background-color: #444;
+  border: 0.025em solid #111;
+  box-shadow: inset 0 0 0 0.1em #111, inset 0.12em 0 0 #111, inset -0.12em 0 0 #111, 0 0.0625em 0 -0.03125em rgba(255, 255, 255, 0.1);
+}
+.switch .joycon-red .home-btn:after {
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-bottom: 4px solid #111;
   top: 30%;
 }
-.wheatley .sides > div.right {
-  right: 5%;
-}
-.wheatley .sides > div.right:before {
-  right: -25%;
-}
-.wheatley .inner-sphere {
+.switch .joycon-red .shoulder.right {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: calc(100% - 0.5em);
-  height: calc(100% - 0.5em);
-  border-radius: 100%;
-  overflow: hidden;
-}
-.wheatley .inner-sphere .track {
-  position: relative;
-  width: 50%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  height: 130%;
-  z-index: 2;
-  transition: 0.8s ease all;
-  background: linear-gradient(180deg, #d1d1d1 0%, #f8f4f0 40%, #f8f4f0) 60%, #d1d1d1;
-}
-.wheatley .inner-sphere .track:before {
-  position: absolute;
-  width: 0.3em;
-  height: 100%;
-  background: #B2B3B9;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.wheatley .inner-sphere .track .ring-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  width: 8.8em;
-  height: 8.8em;
-  border-radius: 100%;
-  border: 0.3em solid #B2B3B9;
-  overflow: hidden;
-  background: #595A59;
-}
-.wheatley .inner-sphere .track .ring-container .eye-ring {
-  position: relative;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  border: 2em solid #F8F4F0;
-  border-radius: 100%;
-  transition: 0.8s ease all;
-  transform-origin: 50% 50%;
-}
-.wheatley .inner-sphere .track .ring-container .eye-ring:before, .wheatley .inner-sphere .track .ring-container .eye-ring:after {
-  position: absolute;
-  left: 50%;
-  width: 0.3em;
-  background: #B2B3B9;
-  transform: translate(-50%, 0);
-  height: 2em;
-}
-.wheatley .inner-sphere .track .ring-container .eye-ring:before {
-  top: -2em;
-}
-.wheatley .inner-sphere .track .ring-container .eye-ring:after {
-  bottom: -2em;
-}
-.wheatley .inner-sphere .track .ring-container .eye-ring .eye {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.9);
-  border-radius: 100%;
-  overflow: hidden;
-  background: #404040;
-  border: 0.15em solid #B2B3B9;
-}
-.wheatley .inner-sphere .track .ring-container .eye-ring .eye:before, .wheatley .inner-sphere .track .ring-container .eye-ring .eye:after {
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  background-color: #F8F4F0;
-  z-index: 1;
-  transition: 0.8s ease all;
-}
-.wheatley .inner-sphere .track .ring-container .eye-ring .eye:before {
-  top: -40%;
-}
-.wheatley .inner-sphere .track .ring-container .eye-ring .eye:after {
-  bottom: -40%;
-}
-.wheatley .inner-sphere .track .ring-container .eye-ring .eye i {
-  position: relative;
-  display: block;
-  border: 0.15em solid #595A59;
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
-  transition: 0.8s ease all;
-  background: radial-gradient(circle, #bbf0ff 0%, #2e7bff 37%, #1839e3 75%, #010a19 100%);
-}
-.wheatley .arm {
-  z-index: 20;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  width: 75%;
-  left: 50%;
-  height: 3em;
-  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
-  transition: 0.8s ease all;
-}
-.wheatley .arm:before {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 0.5em;
-  background: #F8F4F0;
-  top: 0.3em;
-}
-.wheatley .arm .curve {
-  position: relative;
-  width: 55%;
-  height: 1.5em;
-  overflow: hidden;
-}
-.wheatley .arm .curve:before {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: 12em;
-  height: 200%;
-  border: 0.8em solid #595A59;
-  border-radius: 100%;
-}
-.wheatley .arm .side {
-  position: absolute;
-  width: 0.5em;
-  bottom: 0;
-  height: calc(100% - 0.3em);
-  background: #595A59;
-}
-.wheatley .arm .side.left {
-  left: 0;
-}
-.wheatley .arm .side.right {
-  right: 0;
-}
-.wheatley .arm.top {
-  bottom: 80%;
-  transform: translate(-50%, 0);
-}
-.wheatley .arm.bottom {
-  top: 80%;
-  transform: scaleY(-1) translate(-50%, 0);
-} */
-
-/* .space {
-  position: fixed;
-  bottom: -20em;
-  left: -20em;
-  z-index: 0;
-  transition: none;
-  -webkit-animation: none;
-          animation: none;
-}
-.space .wheatley-inner {
-  -webkit-animation: spin 1s linear infinite;
-          animation: spin 1s linear infinite;
-}
-.space .wheatley-inner i {
-  background: radial-gradient(circle, #e0a316 0%, #e0a316 41%, #211802 77%, #211802 100%) !important;
-  -webkit-animation: none !important;
-          animation: none !important;
+  z-index: -1;
+  top: -0.25em;
+  width: 6.5em;
+  height: 4.5em;
+  background-color: #414548;
+  right: -0.25em;
+  border-radius: 1em 6em 0 0;
 }
 
-input#space:checked ~ .wheatley.space {
-  bottom: calc(100% + 15em);
-  left: calc(100% + 15em);
-  transition: 3s linear all;
-}
-
-input#happy:checked ~ .wheatley .wheatley-inner {
-  transform: rotate(-10deg);
-}
-input#happy:checked ~ .wheatley .eye-ring {
-  transform: translate(0%, -10%);
-}
-input#happy:checked ~ .wheatley .track {
-  transform: translate(-50%, -60%);
-}
-input#happy:checked ~ .wheatley .eye:after {
-  bottom: -10%;
-}
-input#happy:checked ~ .wheatley .arm.top {
-  height: 5em;
-}
-input#happy:checked ~ .wheatley .arm.bottom {
-  height: 1em;
-}
-
-input#sad:checked ~ .wheatley .track {
-  transform: translate(-50%, -45%);
-}
-input#sad:checked ~ .wheatley .eye-inner {
-  top: 10%;
-}
-input#sad:checked ~ .wheatley .eye:before {
-  top: -10%;
-}
-input#sad:checked ~ .wheatley .eye-ring {
-  transform: translate(0%, 10%);
-}
-input#sad:checked ~ .wheatley .eye-ring i {
-  transform: translate(0%, 20%);
-}
-input#sad:checked ~ .wheatley .arm.top {
-  height: 1em;
-}
-input#sad:checked ~ .wheatley .arm.bottom {
-  height: 5em;
-}
-
-input#angry:checked ~ .wheatley .wheatley-inner {
-  -webkit-animation: shake 0.1s infinite ease;
-          animation: shake 0.1s infinite ease;
-}
-input#angry:checked ~ .wheatley .eye:before {
-  top: -10%;
-}
-input#angry:checked ~ .wheatley .eye:after {
-  bottom: -10%;
-}
-input#angry:checked ~ .wheatley .arm {
-  height: 2em;
-}
-
-input#thinking:checked ~ .wheatley .wheatley-inner {
-  transform: rotate(10deg);
-}
-input#thinking:checked ~ .wheatley .eye-ring {
-  transform: translate(-10%, -10%) rotate(10deg);
-}
-input#thinking:checked ~ .wheatley .eye-ring i {
-  transform: translate(-10%, -10%);
-}
-input#thinking:checked ~ .wheatley .track {
-  transform: translate(-50%, -55%);
-}
-input#thinking:checked ~ .wheatley .arm.bottom {
-  height: 1em;
-}
-
-input#shocked:checked ~ .wheatley .eye:before {
-  top: -50%;
-}
-input#shocked:checked ~ .wheatley .eye:after {
-  bottom: -50%;
-}
-input#shocked:checked ~ .wheatley .arm {
-  height: 6em;
-}
-
-@-webkit-keyframes float {
-  0% {
-    transform: translate(0%, -5%);
-  }
-  50% {
-    transform: translate(0%, 5%);
-  }
-  100% {
-    transform: translate(0%, -5%);
-  }
-}
-
-@keyframes float {
-  0% {
-    transform: translate(0%, -5%);
-  }
-  50% {
-    transform: translate(0%, 5%);
-  }
-  100% {
-    transform: translate(0%, -5%);
-  }
-}
-@-webkit-keyframes shake {
-  0% {
-    transform: translate(-1%, 0%);
-  }
-  50% {
-    transform: translate(1%, 0%);
-  }
-  100% {
-    transform: translate(-1%, 0%);
-  }
-}
-@keyframes shake {
-  0% {
-    transform: translate(-1%, 0%);
-  }
-  50% {
-    transform: translate(1%, 0%);
-  }
-  100% {
-    transform: translate(-1%, 0%);
-  }
-}
-@-webkit-keyframes rock {
-  0% {
-    transform: rotate(-5deg);
-  }
-  50% {
-    transform: rotate(5deg);
-  }
-  100% {
-    transform: rotate(-5deg);
-  }
-}
-@keyframes rock {
-  0% {
-    transform: rotate(-5deg);
-  }
-  50% {
-    transform: rotate(5deg);
-  }
-  100% {
-    transform: rotate(-5deg);
-  }
-}
-@-webkit-keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
 
 
 
-.selectLang {
-  background-color: rgb(126, 126, 126);
-  border-color: rgba(20, 20, 20, 0.801);
-  border-radius: 25px;
-  font-size:medium;
-}
-.selectLang:hover {
-  color: rgba(0, 0, 0, 0.733);
-}
+
 
 
 
@@ -1949,7 +4200,6 @@ input#shocked:checked ~ .wheatley .arm {
   background-color: #858585e7;
   box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
   transition-duration: .35s;
-  z-index: 5;
 }
 
 
@@ -1972,9 +4222,7 @@ input#shocked:checked ~ .wheatley .arm {
 
 
 
-#
-
-{
+#music {
   visibility: hidden;
 }
 #musicLogo {
@@ -1985,7 +4233,7 @@ input#shocked:checked ~ .wheatley .arm {
   color: rgba(165, 165, 165, 0.753);
   position: fixed;
   cursor: pointer;
-  z-index: 5;
+  z-index: 2;
 }
 #music:checked ~ .menu__box2 {
   visibility: visible;
@@ -2010,10 +4258,13 @@ input#shocked:checked ~ .wheatley .arm {
   z-index: 5;
 }
 
-
 .audio {
   block-size: 50px;
 }
+
+
+
+
 
 
 
@@ -2069,7 +4320,7 @@ input[type="checkbox"]:checked ~ .tick:before{
 	content: '';
 	position: absolute;
 	top: 2px;
-	right: 2px;
+	right: 1px;
 	background: #313131;
 	width: 26px;
 	height: 26px;
@@ -2114,7 +4365,6 @@ input[type="checkbox"]:checked ~ .tick:after{
 #crossClose:hover  {
   cursor: pointer;
 }
-
 
 
 
