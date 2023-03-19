@@ -1136,6 +1136,13 @@ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:
 
 
 
+#SnakeGame {
+  visibility: hidden;
+  position: absolute;
+  margin: -25% 40%;
+}
+
+
 .game2 {
   position: absolute;
   visibility: hidden;
