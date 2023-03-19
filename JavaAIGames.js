@@ -264,17 +264,26 @@ function SelecteGame() {
 	var Power4 = document.querySelector('.game2');
 	var tic_tac_toe = document.querySelector('.tic-tac-toe');
     var switchGame = document.querySelector('.container2');
+    var snakeGame = document.querySelector('#SnakeGame');
     if (e==1) {
         tic_tac_toe.style.visibility = "visible";
 		Power4.style.visibility = "hidden";
         switchGame.style.visibility = "hidden";
+        snakeGame.style.visibility = "hidden";
     } else if (e==2) {
         tic_tac_toe.style.visibility = "hidden";
 		Power4.style.visibility = "visible";
         switchGame.style.visibility = "hidden";
+        snakeGame.style.visibility = "hidden";
     } else if (e==3) {
         tic_tac_toe.style.visibility = "hidden";
 		Power4.style.visibility = "hidden";
         switchGame.style.visibility = "visible";
+        snakeGame.style.visibility = "hidden";
+    } else if (e==4) {
+        tic_tac_toe.style.visibility = "hidden";
+		Power4.style.visibility = "hidden";
+        switchGame.style.visibility = "hidden";
+        snakeGame.style.visibility = "visible";
     }
 }
