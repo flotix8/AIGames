@@ -9,11 +9,31 @@ body {
   z-index: 3;
 }
 
+.bodyJ {
+  background: url("https://wallpaperaccess.com/full/5588900.jpg") center/cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 98vh;
+  opacity: 1;
+  overflow: hidden;
+  z-index: 3;
+}
+
 .bodyG {
   background: #181818;
   background-size: cover;
-  overflow: hidden;
+  overflow-y: visible;
+  overflow-x: hidden;
   z-index: 3;
+}
+::-webkit-scrollbar {
+  background-color: #181818;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #b9b9b9;
+  border-radius: 10px;
 }
 
 .bodyC {
@@ -25,17 +45,6 @@ body {
   opacity: 1;
   overflow: hidden;
   z-index: 3;
-}
-
-.bodyJ {
-    background: url("https://wallpaperaccess.com/full/5588900.jpg") center/cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    height: 98vh;
-    opacity: 1;
-    overflow: hidden;
-    z-index: 3;
 }
   
 .container {
@@ -335,6 +344,11 @@ main {
   margin: -14% 37%;
   color: rgb(223, 223, 223);
 }
+.Navirtual {
+  position: absolute;
+  margin: -10% 37%;
+  color: rgb(223, 223, 223);
+}
 
 #paint {
   position: absolute;
@@ -365,6 +379,12 @@ main {
   font-size: 25px;
   color: rgba(0, 255, 21, 0.87);
 }
+#Navirtual {
+  position: absolute;
+  margin: -10% 35%;
+  font-size: 25px;
+  color: rgba(37, 37, 37, 0.87);
+}
 
 
 
@@ -392,7 +412,8 @@ main {
 }
 
 
-
+/* Game
+-------------------------------------------------------------- */
 /* Tic-tac-toe game
 -------------------------------------------------------------- */
 .tic-tac-toe {
@@ -1136,14 +1157,25 @@ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:
 
 
 
-#SnakeGame {
+
+canvas {
   visibility: hidden;
+  display:block;
   position: absolute;
-  margin: -25% 40%;
+  margin: -27% 39%;
+  border: 1px solid #333;
+  box-shadow: 0 0 16px 2px rgba(0,0,0,0.8);
 }
 
 
-.game2 {
+
+#SnakeGame {
+  visibility: hidden;
+  position: absolute;
+  margin: -27% 40%;
+}
+
+.power4 {
   position: absolute;
   visibility: hidden;
   margin: -15% 45%;
@@ -3718,420 +3750,150 @@ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:
 
 
 
+.hangman {
+  position: absolute;
+  font-family: "Londrina Solid", cursive;
+  margin: -27% 25%;
+  text-align: center;
+  padding: 10px;
+}
 
+h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: #53BDFF;
+  font-weight: 300;
+}
 
+@keyframes letteranim {
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+}
+.letter {
+  display: inline-block;
+  color: transparent;
+  border-bottom: 5px solid #53BDFF;
+  margin: 0 10px;
+  font-size: 50px;
+  padding: 10px;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
 
-.container2 {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 110%;
-  visibility: hidden;
-}
-.switch {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  width: 750px;
-  height: 320px;
-  border-radius: 75px;
-  display: grid;
-  grid-template-columns: 15% 1fr 15%;
-}
-.switch > * {
-  position: relative;
-}
-.switch .joycon-blue > div,
-.switch .joycon-red > div {
-  position: relative;
-}
-.switch .joycon-blue {
-  height: 100%;
-  background-color: #00c3e3;
-  box-shadow: inset 0.125em -0.125em 0.3em rgba(68, 68, 68, 0.4), inset -0.3em 0 0.0625em -0.25em rgba(34, 34, 34, 0.5), inset 0.4em 0.5em 0.5em -0.25em rgba(255, 255, 255, 0.6), 0.04em 0.25em 0 -0.3em #333;
-  border-top-left-radius: 75px;
-  border-bottom-left-radius: 75px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 5px;
-}
-.switch .joycon-blue .select-btn {
-  width: 20px;
-  height: 6px;
-  background-color: #414548;
-  left: 72%;
-  top: 10%;
-  border-radius: 0.0675em;
-  box-shadow: inset 0 -0.03125em 0.0625em rgba(0, 0, 0, 0.5), inset 0 0.03125em rgba(255, 255, 255, 0.2), 0 0 0.03125em 0.03125em rgba(0, 0, 0, 0.5), 0 0.09125em 0.125em -0.03125em rgba(0, 0, 0, 0.4);
-}
-.switch .joycon-blue .joystick {
-  top: 18%;
-  position: relative;
-  width: 50px;
-  height: 50px;
-  background-color: #414548;
-  left: calc(50% - 25px);
-  border-radius: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 0.14em 100%, 100% 0.14em, 100%;
-  background-image: linear-gradient(to bottom, #222, #111), linear-gradient(to bottom, #222, #333), linear-gradient(to bottom, #777, #111);
-  box-shadow: inset 0 -0.06em 0.125em black, inset 0 0.125em 0.125em -0.0325em rgba(0, 0, 0, 0.2), inset 0 0.18em 0.125em -0.0625em rgba(255, 255, 255, 0.3), 0 0 0.09em 0.0625em rgba(0, 0, 0, 0.75), 0 0.375em 1em 0.0625em rgba(0, 0, 0, 0.4);
-}
-.switch .joycon-blue .joystick:before, .switch .joycon-blue .joystick:after {
-  content: "";
-  position: absolute;
-  width: 75%;
-  height: 75%;
-  border-radius: 100%;
-  left: 12%;
-  top: 12%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: linear-gradient(to bottom, #555, #222);
-}
-.switch .joycon-blue .joystick:before {
-  width: 85%;
-  height: 85%;
-  left: 7%;
-  top: 7%;
-  background-size: 0.14em 100%, 100% 0.14em, 100%;
-  background-image: linear-gradient(to bottom, #444, #111), linear-gradient(to bottom, #222, #333), linear-gradient(to bottom, #222, #666);
-}
-.switch .joycon-blue .button-group {
-  width: 45px;
-  height: 45px;
-  left: calc(50% - 32.5px);
-  top: 26%;
-}
-.switch .joycon-blue .button-group .button {
-  position: absolute;
-  width: 45%;
-  height: 45%;
-  background-color: #414548;
-  border-radius: 100%;
-  box-shadow: inset 0 -0.0625em 0.125em rgba(0, 0, 0, 0.75), inset 0 0.125em 0.125em -0.0625em rgba(255, 255, 255, 0.4), 0 0 0.03125em 0.0625em rgba(0, 0, 0, 0.6), 0 0.0625em 0.25em 0.03125em rgba(0, 0, 0, 0.5);
-  color: rgba(255, 255, 255, 0.5);
-  transform: scale(1.1);
-}
-.switch .joycon-blue .button-group .button:after {
-  content: "";
-}
-.switch .joycon-blue .button-group .button.up {
-  top: 0;
-  left: 50%;
-}
-.switch .joycon-blue .button-group .button.up:after {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  border-right: 4px solid transparent;
-  border-left: 4px solid transparent;
-  border-bottom: 8px solid #222;
-}
-.switch .joycon-blue .button-group .button.down {
-  top: 100%;
-  left: 50%;
-}
-.switch .joycon-blue .button-group .button.down:after {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  border-right: 4px solid transparent;
-  border-left: 4px solid transparent;
-  border-top: 8px solid #222;
-}
-.switch .joycon-blue .button-group .button.left {
-  top: 50%;
-  left: 0;
-}
-.switch .joycon-blue .button-group .button.left:after {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-right: 8px solid #222;
-}
-.switch .joycon-blue .button-group .button.right {
-  top: 50%;
-  left: 100%;
-}
-.switch .joycon-blue .button-group .button.right:after {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-left: 8px solid #222;
-}
-.switch .joycon-blue .capture-btn {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: #414548;
-  bottom: 22%;
-  left: 60%;
-  border-radius: 0.125em;
-  box-shadow: inset 0 0.25em 0.5em -0.0625em rgba(255, 255, 255, 0.1), inset 0 0.015em 0.03125em rgba(255, 255, 255, 0.4), inset 0 0 0.03125em 0.03125em black, 0 0.015em 0 0.03125em rgba(0, 0, 0, 0.75), 0 0.015em 0.05em 0.0625em rgba(0, 0, 0, 0.5);
-}
-.switch .joycon-blue .capture-btn:after {
-  content: "";
-  width: 14px;
-  height: 14px;
-  position: absolute;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  border-radius: 100%;
-  background-image: linear-gradient(to bottom, #222, #333);
-  box-shadow: inset 0 0.0125em 0 0.03125em rgba(0, 0, 0, 0.6), inset 0 -0.0125em 0 0.06125em rgba(255, 255, 255, 0.4), 0.015em -0.03125em 0.0125em rgba(0, 0, 0, 0.7);
-}
-.switch .joycon-blue .shoulder.left {
-  position: absolute;
-  z-index: -1;
-  top: -.25em;
-  width: 6.5em;
-  height: 4.5em;
-  background-color: #414548;
-  left: -.25em;
-  border-radius: 6em 1em 0 0;
-}
-.switch .screen {
-  background-color: #414548;
-  border-radius: 10px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  box-shadow: inset 0 -1.25em 0.5em -1em rgba(0, 0, 0, 0.5), inset 0.125em 0 rgba(255, 255, 255, 0.2), inset -0.125em 0 rgba(255, 255, 255, 0.2);
-}
-.switch .screen:before, .switch .screen:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-}
-.switch .screen:before {
-  height: 15px;
-  background-image: linear-gradient(to bottom, #414548, rgba(152, 152, 152, 0.4), #414548);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  box-shadow: inset 0.125em 0 rgba(255, 255, 255, 0.2), inset -0.125em 0 rgba(255, 255, 255, 0.2);
-}
-.switch .game-video {
-  width: 88%;
-  height: 85%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  border-radius: 10px;
-}
-.switch .game-video video {
-  position: absolute;
-  top: 0;
-}
-.switch .glass-overlay {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  box-sizing: border-box;
-  width: 93%;
-  height: 92%;
-  border-top: 25px solid black;
-  border-bottom: 25px solid black;
-  border-left: 35px solid black;
-  border-right: 35px solid black;
-  border-radius: 10px;
-  overflow: hidden;
-  background-size: 420px 100%, 100px 100px, 10px 100%;
-  background-repeat: no-repeat;
-  background-position: 0 0, 50% 50%, 50% 0;
-  background-image: linear-gradient(120deg, transparent 20%, rgba(133, 229, 229, 0.3) 20%, 25%, transparent 25%, 30%, rgba(255, 255, 255, 0.3) 30%, 40%, transparent 40%, rgba(133, 229, 229, 0.3) 40%, 45%, rgba(255, 255, 255, 0.3) 45%, 48%, transparent 48%, 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 70%, rgba(133, 229, 229, 0.3) 70%, 75%, transparent 75%);
-}
-.switch .joycon-red {
-  height: 100%;
-  background-color: #ff4554;
-  border-top-right-radius: 75px;
-  border-bottom-right-radius: 75px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 5px;
-  box-shadow: inset -0.125em 0.125em 0.3em rgba(68, 68, 68, 0.4), inset 0.3em 0 0.0625em -0.25em rgba(34, 34, 34, 0.5), inset -0.4em 0.5em 0.5em -0.25em rgba(255, 255, 255, 0.6), -0.04em 0.25em 0 -0.3em #333;
-}
-.switch .joycon-red .start-btn {
-  width: 7px;
-  height: 20px;
-  background-color: #414548;
-  top: 8%;
-  left: 15%;
-  box-shadow: 0 0 0.03125em rgba(0, 0, 0, 0.6), 0 0.09375em 0.125em -0.03125em rgba(0, 0, 0, 0.5);
-}
-.switch .joycon-red .start-btn:before, .switch .joycon-red .start-btn:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #414548;
-  border-radius: 0.0675em;
-}
-.switch .joycon-red .start-btn:before {
-  height: 7px;
-  width: 20px;
-  box-shadow: inset 0 -0.03125em 0.0625em rgba(0, 0, 0, 0.5), inset 0 0.03125em rgba(255, 255, 255, 0.2), 0 0 0.03125em 0.03125em rgba(0, 0, 0, 0.6), 0 0.09375em 0.125em -0.03125em rgba(0, 0, 0, 0.4);
-}
-.switch .joycon-red .start-btn:after {
-  width: 7px;
-  height: 20px;
-  box-shadow: inset 0 -0.09375em 0.0625em -0.0624em rgba(0, 0, 0, 0.5), inset 0 0.03125em rgba(255, 255, 255, 0.2);
-}
-.switch .joycon-red .button-group {
-  width: 45px;
-  height: 45px;
-  left: calc(50% - 32.5px);
-  top: -3%;
-}
-.switch .joycon-red .button-group .button {
-  position: absolute;
-  width: 45%;
-  height: 45%;
-  background-color: #414548;
-  border-radius: 100%;
-  box-shadow: inset 0 -0.0625em 0.125em rgba(0, 0, 0, 0.75), inset 0 0.125em 0.125em -0.0625em rgba(255, 255, 255, 0.4), 0 0 0.03125em 0.0625em rgba(0, 0, 0, 0.6), 0 0.0625em 0.25em 0.03125em rgba(0, 0, 0, 0.5);
-  color: rgba(255, 255, 255, 0.5);
-  transform: scale(1.1);
-}
-.switch .joycon-red .button-group .button:after {
-  font-family: "Arial";
-  font-size: 0.7em;
-}
-.switch .joycon-red .button-group .button.x {
-  top: 0;
-  left: 50%;
-}
-.switch .joycon-red .button-group .button.x:after {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  content: "X";
-}
-.switch .joycon-red .button-group .button.a {
-  top: 100%;
-  left: 50%;
-}
-.switch .joycon-red .button-group .button.a:after {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  content: "A";
-}
-.switch .joycon-red .button-group .button.b {
-  top: 50%;
-  left: 0;
-}
-.switch .joycon-red .button-group .button.b:after {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  content: "B";
-}
-.switch .joycon-red .button-group .button.y {
-  top: 50%;
-  left: 100%;
-}
-.switch .joycon-red .button-group .button.y:after {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-  content: "Y";
-}
-.switch .joycon-red .joystick {
-  top: 40%;
-  position: relative;
-  width: 50px;
-  height: 50px;
-  background-color: #414548;
-  left: calc(50% - 25px);
-  border-radius: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 0.14em 100%, 100% 0.14em, 100%;
-  background-image: linear-gradient(to bottom, #222, #111), linear-gradient(to bottom, #222, #333), linear-gradient(to bottom, #777, #111);
-  box-shadow: inset 0 -0.06em 0.125em black, inset 0 0.125em 0.125em -0.0325em rgba(0, 0, 0, 0.2), inset 0 0.18em 0.125em -0.0625em rgba(255, 255, 255, 0.3), 0 0 0.09em 0.0625em rgba(0, 0, 0, 0.75), 0 0.375em 1em 0.0625em rgba(0, 0, 0, 0.4);
-}
-.switch .joycon-red .joystick:before, .switch .joycon-red .joystick:after {
-  content: "";
-  position: absolute;
-  width: 75%;
-  height: 75%;
-  border-radius: 100%;
-  left: 12%;
-  top: 12%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: linear-gradient(to bottom, #555, #222);
-}
-.switch .joycon-red .joystick:before {
-  width: 85%;
-  height: 85%;
-  left: 7%;
-  top: 7%;
-  background-size: 0.14em 100%, 100% 0.14em, 100%;
-  background-image: linear-gradient(to bottom, #444, #111), linear-gradient(to bottom, #222, #333), linear-gradient(to bottom, #222, #666);
-}
-.switch .joycon-red .home-btn {
-  position: absolute;
-  bottom: 22%;
-  width: 20px;
-  height: 20px;
-  left: 20%;
-  background-color: #444;
-  border-radius: 100%;
-  box-shadow: inset 0 0 0 0.09em #9b9b9b, inset 0 0.25em 0.5em rgba(255, 255, 255, 0.2), inset 0 0 0.03125em black, 0 0.0155em 0.03125em 0.0625em rgba(0, 0, 0, 0.6);
-}
-.switch .joycon-red .home-btn:before, .switch .joycon-red .home-btn:after {
-  content: "";
-  position: absolute;
-  transform: translate(-50%, -50%) scale(1.15);
-  top: 50%;
-  left: 50%;
+.word {
   display: block;
-  box-sizing: border-box;
-}
-.switch .joycon-red .home-btn:before {
-  height: 6px;
-  width: 7px;
-  background-color: #444;
-  border: 0.025em solid #111;
-  box-shadow: inset 0 0 0 0.1em #111, inset 0.12em 0 0 #111, inset -0.12em 0 0 #111, 0 0.0625em 0 -0.03125em rgba(255, 255, 255, 0.1);
-}
-.switch .joycon-red .home-btn:after {
-  border-right: 5px solid transparent;
-  border-left: 5px solid transparent;
-  border-bottom: 4px solid #111;
-  top: 30%;
-}
-.switch .joycon-red .shoulder.right {
-  position: absolute;
-  z-index: -1;
-  top: -0.25em;
-  width: 6.5em;
-  height: 4.5em;
-  background-color: #414548;
-  right: -0.25em;
-  border-radius: 1em 6em 0 0;
+  white-space: nowrap;
 }
 
+.correct {
+  color: #53BDFF;
+  text-shadow: 1px 2px 0 #20a9ff;
+  animation: letteranim 0.3s ease;
+}
+
+.guessForm {
+  margin: 20px auto 0;
+}
+.guessForm input, .guessForm .guessButton {
+  font-family: "Londrina Solid", cursive;
+}
+.guessForm input[type=text] {
+  outline: none;
+  padding: 10px;
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-right: 5px;
+  border: 1px solid #aaa;
+  color: gray;
+}
+.guessForm .guessButton {
+  border: none;
+  font-size: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #53BDFF;
+  color: white;
+  transition: 0.3s;
+  margin: 10px 0;
+  text-shadow: 1px 2px 0 #20a9ff;
+}
+.guessForm .guessButton:hover {
+  background: #20a9ff;
+}
+
+.wrongLetters {
+  font-size: 20px;
+}
+.wrongLetters p {
+  margin-bottom: 10px;
+}
+.wrongLetters li {
+  display: inline-block;
+  font-size: 40px;
+  background: #ff4d4d;
+  text-shadow: 1px 2px 0 red;
+  padding: 10px;
+  color: white;
+  text-transform: uppercase;
+  margin-right: 10px;
+  animation: letteranim 0.3s ease;
+}
+
+.message {
+  display: none;
+  padding: 20px;
+  position: absolute;
+  top: 110px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  /*   height: 100%; */
+  background: #0091ec;
+  z-index: 12402402;
+}
+.message h1 {
+  display: none;
+  color: white;
+  text-shadow: 1px 2px 0 #ccc;
+}
+.message .highlight {
+  color: yellow;
+  text-transform: capitalize;
+}
+.message .text {
+  color: white;
+  font-size: 30px;
+  display: none;
+}
+.message .text p {
+  color: white;
+}
+.message .text .highlight {
+  font-size: 40px;
+}
+.message .muted {
+  margin: 20px auto;
+  color: #86d1ff;
+}
+
+.button {
+  display: none;
+  margin: 10px 0;
+  border: none;
+  font-size: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #34cd39;
+  color: white;
+  transition: 0.3s;
+  text-shadow: 1px 2px 0 #2EB933;
+  font-family: "Londrina Solid", cursive;
+}
+.button:hover {
+  background: #71dc75;
+}
 
 
 
@@ -4873,4 +4635,212 @@ input[type="checkbox"]:checked ~ .tick:after{
     height: 88px;
     margin: 10px;
   }
+}
+
+
+
+
+
+.containerChess {
+  visibility: hidden;
+  position: absolute;
+  display: grid;
+	place-items: center;
+  margin: -33% 28%;
+  height:min-content;
+  padding: 0;
+
+}
+
+.extra-zone {
+  min-width: 81.5vmin;
+  height: 5.5vmin;
+  padding: 1vmin;
+  display: inline;
+}
+
+.captured-zone {
+  width: 80%;
+  height: 100%;
+  margin: 0;
+  float: left;
+  line-height: 1.1;
+}
+
+.countdown-timer {
+  width: 12%;
+  margin-left: 8%;
+  height: 100%;
+  float: left;
+  background-color: white;
+  text-align: center;
+  font-size: 3.2vmin;
+  font-family: Poppins;
+  font-weight: 600;
+  border-radius: 0.5vmin;
+}
+
+.chessboard {
+  background: linear-gradient(120deg, rgba(27,13,9,1) 50%, #4e261c 100%);
+  padding: 3vmin 2vmin;
+  min-width: 81.5vmin;
+}
+
+.line {
+  margin-left: 1%;
+  min-width: 100%;
+}
+
+.square {
+  width: 10vmin;
+  height: 10vmin;
+  margin: 0;
+  float: left;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.line:nth-child(even) .square:nth-child(odd) {
+  background-color: #366650;
+}
+
+.line:nth-child(even) .square:nth-child(even) {
+  background-color: #dbd3bc;
+}
+
+.line:nth-child(odd) .square:nth-child(odd) {
+  background-color: #dbd3bc;
+}
+
+.line:nth-child(odd) .square:nth-child(even) {
+  background-color: #366650;
+}
+
+.white {
+  color: white;
+}
+
+.black {
+  color: black;
+}
+
+.white, .black {
+  width: fit-content;
+  margin: auto;
+}
+
+.square > .white, .square > .black {
+  font-size: 10vmin;
+}
+
+.captured-zone > .white, .captured-zone > .black{
+  font-size: 4vmin;
+  float: left;
+}
+
+.draggable:hover {
+  cursor: grab;
+}
+
+.draggable:active {
+  cursor: grabbing;
+}
+
+.dragging {
+  background-color: transparent;
+  opacity: 0.4;
+}
+
+.dropzone {
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.1) 25.5%, transparent 25%);
+  background-size: 100% 100%;
+  background-position: 50% 50%;
+}
+
+.dragover {
+  box-shadow: inset 0 0 0 0.7vh rgba(0, 0, 0, 0.1);
+}
+
+.capture {
+  background: radial-gradient(circle at center, transparent 55%, rgba(0, 0, 0, 0.2) 56%, transparent 66%);
+  background-size: 100% 100%;
+  background-position: 50% 50%;
+}
+
+#piece-selector {
+  display: block;
+  position: absolute;
+  background-color: inherit;
+  box-shadow: 0 0 16px 0.7vmin rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+#piece-selector a {
+  display: block;
+  user-select: none;
+  width: fit-content;
+  margin: auto;
+  padding-bottom: 2vmin;
+  width: 10vmin;
+  height: 10vmin;
+  font-size: 10vmin;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+.Body404
+{
+  background-color:#141019;
+  background: radial-gradient(at 50% -20%, #908392, #0d060e) fixed;
+}
+
+
+#handboy
+{
+   animation: swing ease-in-out 1.3s infinite alternate;
+    transform-origin: 98% 98%;
+    transform-box: fill-box;
+    
+}
+
+
+#girllight
+{
+   animation: swing ease-in-out 1.3s infinite alternate;
+    transform-origin: 0% 97%;
+    transform-box: fill-box;
+}
+
+#hairgirl
+{
+    animation: swinghair ease-in-out 1.3s infinite alternate;
+   transform-origin: 60% 0%;
+    transform-box: fill-box;
+  
+}
+
+#zero
+{
+  transform-origin:bottom;
+  transform-box:fill-box;
+  
+}
+
+/*************swing************/
+@keyframes swing {
+    0% { transform: rotate(10deg); }
+    100% { transform: rotate(-10deg); }
+}
+
+
+/*************swing hair************/
+@keyframes swinghair {
+    0% { transform: rotate(6deg); }
+    100% { transform: rotate(-6deg); }
 }
