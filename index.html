@@ -19,7 +19,9 @@
             <a href="contact.html">
             <button id="contact">Contact</button></a>
             <a href="index.html"><img id="logo" src="https://www.tme-composites.com/wp-content/uploads/2022/03/LOGO-FR.png"/></a>
-            <input id="scearch" type="search"/>
+            <form action="https://www.google.com/search" method="get" id="form-search">
+                <input id="scearch" type="text" name="q"/>
+            </form>
         </main>
         <hr id="hr" color="rgba(153, 15, 15, 0.829)"/>
         
@@ -175,7 +177,27 @@
             <audio controls class="audio"><source src="music/Electronic1.mp3"></audio>    
         </ul>
 
-
         <p class="textBarre">AIGames</p>
+        <script>
+            anime({
+                targets: '.row svg',
+                translateY: 10,
+                autoplay: true,
+                loop: true,
+                easing: 'easeInOutSine',
+                direction: 'alternate'
+            });
+
+            anime({
+                targets: '#zero',
+                translateX: 10,
+                autoplay: true,
+                loop: true,
+                easing: 'easeInOutSine',
+                direction: 'alternate',
+                scale: [{value: 1}, {value: 1.4}, {value: 1, delay: 250}],
+                    rotateY: {value: '+=180', delay: 200},
+            });
+        </script>
     </body>
 </html>
