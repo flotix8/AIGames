@@ -185,8 +185,9 @@
         <select class="GameSelect" id="GameSelect2" onchange="SelecteGame()">
             <option value="1">Tic Tac Toe</option>
             <option value="2">Power 4</option>
-            <option value="3">Switch</option>
+            <option value="3">Bille</option>
             <option value="4">Snake</option>
+            <option value="5">Choice</option>
         </select>
 
 
@@ -361,7 +362,7 @@
 
 
 
-        <div class="game2">
+        <div class="power4">
             <form>
                 <input class="rd" type="radio" id="rd-1-42" name="rd42"/>
                 <input class="rd" type="radio" id="rd-2-42" name="rd42"/>
@@ -617,46 +618,624 @@
                 </div>
             </form>
         </div>
+        
+
+        
+        
+        <canvas id="canvas"></canvas>
+        <script>
+            var map = {
+
+            tile_size: 16,
+
+            keys: [
+                {id: 0, colour: '#333', solid: 0},
+                {id: 1, colour: '#888', solid: 0},
+                {id: 2,colour: '#555',solid: 1,bounce: 0.35},
+                {id: 3,colour: 'rgba(121, 220, 242, 0.4)',friction: {x: 0.9,y: 0.9},gravity: {x: 0,y: 0.1},jump: 1,fore: 1},
+                {id: 4,colour: '#777',jump: 1},
+                {id: 5,colour: '#E373FA',solid: 1,bounce: 1.1},
+                {id: 6,colour: '#666',solid: 1,bounce: 0},
+                {id: 7,colour: '#73C6FA',solid: 0,script: 'change_colour'},
+                {id: 8,colour: '#FADF73',solid: 0,script: 'next_level'},
+                {id: 9,colour: '#C93232',solid: 0,script: 'death'},
+                {id: 10,colour: '#555',solid: 1},
+                {id: 11,colour: '#0FF',solid: 0,script: 'unlock'}
+            ],
+
+            /* An array representing the map tiles. Each number corresponds to a key */
+            data: [
+                [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 6, 6, 6, 6, 6, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 1, 1, 1, 1, 2, 2, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 7, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 4, 2, 2, 2, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2, 2, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 1, 2],
+                [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4, 2, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+                [2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 2],
+                [2, 1, 2, 2, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 2],
+                [2, 1, 2, 2, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 2],
+                [2, 1, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 8, 1, 1, 1, 2],
+                [2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2],
+                [2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 9, 9, 9, 2, 10, 10, 10, 10, 10, 10, 1, 1, 1, 1, 1, 1, 1, 11, 2, 2, 2, 2, 4, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 10, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 2, 2, 2, 2, 2, 2, 2],
+                [2, 6, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 1, 1, 1, 1, 1, 1, 2],
+                [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2],
+                [2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6, 6, 6, 2, 2, 2, 2, 2, 2, 6, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+                [2, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 2, 5, 5, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2],
+                [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2],
+                [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+            ],
+
+            /* Default gravity of the map */
+
+            gravity: {
+                x: 0,
+                y: 0.3
+            },
+
+            /* Velocity limits */
+
+            vel_limit: {
+                x: 2,
+                y: 16
+            },
+
+            /* Movement speed when the key is pressed */
+
+            movement_speed: {
+                jump: 6,
+                left: 0.3,
+                right: 0.3
+            },
+
+            /* The coordinates at which the player spawns and the colour of the player */
+
+            player: {
+                x: 2,
+                y: 2,
+                colour: '#FF9900'
+            },
+
+            /* scripts refered to by the "script" variable in the tile keys */
+
+            scripts: {
+                /* you can just use "this" instead of your engine variable ("game"), but Codepen doesn't like it */
+                change_colour: 'game.player.colour = "#"+(Math.random()*0xFFFFFF<<0).toString(16);',
+                /* you could load a new map variable here */
+                next_level: 'alert("Yay! You won! Reloading map.");game.load_map(map);',
+                death: 'alert("You died!");game.load_map(map);',
+                unlock: 'game.current_map.keys[10].solid = 0;game.current_map.keys[10].colour = "#888";'
+            }
+            };
+
+            /* Clarity engine */
+
+            var Clarity = function () {
+
+            this.alert_errors   = false;
+            this.log_info       = true;
+            this.tile_size      = 16;
+            this.limit_viewport = false;
+            this.jump_switch    = 0;
+
+            this.viewport = {
+                x: 200,
+                y: 200
+            };
+
+            this.camera = {
+                x: 0,
+                y: 0
+            };
+
+            this.key = {
+                left: false,
+                right: false,
+                up: false
+            };
+
+            this.player = {
+
+                loc: {
+                    x: 0,
+                    y: 0
+                },
+                
+                vel: {
+                    x: 0,
+                    y: 0
+                },
+                
+                can_jump: true
+            };
+
+            window.onkeydown = this.keydown.bind(this);
+            window.onkeyup   = this.keyup.bind(this);
+            };
+
+            Clarity.prototype.error = function (message) {
+
+            if (this.alert_errors) alert(message);
+            if (this.log_info) console.log(message);
+            };
+
+            Clarity.prototype.log = function (message) {
+
+            if (this.log_info) console.log(message);
+            };
+
+            Clarity.prototype.set_viewport = function (x, y) {
+
+            this.viewport.x = x;
+            this.viewport.y = y;
+            };
+
+            Clarity.prototype.keydown = function (e) {
+
+            var _this = this;
+
+            switch (e.keyCode) {
+            case 37:
+                _this.key.left = true;
+                break;
+            case 38:
+                _this.key.up = true;
+                break;
+            case 39:
+                _this.key.right = true;
+                break;
+            }
+            };
+
+            Clarity.prototype.keyup = function (e) {
+
+            var _this = this;
+
+            switch (e.keyCode) {
+            case 37:
+                _this.key.left = false;
+                break;
+            case 38:
+                _this.key.up = false;
+                break;
+            case 39:
+                _this.key.right = false;
+                break;
+            }
+            };
+
+            Clarity.prototype.load_map = function (map) {
+
+            if (typeof map      === 'undefined'
+            || typeof map.data === 'undefined'
+            || typeof map.keys === 'undefined') {
+
+                this.error('Error: Invalid map data!');
+
+                return false;
+            }
+
+            this.current_map = map;
+
+            this.current_map.background = map.background || '#333';
+            this.current_map.gravity = map.gravity || {x: 0, y: 0.3};
+            this.tile_size = map.tile_size || 16;
+
+            var _this = this;
+
+            this.current_map.width = 0;
+            this.current_map.height = 0;
+
+            map.keys.forEach(function (key) {
+
+                map.data.forEach(function (row, y) {
+                    
+                    _this.current_map.height = Math.max(_this.current_map.height, y);
+
+                    row.forEach(function (tile, x) {
+                        
+                        _this.current_map.width = Math.max(_this.current_map.width, x);
+
+                        if (tile == key.id)
+                            _this.current_map.data[y][x] = key;
+                    });
+                });
+            });
+
+            this.current_map.width_p = this.current_map.width * this.tile_size;
+            this.current_map.height_p = this.current_map.height * this.tile_size;
+
+            this.player.loc.x = map.player.x * this.tile_size || 0;
+            this.player.loc.y = map.player.y * this.tile_size || 0;
+            this.player.colour = map.player.colour || '#000';
+
+            this.key.left  = false;
+            this.key.up    = false;
+            this.key.right = false;
+
+            this.camera = {
+                x: 0,
+                y: 0
+            };
+
+            this.player.vel = {
+                x: 0,
+                y: 0
+            };
+
+            this.log('Successfully loaded map data.');
+
+            return true;
+            };
+
+            Clarity.prototype.get_tile = function (x, y) {
+
+            return (this.current_map.data[y] && this.current_map.data[y][x]) ? this.current_map.data[y][x] : 0;
+            };
+
+            Clarity.prototype.draw_tile = function (x, y, tile, context) {
+
+            if (!tile || !tile.colour) return;
+
+            context.fillStyle = tile.colour;
+            context.fillRect(
+                x,
+                y,
+                this.tile_size,
+                this.tile_size
+            );
+            };
+
+            Clarity.prototype.draw_map = function (context, fore) {
+
+            for (var y = 0; y < this.current_map.data.length; y++) {
+
+                for (var x = 0; x < this.current_map.data[y].length; x++) {
+
+                    if ((!fore && !this.current_map.data[y][x].fore) || (fore && this.current_map.data[y][x].fore)) {
+
+                        var t_x = (x * this.tile_size) - this.camera.x;
+                        var t_y = (y * this.tile_size) - this.camera.y;
+                        
+                        if(t_x < -this.tile_size
+                        || t_y < -this.tile_size
+                        || t_x > this.viewport.x
+                        || t_y > this.viewport.y) continue;
+                        
+                        this.draw_tile(
+                            t_x,
+                            t_y,
+                            this.current_map.data[y][x],
+                            context
+                        );
+                    }
+                }
+            }
+
+            if (!fore) this.draw_map(context, true);
+            };
+
+            Clarity.prototype.move_player = function () {
+
+            var tX = this.player.loc.x + this.player.vel.x;
+            var tY = this.player.loc.y + this.player.vel.y;
+
+            var offset = Math.round((this.tile_size / 2) - 1);
+
+            var tile = this.get_tile(
+                Math.round(this.player.loc.x / this.tile_size),
+                Math.round(this.player.loc.y / this.tile_size)
+            );
+            
+            if(tile.gravity) {
+                
+                this.player.vel.x += tile.gravity.x;
+                this.player.vel.y += tile.gravity.y;
+                
+            } else {
+                
+                this.player.vel.x += this.current_map.gravity.x;
+                this.player.vel.y += this.current_map.gravity.y;
+            }
+
+            if (tile.friction) {
+
+                this.player.vel.x *= tile.friction.x;
+                this.player.vel.y *= tile.friction.y;
+            }
+
+            var t_y_up   = Math.floor(tY / this.tile_size);
+            var t_y_down = Math.ceil(tY / this.tile_size);
+            var y_near1  = Math.round((this.player.loc.y - offset) / this.tile_size);
+            var y_near2  = Math.round((this.player.loc.y + offset) / this.tile_size);
+
+            var t_x_left  = Math.floor(tX / this.tile_size);
+            var t_x_right = Math.ceil(tX / this.tile_size);
+            var x_near1   = Math.round((this.player.loc.x - offset) / this.tile_size);
+            var x_near2   = Math.round((this.player.loc.x + offset) / this.tile_size);
+
+            var top1    = this.get_tile(x_near1, t_y_up);
+            var top2    = this.get_tile(x_near2, t_y_up);
+            var bottom1 = this.get_tile(x_near1, t_y_down);
+            var bottom2 = this.get_tile(x_near2, t_y_down);
+            var left1   = this.get_tile(t_x_left, y_near1);
+            var left2   = this.get_tile(t_x_left, y_near2);
+            var right1  = this.get_tile(t_x_right, y_near1);
+            var right2  = this.get_tile(t_x_right, y_near2);
 
 
-        <div class="container2">
-            <div class="switch-container">
-            <div class="switch">
-                <div class="joycon-blue">
-                <div class="select-btn"></div>
-                <div class="joystick"></div>
-                <div class="button-group">
-                    <div class="button left"></div>
-                    <div class="button right"></div>
-                    <div class="button up"></div>
-                    <div class="button down"></div>
-                </div>
-                <div class="capture-btn"></div>
-                <div class="shoulder left"></div>
-                </div>
-                <div class="screen">
-                <div class="game-video">
-                    <video width="475" height="280" autoplay playsinline muted loop>
-                    <source src="https://assets.codepen.io/2792757/Animal+Crossing+New+Horizons+-+Introduction.mp4" type="video/mp4" />
-                    </video>
-                </div>
-                <div class="glass-overlay"></div>
-                </div>
-                <div class="joycon-red">
-                <div class="start-btn"></div>
-                <div class="joystick"></div>
-                <div class="button-group">
-                    <div class="button x"></div>
-                    <div class="button a"></div>
-                    <div class="button b"></div>
-                    <div class="button y"></div>
-                </div>
-                <div class="home-btn"></div>
-                <div class="shoulder right"></div>
-                </div>
-            </div>
-            </div>
-        </div>
+            if (tile.jump && this.jump_switch > 15) {
+
+                this.player.can_jump = true;
+                
+                this.jump_switch = 0;
+                
+            } else this.jump_switch++;
+
+            this.player.vel.x = Math.min(Math.max(this.player.vel.x, -this.current_map.vel_limit.x), this.current_map.vel_limit.x);
+            this.player.vel.y = Math.min(Math.max(this.player.vel.y, -this.current_map.vel_limit.y), this.current_map.vel_limit.y);
+
+            this.player.loc.x += this.player.vel.x;
+            this.player.loc.y += this.player.vel.y;
+
+            this.player.vel.x *= .9;
+
+            if (left1.solid || left2.solid || right1.solid || right2.solid) {
+
+                /* fix overlap */
+
+                while (this.get_tile(Math.floor(this.player.loc.x / this.tile_size), y_near1).solid
+                    || this.get_tile(Math.floor(this.player.loc.x / this.tile_size), y_near2).solid)
+                    this.player.loc.x += 0.1;
+
+                while (this.get_tile(Math.ceil(this.player.loc.x / this.tile_size), y_near1).solid
+                    || this.get_tile(Math.ceil(this.player.loc.x / this.tile_size), y_near2).solid)
+                    this.player.loc.x -= 0.1;
+
+                /* tile bounce */
+
+                var bounce = 0;
+
+                if (left1.solid && left1.bounce > bounce) bounce = left1.bounce;
+                if (left2.solid && left2.bounce > bounce) bounce = left2.bounce;
+                if (right1.solid && right1.bounce > bounce) bounce = right1.bounce;
+                if (right2.solid && right2.bounce > bounce) bounce = right2.bounce;
+
+                this.player.vel.x *= -bounce || 0;
+                
+            }
+
+            if (top1.solid || top2.solid || bottom1.solid || bottom2.solid) {
+
+                /* fix overlap */
+                
+                while (this.get_tile(x_near1, Math.floor(this.player.loc.y / this.tile_size)).solid
+                    || this.get_tile(x_near2, Math.floor(this.player.loc.y / this.tile_size)).solid)
+                    this.player.loc.y += 0.1;
+
+                while (this.get_tile(x_near1, Math.ceil(this.player.loc.y / this.tile_size)).solid
+                    || this.get_tile(x_near2, Math.ceil(this.player.loc.y / this.tile_size)).solid)
+                    this.player.loc.y -= 0.1;
+
+                /* tile bounce */
+                
+                var bounce = 0;
+                
+                if (top1.solid && top1.bounce > bounce) bounce = top1.bounce;
+                if (top2.solid && top2.bounce > bounce) bounce = top2.bounce;
+                if (bottom1.solid && bottom1.bounce > bounce) bounce = bottom1.bounce;
+                if (bottom2.solid && bottom2.bounce > bounce) bounce = bottom2.bounce;
+                
+                this.player.vel.y *= -bounce || 0;
+
+                if ((bottom1.solid || bottom2.solid) && !tile.jump) {
+                    
+                    this.player.on_floor = true;
+                    this.player.can_jump = true;
+                }
+                
+            }
+
+            // adjust camera
+
+            var c_x = Math.round(this.player.loc.x - this.viewport.x/2);
+            var c_y = Math.round(this.player.loc.y - this.viewport.y/2);
+            var x_dif = Math.abs(c_x - this.camera.x);
+            var y_dif = Math.abs(c_y - this.camera.y);
+
+            if(x_dif > 5) {
+                
+                var mag = Math.round(Math.max(1, x_dif * 0.1));
+
+                if(c_x != this.camera.x) {
+                    
+                    this.camera.x += c_x > this.camera.x ? mag : -mag;
+                    
+                    if(this.limit_viewport) {
+                        
+                        this.camera.x = 
+                            Math.min(
+                                this.current_map.width_p - this.viewport.x + this.tile_size,
+                                this.camera.x
+                            );
+                        
+                        this.camera.x = 
+                            Math.max(
+                                0,
+                                this.camera.x
+                            );
+                    }
+                }
+            }
+
+            if(y_dif > 5) {
+                
+                var mag = Math.round(Math.max(1, y_dif * 0.1));
+                
+                if(c_y != this.camera.y) {
+                    
+                    this.camera.y += c_y > this.camera.y ? mag : -mag;
+                
+                    if(this.limit_viewport) {
+                        
+                        this.camera.y = 
+                            Math.min(
+                                this.current_map.height_p - this.viewport.y + this.tile_size,
+                                this.camera.y
+                            );
+                        
+                        this.camera.y = 
+                            Math.max(
+                                0,
+                                this.camera.y
+                            );
+                    }
+                }
+            }
+
+            if(this.last_tile != tile.id && tile.script) {
+
+                eval(this.current_map.scripts[tile.script]);
+            }
+
+            this.last_tile = tile.id;
+            };
+
+            Clarity.prototype.update_player = function () {
+
+            if (this.key.left) {
+
+                if (this.player.vel.x > -this.current_map.vel_limit.x)
+                    this.player.vel.x -= this.current_map.movement_speed.left;
+            }
+
+            if (this.key.up) {
+
+                if (this.player.can_jump && this.player.vel.y > -this.current_map.vel_limit.y) {
+                    
+                    this.player.vel.y -= this.current_map.movement_speed.jump;
+                    this.player.can_jump = false;
+                }
+            }
+
+            if (this.key.right) {
+
+                if (this.player.vel.x < this.current_map.vel_limit.x)
+                    this.player.vel.x += this.current_map.movement_speed.left;
+            }
+
+            this.move_player();
+            };
+
+            Clarity.prototype.draw_player = function (context) {
+
+            context.fillStyle = this.player.colour;
+
+            context.beginPath();
+
+            context.arc(
+                this.player.loc.x + this.tile_size / 2 - this.camera.x,
+                this.player.loc.y + this.tile_size / 2 - this.camera.y,
+                this.tile_size / 2 - 1,
+                0,
+                Math.PI * 2
+            );
+
+            context.fill();
+            };
+
+            Clarity.prototype.update = function () {
+
+            this.update_player();
+            };
+
+            Clarity.prototype.draw = function (context) {
+
+            this.draw_map(context, false);
+            this.draw_player(context);
+            };
+
+            /* Setup of the engine */
+
+            window.requestAnimFrame =
+            window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function(callback) {
+            return window.setTimeout(callback, 1000 / 60);
+            };
+
+            var canvas = document.getElementById('canvas'),
+            ctx = canvas.getContext('2d');
+
+            canvas.width = 400;
+            canvas.height = 400;
+
+            var game2 = new Clarity();
+            game2.set_viewport(canvas.width, canvas.height);
+            game2.load_map(map);
+
+            /* Limit the viewport to the confines of the map */
+            game2.limit_viewport = true;
+
+            var Loop = function() {
+
+            ctx.fillStyle = '#333';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            game2.update();
+            game2.draw(ctx);
+
+            window.requestAnimFrame(Loop);
+            };
+
+            Loop();
+        </script>
+
 
 
         <canvas id="SnakeGame" width="400" height="400"></canvas>
@@ -802,6 +1381,633 @@
             
             // Sayfa yüklendiğinde oyunu oynanabilir hale getir:
             window.onload = () => game.init();
+        </script>
+
+
+
+        <div class="containerChess">
+            <div class="extra-zone">
+            <div class="captured-zone" id="czblack"></div>
+            <div class="countdown-timer" id="ctblack">05:00</div>
+            </div>
+            <div class="chessboard">
+            <div class="line l8">
+                <div class="square c1">
+                <div class="black rook">♜</div>
+                </div>
+                <div class="square c2">
+                <div class="black knight">♞</div>
+                </div>
+                <div class="square c3">
+                <div class="black bishop">♝</div>
+                </div>
+                <div class="square c4">
+                <div class="black queen">♛</div>
+                </div>
+                <div class="square c5">
+                <div class="black king">♚</div>
+                </div>
+                <div class="square c6">
+                <div class="black bishop">♝</div>
+                </div>
+                <div class="square c7">
+                <div class="black knight">♞</div>
+                </div>
+                <div class="square c8">
+                <div class="black rook">♜</div>
+                </div>
+            </div>
+            <div class="line l7">
+                <div class="square c1">
+                <div class="black pawn">♟</div>
+                </div>
+                <div class="square c2">
+                <div class="black pawn">♟</div>
+                </div>
+                <div class="square c3">
+                <div class="black pawn">♟</div>
+                </div>
+                <div class="square c4">
+                <div class="black pawn">♟</div>
+                </div>
+                <div class="square c5">
+                <div class="black pawn">♟</div>
+                </div>
+                <div class="square c6">
+                <div class="black pawn">♟</div>
+                </div>
+                <div class="square c7">
+                <div class="black pawn">♟</div>
+                </div>
+                <div class="square c8">
+                <div class="black pawn">♟</div>
+                </div>
+            </div>
+            <div class="line l6">
+                <div class="square c1"></div>
+                <div class="square c2"></div>
+                <div class="square c3"></div>
+                <div class="square c4"></div>
+                <div class="square c5"></div>
+                <div class="square c6"></div>
+                <div class="square c7"></div>
+                <div class="square c8"></div>
+            </div>
+            <div class="line l5">
+                <div class="square c1"></div>
+                <div class="square c2"></div>
+                <div class="square c3"></div>
+                <div class="square c4"></div>
+                <div class="square c5"></div>
+                <div class="square c6"></div>
+                <div class="square c7"></div>
+                <div class="square c8"></div>
+            </div>
+            <div class="line l4">
+                <div class="square c1"></div>
+                <div class="square c2"></div>
+                <div class="square c3"></div>
+                <div class="square c4"></div>
+                <div class="square c5"></div>
+                <div class="square c6"></div>
+                <div class="square c7"></div>
+                <div class="square c8"></div>
+            </div>
+            <div class="line l3">
+                <div class="square c1"></div>
+                <div class="square c2"></div>
+                <div class="square c3"></div>
+                <div class="square c4"></div>
+                <div class="square c5"></div>
+                <div class="square c6"></div>
+                <div class="square c7"></div>
+                <div class="square c8"></div>
+            </div>
+            <div class="line l2">
+                <div class="square c1">
+                <div class="white pawn">♟</div>
+                </div>
+                <div class="square c2">
+                <div class="white pawn">♟</div>
+                </div>
+                <div class="square c3">
+                <div class="white pawn">♟</div>
+                </div>
+                <div class="square c4">
+                <div class="white pawn">♟</div>
+                </div>
+                <div class="square c5">
+                <div class="white pawn">♟</div>
+                </div>
+                <div class="square c6">
+                <div class="white pawn">♟</div>
+                </div>
+                <div class="square c7">
+                <div class="white pawn">♟</div>
+                </div>
+                <div class="square c8">
+                <div class="white pawn">♟</div>
+                </div>
+            </div>
+            <div class="line l1">
+                <div class="square c1">
+                <div class="white rook">♜</div>
+                </div>
+                <div class="square c2">
+                <div class="white knight">♞</div>
+                </div>
+                <div class="square c3">
+                <div class="white bishop">♝</div>
+                </div>
+                <div class="square c4">
+                <div class="white queen">♛</div>
+                </div>
+                <div class="square c5">
+                <div class="white king">♚</div>
+                </div>
+                <div class="square c6">
+                <div class="white bishop">♝</div>
+                </div>
+                <div class="square c7">
+                <div class="white knight">♞</div>
+                </div>
+                <div class="square c8">
+                <div class="white rook">♜</div>
+                </div>
+            </div>
+            </div>
+            <div class="extra-zone">
+            <div class="captured-zone" id="czwhite"></div>
+            <div class="countdown-timer" id="ctwhite">05:00</div>
+            </div>
+        </div>
+        
+        <script>
+            function otherColor(color) {
+        return color === "white" ? "black" : "white";
+        }
+
+        function enableDrag(chessPiece) {
+        chessPiece.setAttribute("draggable", true);
+        chessPiece.classList.add("draggable");
+        }
+
+        function disableDrag(chessPiece) {
+        chessPiece.setAttribute("draggable", false);
+        chessPiece.classList.remove("draggable");
+        }
+
+        function disableAll(...colors) {
+        colors.forEach(color => {
+            const chessPieces = document.querySelectorAll(`.${color}`);
+            chessPieces.forEach(chessPiece => disableDrag(chessPiece));
+        });
+        }
+
+        function disableAndEnablePieces(currColor, nextColor) {
+
+        const currTurn = document.querySelectorAll(`.${currColor}`);
+        currTurn.forEach(chessPiece => disableDrag(chessPiece));
+
+        const nextTurn = document.querySelectorAll(`.${nextColor}`);
+        nextTurn.forEach(chessPiece => enableDrag(chessPiece));
+        }
+
+        function applyPropOneChessPiece(chessPiece, chessboardPosition) {
+
+        const chessPiecesProp = ["pawn", 0, 2, 0,
+                                "rook", 7, 7, 0,
+                                "knight", [1, 2], [2, 1], 0,
+                                "bishop", 0, 0, 7,
+                                "queen", 7, 7, 7,
+                                "king", 1, 1, 1];
+
+        const createPieceParams = (el, local, h, v, d) => el.piece = { local, h, v, d };
+
+        const nameChessPiece = chessPiece.classList[1];
+        const indexInProps = chessPiecesProp.indexOf(nameChessPiece);
+        const pieceProps = [chessPiecesProp[indexInProps + 1],
+                            chessPiecesProp[indexInProps + 2],
+                            chessPiecesProp[indexInProps + 3]];
+
+        createPieceParams(chessPiece, chessboardPosition,
+            pieceProps[0], pieceProps[1], pieceProps[2]);
+
+        }
+
+        function applyPropChessPieces(piecesColor, chessboardPosition) {
+
+        const chessPiecesClass = document.querySelectorAll(`.${piecesColor}`);
+        chessPiecesClass.forEach(chessPiece => {
+            applyPropOneChessPiece(chessPiece, chessboardPosition);
+        });
+
+        }
+
+        function clearZonesByClassName(...classNames) {
+        classNames.forEach(className => {
+            const zones = document.querySelectorAll(`.${className}`);
+            const removeClassName = className.split(".");
+            zones.forEach(zone => zone.classList.remove(removeClassName[0]));
+        });
+        }
+
+        const searchSquares = function (maxValue, currLine, lSign, currCol, cSign, color) {
+            
+        for (let i = 1; i <= maxValue; i++) {
+
+            const line = document.getElementsByClassName(`l${currLine + lSign * i}`)[0];
+
+            if (line) {
+            const square = line.getElementsByClassName(`c${currCol + cSign * i}`)[0];
+
+            if (square) {
+                if (square.firstElementChild) {
+                if (square.firstElementChild.classList[0] !== color) {
+                    square.classList.add("capture");
+                }
+                break;
+                }
+                square.classList.add("dropzone");
+            }
+            }
+        }
+        }
+
+        const showPossibleDropZones = function (el) {
+        
+        clearZonesByClassName("dropzone", "capture");
+
+        const elColor = el.classList[0];
+
+        const getCurrentLocation = parent => parseInt(parent.classList[1].split("")[1]);
+
+        const column = getCurrentLocation(el.parentNode);
+        const line = getCurrentLocation(el.parentNode.parentNode);
+
+        const squaresInBack = (curr, moves) => curr - moves < 1 ? (curr - 1) : moves;
+        const squaresInFront = (curr, moves) => curr + moves > 8 ? (8 - curr) : moves;
+
+        if (!el.piece.v.length && el.piece.v > 0 && !el.classList.contains("pawn")) {
+            // Check vertical squares
+            const maxSouth = squaresInBack(line, el.piece.v);
+            searchSquares(maxSouth, line, -1, column, 0, elColor);
+
+            const maxNorth = squaresInFront(line, el.piece.v);  
+            searchSquares(maxNorth, line, +1, column, 0, elColor);
+        }
+
+        if (!el.piece.h.length && el.piece.h > 0) {
+            // Check horizontal squares
+            const maxWest = squaresInBack(column, el.piece.h);
+            searchSquares(maxWest, line, 0, column, -1, elColor);
+
+            const maxEast = squaresInFront(column, el.piece.h);
+            searchSquares(maxEast, line, 0, column, +1, elColor);
+        }
+
+        if (el.classList.contains("knight")) {
+            // Check squares for L moves
+            const sign = [-1, +1];
+
+            for (let i = 0; i < el.piece.v.length; i++) {
+            for (let j = 0; j < sign.length; j++) {
+                for (let k = 0; k < sign.length; k++) {
+                searchSquares(1, line, sign[j] * el.piece.v[i], column, sign[k] * el.piece.h[i], elColor);
+                searchSquares(1, line, sign[j] * el.piece.v[i], column, sign[k] * el.piece.h[i], elColor);
+                }
+            }
+            }
+        }
+
+        if (el.piece.d > 0) {
+            // Check diagonal squares
+            const maxSouth = squaresInBack(line, el.piece.d);
+            searchSquares(maxSouth, line, -1, column, -1, elColor);
+            searchSquares(maxSouth, line, -1, column, +1, elColor);
+
+            const maxNorth = squaresInFront(line, el.piece.d);
+            searchSquares(maxNorth, line, +1, column, -1, elColor);
+            searchSquares(maxNorth, line, +1, column, +1, elColor);
+        }
+
+        if (el.classList.contains("pawn")) {
+            
+            if(el.piece.local === "top") {
+            const maxDiag = squaresInBack(line, 1);
+            searchSquares(maxDiag, line, -1, column, -1, elColor);
+            searchSquares(maxDiag, line, -1, column, +1, elColor);
+            clearZonesByClassName("dropzone");
+
+            const maxSouth = squaresInBack(line, el.piece.v);
+            searchSquares(maxSouth, line, -1, column, 0, elColor);
+            clearZonesByClassName(`capture.c${column}`);
+            
+            } else {
+            const maxDiag = squaresInBack(line, 1);
+            searchSquares(maxDiag, line, +1, column, -1, elColor);
+            searchSquares(maxDiag, line, +1, column, +1, elColor);
+            clearZonesByClassName("dropzone");
+
+            const maxNorth = squaresInFront(line, el.piece.v);
+            searchSquares(maxNorth, line, +1, column, 0, elColor);
+            clearZonesByClassName(`capture.c${column}`);
+            }
+        }
+        }
+
+        function checkDropZones(event) {
+        
+        const changeDropZones = function (target) {
+            const classList = target.classList;
+
+            if (classList.contains("dragover")) {
+            classList.remove("dragover");
+            } else {
+            classList.add("dragover");
+            }
+        }
+
+        const target = event.target;
+        const classList = target.classList;
+        const parentClassList = target.parentNode.classList;
+
+        if (classList.contains("dropzone")) {
+            changeDropZones(target);
+            return target;
+        } else if (parentClassList) {
+            if (parentClassList.contains("capture")) {
+            changeDropZones(target.parentNode);
+            return target.parentNode;
+            }
+        } else {
+            return;
+        }
+        }
+
+        function movePiece(chessPiece, currPosition, nextPosition) {
+        currPosition.removeChild(chessPiece);
+        nextPosition.appendChild(chessPiece);
+        }
+
+
+        function captureOpponentPiece(currSquare, pieceColor) {
+        // Check if drop occurs with a capture
+        if (currSquare.firstElementChild) {
+
+            const capturedPiece = currSquare.firstElementChild;
+            disableDrag(capturedPiece);
+            
+            const capturedZone = document.getElementById(`cz${pieceColor}`);
+            movePiece(capturedPiece, currSquare, capturedZone);
+            
+            return capturedPiece.classList.contains("king");
+
+        }
+        
+        return false;
+
+        }
+
+
+        function checkmate(chessPiece, color) {
+        
+        showPossibleDropZones(chessPiece);
+        const captureSquares = document.getElementsByClassName("capture");
+        const opponentColor = otherColor(color);
+        
+        for (let i = 0; i < captureSquares.length; i++) {
+            
+            const possibleCapture = captureSquares[i].firstElementChild;
+            const isCheckmate = possibleCapture.classList.contains("king") &&
+                possibleCapture.classList.contains(opponentColor);
+            
+            if (isCheckmate) {
+            return isCheckmate;
+            }
+
+        }
+        
+        return false;
+        
+        }
+
+        function playerTurn(color) {
+
+        const countdownTimer = document.getElementById(`ct${color}`);
+        const time = countdownTimer.innerHTML;
+        let minutes = parseInt(time.split(":")[0]);
+        let seconds = parseInt(time.split(":")[1]);
+
+        let timer;
+
+        function turn() {
+
+            seconds--;
+
+            if (seconds < 0) {
+            seconds = 59;
+            minutes--;
+            }
+
+            if (minutes < 0) {
+            clearInterval(timer);
+            endGame(color, true);
+            } else {
+
+            let minutesStr = `${minutes}`;
+            minutesStr = minutesStr.length < 2 ? "0" + minutesStr : minutesStr;
+
+            let secondsStr = `${seconds}`;
+            secondsStr = secondsStr.length < 2 ? "0" + secondsStr : secondsStr;
+
+            countdownTimer.innerHTML = `${minutesStr}:${secondsStr}`;
+            }
+
+        }
+        
+        return {
+            start() {
+            timer = setInterval(turn, 1000)
+            },
+            stop() {
+            clearInterval(timer)
+            }
+        }
+
+        }
+
+        /* 
+        Main
+        */
+
+        applyPropChessPieces("white", "bottom");
+        applyPropChessPieces("black", "top");
+        let draggedPiece = null;
+
+        const whiteTurn = playerTurn("white");
+        const blackTurn = playerTurn("black");
+
+        const startDelay = setTimeout(() => {
+        whiteTurn.start();
+        disableAndEnablePieces("black", "white");
+        }, 3000);
+
+
+        function endGame(color, endedByTime) {
+
+        whiteTurn.stop();
+        blackTurn.stop();
+        disableAll("white", "black");
+
+        if (endedByTime) {
+            const opponentColor = otherColor(color);
+            alert(`${opponentColor.toUpperCase()} WINS!!!`);
+        } else {
+            alert(`${color.toUpperCase()} WINS!!!`);
+        }
+
+        }
+
+        function changeTurn(color, isCheckmate, isKingCaptured) {
+        
+        if (isKingCaptured) {
+            endGame(color, false);
+
+        } else {
+
+            let justKing = "";
+            if (isCheckmate) {
+            justKing = ".king";
+            }
+
+            if (color === "white") {
+
+            whiteTurn.stop();
+            blackTurn.start();
+            disableAndEnablePieces("white", `black${justKing}`);
+
+            } else if (color === "black") {
+
+            blackTurn.stop();
+            whiteTurn.start();
+            disableAndEnablePieces("black", `white${justKing}`);
+
+            }
+
+        }
+
+        }
+
+        function verifyCheckmateAndChangeTurn(chessPiece, pieceColor, isKingCaptured) {
+        const isCheckmate = checkmate(chessPiece, pieceColor);
+        changeTurn(pieceColor, isCheckmate, isKingCaptured);
+        clearZonesByClassName("dropzone", "capture");
+        }
+
+        function applyPawnExceptions(chessPiece, currSquare, pieceColor, isKingCaptured) {
+        // Update pawn movement 
+        chessPiece.piece.v = 1;
+
+        // Check if pawn arrived at the other side of the chessboard
+        const chessboardSide = chessPiece.piece.local;
+        const opponentSide = chessboardSide === "bottom" ? "l8" : "l1";
+
+        if (currSquare.parentNode.classList.contains(opponentSide)) {
+
+            let dropDownSelector = '<div id="piece-selector">';
+            dropDownSelector += '<a name="knight">♞</a>';
+            dropDownSelector += '<a name="queen">♛</a>';
+            dropDownSelector += '<a name="rook">♜</a>';
+            dropDownSelector += '<a name="bishop">♝</a>';
+            dropDownSelector += '</div>';
+
+            currSquare.innerHTML = dropDownSelector;
+
+            const pieceSelector = document.getElementById("piece-selector");
+            pieceSelector.style.color = pieceColor;
+
+            pieceSelector.addEventListener("click", e => {
+            const chosenPieceName = e.target.name;
+            const chosenPiece = e.target.innerHTML;
+
+            let newPiece = `<div class=`;
+            newPiece += `"${pieceColor} ${chosenPieceName}">`;
+            newPiece += `${chosenPiece}</div>`;
+
+            currSquare.innerHTML = newPiece;
+
+            applyPropOneChessPiece(currSquare.firstElementChild, chessboardSide);
+
+            verifyCheckmateAndChangeTurn(currSquare.firstElementChild, pieceColor, isKingCaptured);
+
+            });
+        } else {
+            verifyCheckmateAndChangeTurn(chessPiece, pieceColor, isKingCaptured);
+        }
+
+        }
+
+        function finishMove(event, selectedPiece) {
+        const target = checkDropZones(event);
+        
+        if (target) {
+
+            const pieceColor = selectedPiece.classList[0];
+
+            const isKingCaptured = captureOpponentPiece(target, pieceColor);
+
+            movePiece(selectedPiece, selectedPiece.parentNode, target);
+            
+            if (selectedPiece.classList.contains("pawn")) {
+            applyPawnExceptions(selectedPiece, target, pieceColor, isKingCaptured);
+            } else {
+            verifyCheckmateAndChangeTurn(selectedPiece, pieceColor, isKingCaptured);
+            }
+            
+            selectedPiece.classList.remove("dragging");
+            target.classList.remove("dragover");
+            
+        }
+        
+        clearZonesByClassName("dropzone", "capture");
+        }
+
+
+        /* Event Listeners */
+        document.addEventListener("click", event => {
+        if (event.target.draggable) {
+            if (event.target !== draggedPiece) {
+            draggedPiece = event.target;
+            showPossibleDropZones(draggedPiece);
+            }
+        } else {
+            finishMove(event, draggedPiece);
+            draggedPiece = null;
+        }
+        });
+
+        document.addEventListener("dragstart", event => {
+        if (event.target.draggable) {
+            draggedPiece = event.target;
+            showPossibleDropZones(draggedPiece);
+            draggedPiece.classList.add("dragging");
+        }
+        });
+
+        document.addEventListener("dragover", event => {
+        event.preventDefault();
+        }, false);
+
+        document.addEventListener("dragenter", checkDropZones);
+
+        document.addEventListener("dragleave", checkDropZones);
+
+        document.addEventListener("drop", event => {
+        event.preventDefault();
+        finishMove(event, draggedPiece);
+        draggedPiece = null;
+        });
         </script>
    </body>
 </html>
