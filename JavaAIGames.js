@@ -261,29 +261,40 @@ function changeC() {
 
 function SelecteGame() {
 	var e = document.getElementById("GameSelect2").value;
-	var Power4 = document.querySelector('.game2');
+	var Power4 = document.querySelector('.power4');
 	var tic_tac_toe = document.querySelector('.tic-tac-toe');
-    var switchGame = document.querySelector('.container2');
+    var BallGame = document.querySelector('#canvas');
     var snakeGame = document.querySelector('#SnakeGame');
+    var chess = document.querySelector('.containerChess');
     if (e==1) {
         tic_tac_toe.style.visibility = "visible";
 		Power4.style.visibility = "hidden";
-        switchGame.style.visibility = "hidden";
+        BallGame.style.visibility = "hidden";
         snakeGame.style.visibility = "hidden";
+        chess.style.visibility = "hidden";
     } else if (e==2) {
         tic_tac_toe.style.visibility = "hidden";
 		Power4.style.visibility = "visible";
-        switchGame.style.visibility = "hidden";
+        BallGame.style.visibility = "hidden";
         snakeGame.style.visibility = "hidden";
+        chess.style.visibility = "hidden";
     } else if (e==3) {
         tic_tac_toe.style.visibility = "hidden";
 		Power4.style.visibility = "hidden";
-        switchGame.style.visibility = "visible";
+        BallGame.style.visibility = "visible";
         snakeGame.style.visibility = "hidden";
+        chess.style.visibility = "hidden";
     } else if (e==4) {
         tic_tac_toe.style.visibility = "hidden";
 		Power4.style.visibility = "hidden";
-        switchGame.style.visibility = "hidden";
+        BallGame.style.visibility = "hidden";
         snakeGame.style.visibility = "visible";
+        chess.style.visibility = "hidden";
+    } else if (e==5) {
+        tic_tac_toe.style.visibility = "hidden";
+		Power4.style.visibility = "hidden";
+        BallGame.style.visibility = "hidden";
+        snakeGame.style.visibility = "hidden";
+        chess.style.visibility = "visible";
     }
 }
